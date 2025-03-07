@@ -1,5 +1,56 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {}
+    "startApp": {
+        "next": [
+            "resonas",
+            "resonas1"
+        ]
+    },
+
+    "resonas": {
+        "recognition": "DirectHit",
+        "action": "StartApp",
+        "package": "com.hermes.goda",
+        "pre_wait_freezes": 500,
+        "next": [
+            "Update",
+            "Enter"
+        ]
+    },
+
+    "resonas1":{ 
+        "recognition": "TemplateMatch",
+        "template": "resonas.png",
+        "action": "Click",
+        "next": [
+            "Update",
+            "Enter"
+        ]
+    },
+
+    "Update": {
+        "recognition": "TemplateMatch",
+        "template": "confirm.png",
+        "action": "Click"
+    },
+
+    "Enter": { 
+        "recognition": "OCR",
+        "expected": "进入游戏",
+        "action": "Click",
+        "pre_wait_freezes": 500,
+        "next": "Enter1"
+    },
+
+    "Enter1": {
+        "recognition": "OCR",
+        "expected": "点击屏幕进入游戏",
+        "action": "Click"
+    }
+
+
+
+
+
+
+
 }

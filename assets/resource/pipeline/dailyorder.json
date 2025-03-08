@@ -1,0 +1,153 @@
+{
+  "Dailytask": {
+      "recognition": "DirectHit",
+      "target": "inCity",
+      "next": [
+        "visitCity"
+      ],
+
+      "interrupt":[
+        "home",
+        "inCity",
+        "journey"
+      ]        
+  },
+
+  "shipCity": {
+        "recognition":"OCR",
+        "doc": "带商会运输订单的城市",
+        "expected": [
+            "修格里城",
+            "曼德矿场",
+            "澄明数据中心",
+            "7号自由港",
+            "阿妮塔发射中心",
+            "海角城",
+            "岚心城",
+            "贡露城"
+        ],
+        "action": "Click",
+        "target_offset": [
+          15,
+          0,
+          0,
+          0
+        ]
+    },
+  
+  
+  
+
+  "shipConfirm1": {
+    "recognition": "OCR",
+    "doc": "商会运输订单再确认",
+    "expected": [
+        "接取订单"
+    ],
+    "action": "Click"
+},
+
+  "shop":{
+      "recognition": "OCR",
+      "expected": "商会",
+      "action": "Click",
+      "target_offset": [
+        0,
+        50,
+        0,
+        0
+      ]
+  },  
+  
+
+  "nextOrder":{
+      "recognition": "TemplateMatch",
+      "template": "Order/next.png",
+       "action": "Click",
+      "next": [
+        "shipConfirm",
+        "shipConfirmfailed"
+      ]
+  },
+
+  "shipOrder": {
+    "recognition": "OCR",
+      "expected": [
+        "运输订单"
+      ],
+      "action": "Click",
+      "next": "shipConfirm"
+  },
+
+  "shipConfirm": {
+    "recognition": "OCR",
+    "expected": [
+      "接取订单",
+      "查看订单"
+    ],
+    "action": "Click",
+    "next": [
+      "shipConfirmfinish",
+      "nextOrder"
+    ],
+    "interrupt": "shipConfirmfailed"
+  },
+
+  "shipConfirmfinish": {
+    "recognition": "OCR",
+    "expected": [
+      "接取订单"
+    ],
+    "action": "Click",
+    "next": [
+      "shipConfirm",
+      "nextOrder",
+      "home"
+    ]
+  },
+
+  "shipConfirmfailed": {
+    "recognition": "OCR",
+    "expected": [
+      "取消订单"
+    ],
+    "next": [
+      "nextOrder",
+      "home"
+    ],
+    "interrupt": "closeinfo"
+  },
+
+  "visitCity":{
+      "recognition": "OCR",
+      "expected": "访问城市",
+      "action": "Click"
+  },
+
+  "journey":{
+      "recognition": "OCR",
+      "expected": "自动巡航中",
+      "pre_delay":5000
+  },
+
+  "inCity":{
+      "recognition": "OCR",
+      "expected": "启程"
+  },
+
+  "home": {
+    "recognition": "TemplateMatch",
+    "template": "home.png",
+    "action": "Click",
+    "doc":"回到首页"        
+},
+
+  "backup": {
+    "recognition": "TemplateMatch",
+    "template": "backup.png",
+    "action": "Click",
+    "doc":"返回上一级"
+}
+
+
+}

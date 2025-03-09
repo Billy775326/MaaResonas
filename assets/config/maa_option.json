@@ -1,7 +1,7 @@
 {
-    "logging": true,
-    "recording": false,
-    "save_draw": false,
-    "show_hit_draw": false,
-    "stdout_level": 2
+	"logging": true,
+	"recording": false,
+	"save_draw": false,
+	"show_hit_draw": false,
+	"stdout_level": 2
 }

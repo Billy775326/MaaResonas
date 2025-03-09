@@ -69,7 +69,7 @@
     # 配置 git 信息（仅第一次需要，后续不用再配置）
     git config user.name "您的 GitHub 昵称"
     git config user.email "您的 GitHub 邮箱"
-    
+
     # 提交修改
     git add .
     git commit -m "XX 新功能"
@@ -126,7 +126,7 @@ Win10 或者 Win11 系统自带了一份 "Python"，但它其实只是一个安�
 - MaaDebugger 的问题：[MaaDebugger/issues](https://github.com/MaaXYZ/MaaDebugger/issues)
 - 不知道算是哪里的、其他疑问等：[讨论区](https://github.com/MaaXYZ/MaaFramework/discussions)
 
-### 5. OCR 文字识别一直没有识别结果，报错 "Failed to load det or rec", "ocrer_ is null"
+### 5. OCR 文字识别一直没有识别结果，报错 "Failed to load det or rec", "ocrer\_ is null"
 
 你不但没有仔细阅读文档，还无视了前面步骤的报错。我不想解释了，请再把本文档仔细阅读一遍！
 

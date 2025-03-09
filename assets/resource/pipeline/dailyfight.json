@@ -1,0 +1,173 @@
+{
+	"Dailytaskfight": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"next": [
+			"Dailyfight"
+		],
+
+		"interrupt": [
+			"home",
+			"inCity",
+			"journey"
+		]
+	},
+
+	"Dailyfight": {
+		"recognition": "DirectHit",
+		"action": "Click",
+		"target": "visitCity",
+		"post_delay": 2000,
+		"next": [
+			"Bureau"
+		],
+		"interrupt": [
+			"seekUpright",
+			"seekDownleft"
+		]
+	},
+
+	"Bureau": {
+		"recognition": "OCR",
+		"expected": "铁安局",
+		"action": "Click",
+		"target_offset": [
+			0,
+			50,
+			0,
+			0
+		],
+		"post_delay": 1000,
+		"next": "bountymission"
+	},
+
+	"bountymission": {
+		"recognition": "OCR",
+		"expected": [
+			"悬赏任务"
+		],
+		"action": "Click",
+		"post_delay": 2000,
+		"next": "shipConfirm"
+	},
+
+	"bountylevel5": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/5stars.png"
+	},
+
+	"bountylevel4": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/4star.png"
+	},
+
+	"bountylevel2": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/2stars.png"
+	},
+
+	"gofightingsmall": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/gofightingsmall.png",
+		"action": "Click",
+		"post_delay": 2000,
+		"next": "gofightinglarge-20"
+	},
+
+	"gofightinglarge-20": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/gofightinglarge-20.png",
+		"action": "Click",
+		"post_wait_freezes": 2000,
+		"next": "autofighting",
+		"interrupt": "autofightclosing"
+	},
+
+	"pasuefighting": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/pause.png",
+		"post_delay": 2000
+	},
+
+	"autofighting": {
+		"recognition": "FeatureMatch",
+		"template": [
+			"Fight/autofight.png",
+			"Fight/autofight1.png"
+		],
+		"post_wait_freezes": 20000,
+		"rate_limit": 8000,
+		"next": "fightingend"
+	},
+
+	"autofightclosing": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/autofightclose.png",
+		"action": "Click"
+	},
+
+	"fighting": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/fighting.png",
+		"action": "Click",
+		"post_delay": 2000,
+		"next": "fighting"
+	},
+
+	"fightingend": {
+		"target": "victory",
+		"next": [
+			"nextstep"
+		],
+		"interrupt": "defeat"
+	},
+
+	"victory": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/victory.png"
+	},
+
+	"defeat": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/defeat.png"
+	},
+
+	"nextstep": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/nextstep.png",
+		"action": "Click"
+	},
+
+	"delmission": {
+		"next": [
+			"confirm"
+		]
+	},
+	"deleteimage": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/delete.png",
+		"action": "Click"
+	},
+
+	"confirmshort": {
+		"recognition": "TemplateMatch",
+		"template": "confirmshort.png",
+		"action": "Click"
+	},
+
+	"delowstarmission": {
+		"action": "Click",
+		"target": "bountylevel2",
+		"next": [
+			"delmission"
+		]
+	},
+
+	"missionnum-0": {
+		"recognition": "OCR",
+		"expected": "暂无城市悬赏任务",
+		"next": "home",
+		"action": "StopTask"
+	}
+}

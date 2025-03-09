@@ -1,0 +1,20 @@
+{
+	"journey": {
+		"recognition": "OCR",
+		"expected": "自动巡航中",
+		"next": "normalCargo"
+	},
+
+	"normalCargo": {
+		"recognition": "TemplateMatch",
+		"template": [
+			"Route/Cargo/cargo1.png",
+			"Route/Cargo/cargo2.png",
+			"Route/Cargo/cargo3.png",
+			"Route/Cargo/cargo11.png",
+			"Route/Cargo/cargo12.png",
+			"Route/Cargo/cargo13.png"
+		],
+		"action": "Click"
+	}
+}

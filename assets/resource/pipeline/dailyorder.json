@@ -3,30 +3,58 @@
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
+		"timeout": 5000 ,
+		"on_error": [
+			"closeinfo@newincity",
+			"home@Dailyorder"
+		],
 		"next": [
 			"Dailyship"
 		],
 
 		"interrupt": [
-			"home",
 			"inCity",
 			"journey"
 		]
 	},
 
-	"Dailyship": {
-		"recognition": "DirectHit",
+	"home@Dailyorder": {
+	    "recognition": "TemplateMatch",
+		"template": "home.png",
 		"action": "Click",
-		"target": "visitCity",
-		"post_delay": 2000,
+		"next": "Dailytaskorder"
+	},
+
+	"closeinfo@newincity": {
+	    "recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出",
+			"公告",
+			"资讯"
+		],
+		"action": "Click",
+		"target": [
+			100,
+			661,
+			105,
+			19
+		],
+		"next":"Dailytaskorder"
+	},
+
+	"Dailyship": {
+		"post_delay": 1500,
 		"next": [
-			"shop"
+			"shop",
+			"shopUpright",
+			"shopDownleft"
 		],
 		"interrupt": [
-			"seekUpright",
-			"seekDownleft"
+			"home",
+			"visitCity"
 		]
 	},
+
 
 	"shipCity": {
 		"recognition": "OCR",
@@ -50,11 +78,7 @@
 		]
 	},
 
-	"visitCity": {
-		"recognition": "OCR",
-		"expected": "访问城市",
-		"action": "Click"
-	},
+
 
 	"shop": {
 		"recognition": "OCR",
@@ -69,6 +93,29 @@
 		"post_delay": 1000,
 		"next": "shipOrder"
 	},
+
+	"shopUpright": {
+		"next": [
+			"shipOrder",
+			"shop"
+		],
+		"interrupt": [
+			"seekUpright"
+		],
+		"post_delay": 800
+	},
+
+	"shopDownleft": {
+		"next": [
+			"shipOrder",
+			"shop"
+		],
+		"interrupt": [
+			"seekDownleft"
+		],
+		"post_delay": 800
+	},
+
 
 	"shipConfirm1": {
 		"recognition": "OCR",
@@ -85,7 +132,7 @@
 			"运输订单"
 		],
 		"action": "Click",
-		"post_delay": 2000,
+		"post_delay": 1500,
 		"next": "shipConfirm"
 	},
 
@@ -96,7 +143,7 @@
 			"查看订单"
 		],
 		"action": "Click",
-		"post_delay": 1000,
+		"post_delay": 600,
 		"next": [
 			"shipConfirmfinish",
 			"nextOrder"
@@ -111,7 +158,7 @@
 			"查看订单"
 		],
 		"action": "Click",
-		"post_delay": 1000,
+		"post_delay": 400,
 		"next": [
 			"shipConfirm",
 			"nextOrder",
@@ -123,7 +170,7 @@
 		"recognition": "TemplateMatch",
 		"template": "Order/next.png",
 		"action": "Click",
-		"post_delay": 500,
+		"post_delay": 200,
 		"next": [
 			"shipConfirm",
 			"shipConfirmfailed"
@@ -137,9 +184,15 @@
 		],
 		"next": [
 			"nextOrder",
-			"home"
+			"home@StopTask"
 		],
 		"interrupt": "closeinfo"
+	},
+
+	"visitCity": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click"
 	},
 
 	"inCity": {
@@ -175,8 +228,7 @@
 			454,
 			10,
 			10
-		],
-		"next": "shop"
+		]
 	},
 
 	"seekDownleft": {
@@ -193,7 +245,6 @@
 			194,
 			10,
 			10
-		],
-		"next": "shop"
+		]
 	}
 }

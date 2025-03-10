@@ -1,12 +1,35 @@
 {
+	"nopromptforaweek":{
+		"recognition": "OCR",
+		"expected": "本周不再提示"
+	},
+
+	"destination": {
+		"recognition": "TemplateMatch",
+		"template": "City/gotodestination.png",
+		"action": "Click",
+		"next": "journey",
+		"interrupt": [
+			"home",
+			"inCity"
+		]
+	},
+
 	"journey": {
 		"recognition": "OCR",
 		"expected": "自动巡航中",
-		"next": "normalCargo"
+		"next": [
+			"inCity",
+			"closeinfo"
+		],
+		"interrupt": [
+			"normalCargo"
+		]
 	},
 
+
 	"normalCargo": {
-		"recognition": "TemplateMatch",
+		"recognition": "FeatureMatch",
 		"template": [
 			"Route/Cargo/cargo1.png",
 			"Route/Cargo/cargo2.png",
@@ -15,6 +38,7 @@
 			"Route/Cargo/cargo12.png",
 			"Route/Cargo/cargo13.png"
 		],
-		"action": "Click"
+		"threshold": 0.9,
+		"post_wait_freezes":60000
 	}
 }

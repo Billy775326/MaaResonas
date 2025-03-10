@@ -1,30 +1,47 @@
 {
 	"Dailytaskfight": {
-		"recognition": "OCR",
-		"expected": "访问城市",
-		"action": "Click",
-		"next": [
-			"Dailyfight"
+		"timeout": 5000 ,
+		"on_error": [
+			"closeinfo@newincity",
+			"home@Dailyfight"
 		],
-
+		"next": [
+			"Dailyfight@visitCity"
+		],
 		"interrupt": [
-			"home",
 			"inCity",
 			"journey"
 		]
 	},
 
-	"Dailyfight": {
-		"recognition": "DirectHit",
+	"home@Dailyfight": {
+	    "recognition": "TemplateMatch",
+		"template": "home.png",
 		"action": "Click",
-		"target": "visitCity",
+		"next": "Dailyfight@visitCity"
+	},
+
+	"Dailyfight@visitCity": {
+	    "recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"next":"Dailyfight",
+		"interrupt":[
+			"home",
+			"Dailytaskfight"
+		]
+	},
+
+	"Dailyfight": {
 		"post_delay": 2000,
 		"next": [
-			"Bureau"
+			"Bureau",
+			"BureauUpright",
+			"BureauDownleft"
 		],
 		"interrupt": [
-			"seekUpright",
-			"seekDownleft"
+			"home",
+			"visitCity"
 		]
 	},
 
@@ -38,8 +55,30 @@
 			0,
 			0
 		],
-		"post_delay": 1000,
+		"post_delay": 1200,
 		"next": "bountymission"
+	},
+
+	"BureauUpright": {
+		"post_delay": 500,
+		"next": [
+			"bountymission",
+			"Bureau"
+		],
+		"interrupt":[
+			"seekUpright"
+		]
+	},
+
+	"BureauDownleft": {
+		"post_delay": 500,
+		"next": [
+			"bountymission",
+			"Bureau"
+		],
+		"interrupt":[
+			"seekDownleft"
+		]
 	},
 
 	"bountymission": {
@@ -48,30 +87,52 @@
 			"悬赏任务"
 		],
 		"action": "Click",
-		"post_delay": 2000,
-		"next": "shipConfirm"
+		"post_delay": 1500,
+		"next": [
+			"bountylevel5"
+		],
+		"interrupt": [
+			"bountylevel4",
+			"bountylevel3",
+			"bountylevel2",
+			"missionnum-0"
+		]
 	},
+	
 
 	"bountylevel5": {
 		"recognition": "TemplateMatch",
-		"template": "Fight/5stars.png"
+		"template": "Fight/5stars.png",
+		"next":"gofightingsmall",
+		"interrupt":"deleteimage"
 	},
 
 	"bountylevel4": {
 		"recognition": "TemplateMatch",
-		"template": "Fight/4star.png"
+		"template": "Fight/4star.png",
+		"threshold": 0.9,
+		"next":"deleteimage"
+	},
+
+	"bountylevel3": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/3star.png",
+		"threshold": 0.9,
+		"next":"deleteimage"
 	},
 
 	"bountylevel2": {
 		"recognition": "TemplateMatch",
-		"template": "Fight/2stars.png"
+		"template": "Fight/2star.png",
+		"threshold": 0.9,
+		"next":"deleteimage"
 	},
 
 	"gofightingsmall": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/gofightingsmall.png",
 		"action": "Click",
-		"post_delay": 2000,
+		"post_delay": 1500,
 		"next": "gofightinglarge-20"
 	},
 
@@ -79,8 +140,12 @@
 		"recognition": "TemplateMatch",
 		"template": "Fight/gofightinglarge-20.png",
 		"action": "Click",
-		"post_wait_freezes": 2000,
-		"next": "autofighting",
+		"post_delay": 1500,
+		"next": [
+			"autofighting",
+			"victory",
+			"defeat"
+		],
 		"interrupt": "autofightclosing"
 	},
 
@@ -96,7 +161,7 @@
 			"Fight/autofight.png",
 			"Fight/autofight1.png"
 		],
-		"post_wait_freezes": 20000,
+		"post_wait_freezes": 30000,
 		"rate_limit": 8000,
 		"next": "fightingend"
 	},
@@ -107,36 +172,38 @@
 		"action": "Click"
 	},
 
-	"fighting": {
-		"recognition": "TemplateMatch",
-		"template": "Fight/fighting.png",
-		"action": "Click",
-		"post_delay": 2000,
-		"next": "fighting"
-	},
 
 	"fightingend": {
-		"target": "victory",
+		"post_delay": 2000,
 		"next": [
-			"nextstep"
+			"victory",
+			"defeat"
 		],
-		"interrupt": "defeat"
+		"interrupt": [
+			"home",
+			"Dailytaskfight"
+		]
 	},
 
 	"victory": {
 		"recognition": "TemplateMatch",
-		"template": "Fight/victory.png"
+		"template": "Fight/victory.png",
+		"next": "nextstep"
 	},
 
 	"defeat": {
 		"recognition": "TemplateMatch",
-		"template": "Fight/defeat.png"
+		"template": "Fight/defeat.png",
+		"next": "nextstep"
 	},
 
 	"nextstep": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/nextstep.png",
-		"action": "Click"
+		"action": "Click",
+		"post_delay": 500,
+		"next": "missionnum-0",
+		"interrupt":"bountylevel5"
 	},
 
 	"delmission": {
@@ -147,7 +214,10 @@
 	"deleteimage": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/delete.png",
-		"action": "Click"
+		"action": "Click",
+		"next":[
+			"confirmshort"
+		]
 	},
 
 	"confirmshort": {
@@ -167,7 +237,13 @@
 	"missionnum-0": {
 		"recognition": "OCR",
 		"expected": "暂无城市悬赏任务",
-		"next": "home",
-		"action": "StopTask"
+		"next": "home@StopTask"
+	},
+
+	"home@StopTask": {
+	    "recognition": "TemplateMatch",
+		"template": "home.png",
+		"action": "Click",
+		"next": "stopnow"
 	}
 }

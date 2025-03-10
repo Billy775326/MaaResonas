@@ -8,6 +8,6 @@
 	"win32_input": 1,
 	"window_name": "",
 	"resource_dir": "D:\\GraduationDesign\\MaaResonas\\assets\\resource",
-	"task_entry": "journey",
+	"task_entry": "GetRewards",
 	"task_pipeline_override": "{}"
 }

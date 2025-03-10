@@ -1,0 +1,96 @@
+{
+	"GetRewards": {
+		"next": [
+			"GetRewards@Activity"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+
+	"GetRewards@Activity": {
+		"recognition": "FeatureMatch",
+		"template": "Reward/ActivityRewards.png",
+		"action": "Click",
+		"timeout": 800,
+		"post_wait_freezes": 500,
+		"next": [
+			"GetRewards@Activity@600",
+			"GetRewards@Activity@600end",
+			"GetRewards@Activity@600ing"
+		],
+		"interrupt": [
+			"GetRewards@Activity",
+			"home"
+		]
+	},
+
+	"GetRewards@Activity@Available": {
+		"recognition": "OCR",
+		"expected": "可领取",
+		"action": "Click",
+		"on_error": [
+			"home"
+		],
+		"timeout": 2500,
+		"post_delay": 400,
+
+		"next": [
+			"GetRewards@Activity@600ing"
+		]
+	},
+
+	"GetRewards@Activity@600": {
+		"recognition": "TemplateMatch",
+		"template": "Reward/Activity600.png",
+		"threshold": 0.95,
+		"next": [
+			"GetRewards@Activity@Available"
+		]
+	},
+
+	"GetRewards@Activity@600end": {
+		"recognition": "TemplateMatch",
+		"template": "Reward/Activity600end.jpg",
+		"threshold": 0.95,
+		"post_delay": 500,
+		"action": "Click",
+		"next": [
+			"Activity@home@manual"
+		],
+		"interrupt": [
+			"closeinfo"
+		]
+	},
+
+	"GetRewards@Activity@600ing": {
+		"recognition": "TemplateMatch",
+		"template": "Reward/Activity600ing.jpg",
+		"threshold": 0.95,
+		"on_error": [
+			"GetRewards@Activity@600",
+			"GetRewards@Activity@600end"
+		],
+		"action": "Click",
+		"next": [
+			"Activity@home@manual"
+		]
+	},
+
+	"GetRewards@Manual": {
+		"recognition": "TemplateMatch",
+		"template": "Reward/ManualRewards.png",
+		"action": "Click",
+		"next": []
+	},
+
+	"Activity@home@manual": {
+		"recognition": "TemplateMatch",
+		"template": "home.png",
+		"action": "Click",
+		"post_wait_freezes": 400,
+		"next": [
+			"GetRewards@Manual"
+		]
+	}
+}

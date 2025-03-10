@@ -200,6 +200,7 @@
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
+		"post_delay": 400,
 		"doc": "回到首页"
 	},
 

@@ -1,6 +1,6 @@
 {
 	"Dailytaskfight": {
-		"timeout": 5000 ,
+		"timeout": 5000,
 		"on_error": [
 			"closeinfo@newincity",
 			"home@Dailyfight"
@@ -15,18 +15,18 @@
 	},
 
 	"home@Dailyfight": {
-	    "recognition": "TemplateMatch",
+		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
 		"next": "Dailyfight@visitCity"
 	},
 
 	"Dailyfight@visitCity": {
-	    "recognition": "OCR",
+		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
-		"next":"Dailyfight",
-		"interrupt":[
+		"next": "Dailyfight",
+		"interrupt": [
 			"home",
 			"Dailytaskfight"
 		]
@@ -65,7 +65,7 @@
 			"bountymission",
 			"Bureau"
 		],
-		"interrupt":[
+		"interrupt": [
 			"seekUpright"
 		]
 	},
@@ -76,7 +76,7 @@
 			"bountymission",
 			"Bureau"
 		],
-		"interrupt":[
+		"interrupt": [
 			"seekDownleft"
 		]
 	},
@@ -98,34 +98,33 @@
 			"missionnum-0"
 		]
 	},
-	
 
 	"bountylevel5": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/5stars.png",
-		"next":"gofightingsmall",
-		"interrupt":"deleteimage"
+		"next": "gofightingsmall",
+		"interrupt": "deleteimage"
 	},
 
 	"bountylevel4": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/4star.png",
 		"threshold": 0.9,
-		"next":"deleteimage"
+		"next": "deleteimage"
 	},
 
 	"bountylevel3": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/3star.png",
 		"threshold": 0.9,
-		"next":"deleteimage"
+		"next": "deleteimage"
 	},
 
 	"bountylevel2": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/2star.png",
 		"threshold": 0.9,
-		"next":"deleteimage"
+		"next": "deleteimage"
 	},
 
 	"gofightingsmall": {
@@ -172,7 +171,6 @@
 		"action": "Click"
 	},
 
-
 	"fightingend": {
 		"post_delay": 2000,
 		"next": [
@@ -203,7 +201,7 @@
 		"action": "Click",
 		"post_delay": 500,
 		"next": "missionnum-0",
-		"interrupt":"bountylevel5"
+		"interrupt": "bountylevel5"
 	},
 
 	"delmission": {
@@ -215,7 +213,7 @@
 		"recognition": "TemplateMatch",
 		"template": "Fight/delete.png",
 		"action": "Click",
-		"next":[
+		"next": [
 			"confirmshort"
 		]
 	},
@@ -241,7 +239,7 @@
 	},
 
 	"home@StopTask": {
-	    "recognition": "TemplateMatch",
+		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
 		"next": "stopnow"

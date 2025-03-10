@@ -1,1 +1,13 @@
-{"controller_type":"Adb","adb_path":"D:\\MuMu Player 12\\shell\\adb.exe","adb_address":"127.0.0.1:16448","adb_config":"{\"extras\": {\"mumu\": {\"enable\": true, \"index\": 2, \"path\": \"D:/MuMu Player 12\"}}}","hwnd":"","win32_screencap":4,"win32_input":1,"window_name":"","resource_dir":"D:\\GraduationDesign\\MaaResonas\\assets\\resource","task_entry":"journey","task_pipeline_override":"{}"}
+{
+	"controller_type": "Adb",
+	"adb_path": "D:\\MuMu Player 12\\shell\\adb.exe",
+	"adb_address": "127.0.0.1:16448",
+	"adb_config": "{\"extras\": {\"mumu\": {\"enable\": true, \"index\": 2, \"path\": \"D:/MuMu Player 12\"}}}",
+	"hwnd": "",
+	"win32_screencap": 4,
+	"win32_input": 1,
+	"window_name": "",
+	"resource_dir": "D:\\GraduationDesign\\MaaResonas\\assets\\resource",
+	"task_entry": "journey",
+	"task_pipeline_override": "{}"
+}

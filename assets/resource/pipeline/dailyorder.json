@@ -3,7 +3,7 @@
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
-		"timeout": 5000 ,
+		"timeout": 5000,
 		"on_error": [
 			"closeinfo@newincity",
 			"home@Dailyorder"
@@ -19,14 +19,14 @@
 	},
 
 	"home@Dailyorder": {
-	    "recognition": "TemplateMatch",
+		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
 		"next": "Dailytaskorder"
 	},
 
 	"closeinfo@newincity": {
-	    "recognition": "OCR",
+		"recognition": "OCR",
 		"expected": [
 			"触碰空白区域退出",
 			"公告",
@@ -39,7 +39,7 @@
 			105,
 			19
 		],
-		"next":"Dailytaskorder"
+		"next": "Dailytaskorder"
 	},
 
 	"Dailyship": {
@@ -54,7 +54,6 @@
 			"visitCity"
 		]
 	},
-
 
 	"shipCity": {
 		"recognition": "OCR",
@@ -77,8 +76,6 @@
 			0
 		]
 	},
-
-
 
 	"shop": {
 		"recognition": "OCR",
@@ -115,7 +112,6 @@
 		],
 		"post_delay": 800
 	},
-
 
 	"shipConfirm1": {
 		"recognition": "OCR",

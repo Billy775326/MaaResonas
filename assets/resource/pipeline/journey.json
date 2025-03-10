@@ -1,5 +1,5 @@
 {
-	"nopromptforaweek":{
+	"nopromptforaweek": {
 		"recognition": "OCR",
 		"expected": "本周不再提示"
 	},
@@ -27,7 +27,6 @@
 		]
 	},
 
-
 	"normalCargo": {
 		"recognition": "FeatureMatch",
 		"template": [
@@ -39,6 +38,6 @@
 			"Route/Cargo/cargo13.png"
 		],
 		"threshold": 0.9,
-		"post_wait_freezes":60000
+		"post_wait_freezes": 60000
 	}
 }

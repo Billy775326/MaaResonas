@@ -1,0 +1,71 @@
+{
+	"restarea": {
+		"recognition": "OCR",
+		"expected": "休息区",
+		"action": "Click",
+		"target_offset": [
+			0,
+			50,
+			0,
+			0
+		],
+		"post_delay": 1000
+	},
+
+	"restarea@store": {
+		"recognition": "OCR",
+		"expected": "休息区",
+		"action": "Click",
+		"target_offset": [
+			0,
+			50,
+			0,
+			0
+		],
+		"post_delay": 1000,
+		"next": "blackmoonstore"
+	},
+
+	"blackmoonstore": {
+		"recognition": "OCR",
+		"expected": "黑月商店",
+		"action": "Click",
+		"post_delay": 1000,
+		"next": "birchstone"
+	},
+
+	"birchstone": {
+		"recognition": "TemplateMatch",
+		"template": "Store/birchstone.png",
+		"action": "Click",
+		"post_delay": 1000,
+		"next": "birchstone@confirm"
+	},
+
+	"birchstone@confirm": {
+		"recognition": "TemplateMatch",
+		"template": "Store/birchstoneconfirm.png",
+		"next": "confirmshort@closeinfo"
+	},
+
+	"confirmshort@closeinfo": {
+		"recognition": "TemplateMatch",
+		"template": "confirmshort.png",
+		"action": "Click",
+		"next": "closeinfo@"
+	},
+
+	"closeinfo@": {
+		"recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出"
+		],
+		"action": "Click",
+		"target": [
+			100,
+			661,
+			105,
+			19
+		]
+	}
+}

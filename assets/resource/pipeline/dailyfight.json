@@ -2,7 +2,7 @@
 	"Dailytaskfight": {
 		"timeout": 5000,
 		"on_error": [
-			"closeinfo@newincity",
+			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"
 		],
 		"next": [
@@ -12,6 +12,23 @@
 			"inCity",
 			"journey"
 		]
+	},
+
+	"closeinfo@newsignincity@fight": {
+		"recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出",
+			"公告",
+			"资讯"
+		],
+		"action": "Click",
+		"target": [
+			100,
+			661,
+			105,
+			19
+		],
+		"next": "Dailytaskfight"
 	},
 
 	"home@Dailyfight": {
@@ -56,7 +73,18 @@
 			0
 		],
 		"post_delay": 1200,
-		"next": "bountymission"
+		"next": "bountymission",
+		"interrupt": [
+			"Bureaulocked"
+		]
+	},
+	"Bureaulocked": {
+		"recognition": "OCR",
+		"expected": [
+			"负责人不在",
+			"先去其他地方逛逛吧"
+		],
+		"next": "home@StopTask"
 	},
 
 	"BureauUpright": {
@@ -95,6 +123,7 @@
 			"bountylevel4",
 			"bountylevel3",
 			"bountylevel2",
+			"bountylevel1",
 			"missionnum-0"
 		]
 	},
@@ -102,6 +131,7 @@
 	"bountylevel5": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/5stars.png",
+		"threshold": 0.95,
 		"next": "gofightingsmall",
 		"interrupt": "deleteimage"
 	},
@@ -109,21 +139,28 @@
 	"bountylevel4": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/4star.png",
-		"threshold": 0.9,
+		"threshold": 0.95,
 		"next": "deleteimage"
 	},
 
 	"bountylevel3": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/3star.png",
-		"threshold": 0.9,
+		"threshold": 0.95,
 		"next": "deleteimage"
 	},
 
 	"bountylevel2": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/2star.png",
-		"threshold": 0.9,
+		"threshold": 0.95,
+		"next": "deleteimage"
+	},
+
+	"bountylevel1": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/1star.png",
+		"threshold": 0.95,
 		"next": "deleteimage"
 	},
 
@@ -172,7 +209,7 @@
 	},
 
 	"fightingend": {
-		"post_delay": 2000,
+		"post_wait_freezes": 2000,
 		"next": [
 			"victory",
 			"defeat"
@@ -199,7 +236,8 @@
 		"recognition": "TemplateMatch",
 		"template": "Fight/nextstep.png",
 		"action": "Click",
-		"post_delay": 500,
+		"post_delay": 1000,
+		"rate_limit": 2000,
 		"next": "missionnum-0",
 		"interrupt": "bountylevel5"
 	},

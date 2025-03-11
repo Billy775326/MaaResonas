@@ -1,5 +1,5 @@
 {
-	"startUp": {
+	"startup": {
 		"doc": "唤醒",
 		"next": [
 			"resonas",
@@ -55,9 +55,19 @@
 		"recognition": "OCR",
 		"expected": [
 			"更新",
-			"资源"
+			"资源",
+			"MB/s",
+			"MB/S",
+			"mb/s",
+			"KB/s",
+			"KB/S",
+			"kb/s"
 		],
-		"next": "confirm",
+		"rate_limit": 5000,
+		"next": [
+			"update@confirm",
+			"Update"
+		],
 		"doc": "更新应用,等待ing"
 	},
 
@@ -70,6 +80,15 @@
 		],
 		"doc": "网络错误重连",
 		"next": "confirm"
+	},
+
+	"update@confirm": {
+		"recognition": "TemplateMatch",
+		"template": "confirm.png",
+		"action": "Click",
+		"doc": "确认按钮",
+		"post_delay": 60000,
+		"next": "Enter"
 	},
 
 	"confirm": {
@@ -96,6 +115,7 @@
 		"recognition": "OCR",
 		"expected": "点击屏幕进入游戏",
 		"action": "Click",
+		"rate_limit": 5000,
 		"post_delay": 10000,
 		"next": [
 			"closeinfo",

@@ -3,9 +3,9 @@
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
-		"timeout": 5000,
+		"timeout": 3000,
 		"on_error": [
-			"closeinfo@newincity",
+			"closeinfo@newsignincity@order",
 			"home@Dailyorder"
 		],
 		"next": [
@@ -25,12 +25,10 @@
 		"next": "Dailytaskorder"
 	},
 
-	"closeinfo@newincity": {
+	"closeinfo@newsignincity@order": {
 		"recognition": "OCR",
 		"expected": [
-			"触碰空白区域退出",
-			"公告",
-			"资讯"
+			"触碰空白区域退出"
 		],
 		"action": "Click",
 		"target": [
@@ -180,9 +178,17 @@
 		],
 		"next": [
 			"nextOrder",
+			"home@tofight",
 			"home@StopTask"
 		],
 		"interrupt": "closeinfo"
+	},
+
+	"home@tofight": {
+		"recognition": "TemplateMatch",
+		"template": "home.png",
+		"action": "Click",
+		"next": "Dailytaskfight"
 	},
 
 	"visitCity": {

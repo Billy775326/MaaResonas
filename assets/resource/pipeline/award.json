@@ -84,6 +84,58 @@
 		"next": []
 	},
 
+	"GetRewards@Manual@judge": {
+		"recognition": "TemplateMatch",
+		"doc": "判断是否位于手册奖励界面",
+		"template": [
+			"Reward/ManualswitchingtaskRed.jpg",
+			"Reward/Manualswitching1.jpg",
+			"Reward/Manualswitching2.jpg",
+			"Reward/ManualswitchingmanualRed.jpg"
+		],
+		"next": [
+			"GetRewards@Manual@tasklist@switch"
+		]
+	},
+
+	"GetRewards@Manual@tasklist@switch": {
+		"recognition": "OCR",
+		"expected": "任务列表",
+		"action": "Click",
+		"next": [
+			"GetRewards@Manual@tasklist@switch@confirm"
+		],
+		"interrupt": []
+	},
+
+	"GetRewards@Manual@tasklist@switch@confirm": {
+		"recognition": "TemplateMatch",
+		"template": [
+			"Reward/One-clickcollection.jpg",
+			"Reward/One-clickcollectionRedpoint.jpg"
+		],
+		"timeout": 2000,
+		"action": "Click",
+		"next": [
+			"GetRewards@Manual@tasklist@closeinfo"
+		]
+	},
+	"GetRewards@Manual@tasklist@closeinfo": {
+		"recognition": "OCR",
+		"expected": "触碰空白区域退出",
+		"action": "Click",
+		"next": []
+	},
+
+	"GetRewards@Manual@level": {
+		"recognition": "OCR",
+		"expected": "环游手册",
+		"action": "Click",
+		"next": []
+	},
+
+	"GetRewards@Manual@level@confirm": {},
+
 	"Activity@home@manual": {
 		"recognition": "TemplateMatch",
 		"template": "home.png",

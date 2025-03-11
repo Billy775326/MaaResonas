@@ -1,4 +1,50 @@
 {
+	"Route": {
+		"next": [
+			"journey",
+			"inCity",
+			"newincity@closeinfo"
+		]
+	},
+
+	"newincity@closeinfo": {
+		"next": [
+			"newincity@closeinfo@taskend"
+		],
+		"interrupt": "newincity@closeinfo@passengerend"
+	},
+
+	"newincity@closeinfo@taskend": {
+		"recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出",
+			"任务完成"
+		],
+		"action": "Click",
+		"target": [
+			100,
+			661,
+			105,
+			19
+		]
+	},
+
+	"newincity@closeinfo@passengerend": {
+		"recognition": "OCR",
+		"doc": "待处理",
+		"expected": [
+			"触碰空白区域退出",
+			"客运收益结算"
+		],
+		"action": "Click",
+		"target": [
+			100,
+			661,
+			105,
+			19
+		]
+	},
+
 	"nopromptforaweek": {
 		"recognition": "OCR",
 		"expected": "本周不再提示"
@@ -18,17 +64,34 @@
 	"journey": {
 		"recognition": "OCR",
 		"expected": "自动巡航中",
+		"timeout": 30000,
 		"next": [
-			"inCity",
-			"closeinfo"
+			"normalCargo"
 		],
 		"interrupt": [
-			"normalCargo"
+			"journey@fighting",
+			"inCity",
+			"closeinfo"
+		]
+	},
+
+	"journey@fighting": {
+		"recognition": "FeatureMatch",
+		"template": [
+			"Fight/autofight.png",
+			"Fight/autofight1.png"
+		],
+		"post_wait_freezes": 30000,
+		"rate_limit": 8000,
+		"next": [
+			"journey",
+			"inCity",
+			"closeinfo"
 		]
 	},
 
 	"normalCargo": {
-		"recognition": "FeatureMatch",
+		"recognition": "TemplateMatch",
 		"template": [
 			"Route/Cargo/cargo1.png",
 			"Route/Cargo/cargo2.png",
@@ -37,7 +100,8 @@
 			"Route/Cargo/cargo12.png",
 			"Route/Cargo/cargo13.png"
 		],
-		"threshold": 0.9,
-		"post_wait_freezes": 60000
+		"threshold": 0.88,
+		"action": "Click",
+		"next": "journey"
 	}
 }

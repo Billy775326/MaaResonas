@@ -1,21 +1,130 @@
 {
-	"restarea": {
-		"recognition": "OCR",
-		"expected": "休息区",
-		"action": "Click",
-		"target_offset": [
-			0,
-			50,
-			0,
-			0
+	"Dailyrest": {
+		"timeout": 5000,
+		"next": [
+			"Dailyrest@visitCity"
 		],
-		"post_delay": 1000
+		"interrupt": [
+			"Dailyrest@home",
+			"closeinfo@newsignincity@rest"
+		]
 	},
 
-	"restarea@store": {
+	"closeinfo@newsignincity@rest": {
+		"recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出",
+			"任务完成",
+			"客运收益结算",
+			"公告",
+			"资讯"
+		],
+		"action": "Click",
+		"target": [
+			100,
+			661,
+			105,
+			19
+		],
+		"next": [
+			"closeinfo@newsignincity@rest",
+			"Dailyrest"
+		]
+	},
+
+	"Dailyrest@visitCity": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"roi": [
+			1100,
+			475,
+			180,
+			60
+		],
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Dailyrest@store",
+			"Dailyrest@store@errorcity",
+			"Rest@seekUpright"
+		],
+		"interrupt": [
+			"home@visitCity"
+		]
+	},
+
+	"Rest@Moveseek": {
+		"next": [
+			"Rest@seekUpright"
+		]
+	},
+	"Rest@seekUpright": {
+		"action": "Swipe",
+		"doc": "滑动屏幕寻找店铺右上方向",
+		"begin": [
+			630,
+			322,
+			10,
+			10
+		],
+		"end": [
+			842,
+			454,
+			10,
+			10
+		],
+		"next": [
+			"Dailyrest@store",
+			"Rest@seekDownleft"
+		]
+	},
+	"Rest@seekDownleft": {
+		"post_delay": 500,
+		"action": "Swipe",
+		"doc": "滑动屏幕寻找店铺左下方向",
+		"begin": [
+			630,
+			322,
+			10,
+			10
+		],
+		"end": [
+			350,
+			150,
+			10,
+			10
+		],
+		"next": [
+			"Dailyrest@store",
+			"Dailyrest@store@errorcity"
+		],
+		"on_error": "home"
+	},
+
+	"home@visitCity": {
+		"recognition": "TemplateMatch",
+		"template": "home.png",
+		"action": "Click",
+		"next": [
+			"visitCity"
+		]
+	},
+
+	"Dailyrest@home": {
+		"recognition": "TemplateMatch",
+		"template": "home.png",
+		"action": "Click",
+		"next": [
+			"Dailyrest"
+		]
+	},
+
+	"Dailyrest@store": {
 		"recognition": "OCR",
 		"expected": "休息区",
+		"pre_delay": 1000,
 		"action": "Click",
+		"timeout": 4000,
 		"target_offset": [
 			0,
 			50,
@@ -26,9 +135,31 @@
 		"next": "blackmoonstore"
 	},
 
+	"Dailyrest@store@rightcity": {
+		"recognition": "OCR",
+		"expected": [
+			"(修格里城|曼德矿场|澄明数据中心|7号自由港|阿妮塔发射中心|海角城|岚心城|贡露城).*(周边危险度).*(声望等级)"
+		]
+	},
+
+	"Dailyrest@store@errorcity": {
+		"recognition": "OCR",
+		"roi": [
+			173,
+			518,
+			136,
+			43
+		],
+		"expected": [
+			"(铁盟哨站|阿妮塔战备工厂|阿妮塔能源研究所|荒原站|淘金乐园|云岫桥基地|汇流塔|远星大桥|栖羽站)"
+		],
+		"next": "home@StopTask"
+	},
+
 	"blackmoonstore": {
 		"recognition": "OCR",
 		"expected": "黑月商店",
+		"pre_delay": 800,
 		"action": "Click",
 		"post_delay": 1000,
 		"next": "birchstone"
@@ -52,20 +183,21 @@
 		"recognition": "TemplateMatch",
 		"template": "confirmshort.png",
 		"action": "Click",
-		"next": "closeinfo@"
+		"next": "closeinfo@StorePurchase"
 	},
 
-	"closeinfo@": {
+	"closeinfo@StorePurchase": {
 		"recognition": "OCR",
 		"expected": [
 			"触碰空白区域退出"
 		],
 		"action": "Click",
-		"target": [
-			100,
-			661,
-			105,
-			19
-		]
+		"roi": [
+			528,
+			620,
+			170,
+			50
+		],
+		"next": []
 	}
 }

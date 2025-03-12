@@ -119,7 +119,6 @@
 		"post_delay": 10000,
 		"next": [
 			"closeinfo",
-			"Dailycheckin",
 			"stopnow"
 		]
 	},
@@ -129,7 +128,8 @@
 		"expected": [
 			"触碰空白区域退出",
 			"公告",
-			"资讯"
+			"资讯",
+			"每日签到奖励"
 		],
 		"action": "Click",
 		"target": [
@@ -137,26 +137,12 @@
 			661,
 			105,
 			19
-		]
-	},
-
-	"Dailycheckin": {
-		"recognition": "OCR",
-		"expected": "每日签到奖励",
-		"pre_delay": 5000,
-
-		"action": "Click",
-		"target": [
-			300,
-			675,
-			105,
-			17
 		],
 		"next": [
 			"closeinfo",
-			"home"
-		],
-		"interrupt": "stopnow"
+			"home",
+			"stopnow"
+		]
 	},
 
 	"stopnow": {

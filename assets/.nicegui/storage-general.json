@@ -8,6 +8,7 @@
 	"win32_input": 1,
 	"window_name": "",
 	"resource_dir": "D:\\GraduationDesign\\MaaResonas\\assets\\resource",
-	"task_entry": "missionnum-0",
-	"task_pipeline_override": "{}"
+	"task_entry": "Dailytaskorder",
+	"task_pipeline_override": "{}",
+	"agent_identifier": "06dc411b-cee1-411b-9c0a-0c0af9836c46"
 }

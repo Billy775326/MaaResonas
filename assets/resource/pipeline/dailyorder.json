@@ -28,7 +28,9 @@
 	"closeinfo@newsignincity@order": {
 		"recognition": "OCR",
 		"expected": [
-			"触碰空白区域退出"
+			"触碰空白区域退出",
+			"任务完成",
+			"客运收益结算"
 		],
 		"action": "Click",
 		"target": [
@@ -37,7 +39,10 @@
 			105,
 			19
 		],
-		"next": "Dailytaskorder"
+		"next": [
+			"closeinfo@newsignincity@order",
+			"Dailytaskorder"
+		]
 	},
 
 	"Dailyship": {
@@ -126,7 +131,7 @@
 			"运输订单"
 		],
 		"action": "Click",
-		"post_delay": 1500,
+		"post_delay": 1200,
 		"next": "shipConfirm"
 	},
 
@@ -181,7 +186,15 @@
 			"home@tofight",
 			"home@StopTask"
 		],
-		"interrupt": "closeinfo"
+		"interrupt": "closeinfo@shipConfirmfailed"
+	},
+
+	"closeinfo@shipConfirmfailed": {
+		"recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出"
+		],
+		"action": "Click"
 	},
 
 	"home@tofight": {

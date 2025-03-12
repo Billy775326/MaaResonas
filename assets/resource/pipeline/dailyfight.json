@@ -18,6 +18,8 @@
 		"recognition": "OCR",
 		"expected": [
 			"触碰空白区域退出",
+			"任务完成",
+			"客运收益结算",
 			"公告",
 			"资讯"
 		],
@@ -28,7 +30,10 @@
 			105,
 			19
 		],
-		"next": "Dailytaskfight"
+		"next": [
+			"closeinfo@newsignincity@fight",
+			"Dailytaskfight"
+		]
 	},
 
 	"home@Dailyfight": {
@@ -239,7 +244,13 @@
 		"post_delay": 1000,
 		"rate_limit": 2000,
 		"next": "missionnum-0",
-		"interrupt": "bountylevel5"
+		"interrupt": [
+			"bountylevel5",
+			"bountylevel4",
+			"bountylevel3",
+			"bountylevel2",
+			"bountylevel1"
+		]
 	},
 
 	"delmission": {
@@ -272,8 +283,22 @@
 
 	"missionnum-0": {
 		"recognition": "OCR",
+		"pre_delay": 800,
 		"expected": "暂无城市悬赏任务",
-		"next": "home@StopTask"
+		"roi": [
+			620,
+			270,
+			300,
+			220
+		],
+		"next": "home@store"
+	},
+
+	"home@store": {
+		"recognition": "TemplateMatch",
+		"template": "home.png",
+		"action": "Click",
+		"next": "Dailyrest"
 	},
 
 	"home@StopTask": {

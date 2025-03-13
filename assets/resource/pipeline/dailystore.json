@@ -41,8 +41,9 @@
 			180,
 			60
 		],
+		"pre_delay": 800,
 		"action": "Click",
-		"post_delay": 800,
+		"post_delay": 1000,
 		"next": [
 			"Dailyrest@store",
 			"Dailyrest@store@errorcity",
@@ -122,16 +123,16 @@
 	"Dailyrest@store": {
 		"recognition": "OCR",
 		"expected": "休息区",
-		"pre_delay": 1000,
+		"pre_delay": 800,
 		"action": "Click",
 		"timeout": 4000,
 		"target_offset": [
 			0,
 			50,
-			0,
-			0
+			10,
+			10
 		],
-		"post_delay": 1000,
+		"post_delay": 1200,
 		"next": "blackmoonstore"
 	},
 
@@ -145,13 +146,13 @@
 	"Dailyrest@store@errorcity": {
 		"recognition": "OCR",
 		"roi": [
-			173,
-			518,
-			136,
-			43
+			29,
+			507,
+			412,
+			194
 		],
 		"expected": [
-			"(铁盟哨站|阿妮塔战备工厂|阿妮塔能源研究所|荒原站|淘金乐园|云岫桥基地|汇流塔|远星大桥|栖羽站)"
+			"(铁盟哨站|阿妮塔战备工厂|阿妮塔能源研究所|荒原站|淘金乐园|云岫桥基地|汇流塔|远星大桥|栖羽站|阿妮塔发射中心)"
 		],
 		"next": "home@StopTask"
 	},
@@ -162,12 +163,23 @@
 		"pre_delay": 800,
 		"action": "Click",
 		"post_delay": 1000,
-		"next": "birchstone"
+		"doc": "添加新的购买物品",
+		"next": [
+			"birchstone",
+			"home@StopTask"
+		]
 	},
 
 	"birchstone": {
 		"recognition": "TemplateMatch",
 		"template": "Store/birchstone.png",
+		"threshold": 0.88,
+		"roi": [
+			591,
+			139,
+			341,
+			132
+		],
 		"action": "Click",
 		"post_delay": 1000,
 		"next": "birchstone@confirm"
@@ -193,11 +205,13 @@
 		],
 		"action": "Click",
 		"roi": [
-			528,
+			530,
 			620,
-			170,
-			50
+			220,
+			90
 		],
-		"next": []
+		"next": [
+			"home@StopTask"
+		]
 	}
 }

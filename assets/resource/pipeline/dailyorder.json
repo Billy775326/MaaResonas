@@ -39,6 +39,7 @@
 			105,
 			19
 		],
+		"post_delay": 500,
 		"next": [
 			"closeinfo@newsignincity@order",
 			"Dailytaskorder"
@@ -212,6 +213,12 @@
 
 	"inCity": {
 		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
 		"expected": "启程"
 	},
 

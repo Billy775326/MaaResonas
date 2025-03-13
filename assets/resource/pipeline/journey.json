@@ -2,16 +2,15 @@
 	"Route": {
 		"next": [
 			"journey",
-			"inCity",
-			"newincity@closeinfo"
+			"destination"
 		]
 	},
 
 	"newincity@closeinfo": {
 		"next": [
+			"newincity@closeinfo@passengerend",
 			"newincity@closeinfo@taskend"
-		],
-		"interrupt": "newincity@closeinfo@passengerend"
+		]
 	},
 
 	"newincity@closeinfo@taskend": {
@@ -65,8 +64,15 @@
 		"recognition": "OCR",
 		"expected": "自动巡航中",
 		"timeout": 30000,
+		"roi": [
+			546,
+			99,
+			185,
+			47
+		],
 		"next": [
-			"normalCargo"
+			"normalCargo",
+			"journey@switchview2nd"
 		],
 		"interrupt": [
 			"journey@fighting",
@@ -76,32 +82,77 @@
 	},
 
 	"journey@fighting": {
-		"recognition": "FeatureMatch",
+		"recognition": "TemplateMatch",
 		"template": [
 			"Fight/autofight.png",
 			"Fight/autofight1.png"
 		],
-		"post_wait_freezes": 30000,
-		"rate_limit": 8000,
+		"threshold": 0.8,
+		"post_wait_freezes": 10000,
+		"rate_limit": 5000,
+		"roi": [
+			114,
+			10,
+			86,
+			67
+		],
 		"next": [
 			"journey",
-			"inCity",
-			"closeinfo"
+			"journey@fighting"
 		]
 	},
 
 	"normalCargo": {
-		"recognition": "TemplateMatch",
+		"recognition": "FeatureMatch",
 		"template": [
-			"Route/Cargo/cargo1.png",
-			"Route/Cargo/cargo2.png",
-			"Route/Cargo/cargo3.png",
-			"Route/Cargo/cargo11.png",
-			"Route/Cargo/cargo12.png",
-			"Route/Cargo/cargo13.png"
+			"Route/Widget/Widget.png",
+			"Route/Widget/Widget1.png",
+			"Route/Widget/Widget2.png",
+			"Route/Widget/Widget3.png",
+			"Route/Widget/Widget4.png",
+			"Route/Widget/Widget5.png",
+			"Route/Widget/Widget6.png",
+			"Route/Widget/Widget7.png",
+			"Route/Widget/Widget8.png",
+			"Route/Widget/Widget9.png",
+			"Route/Widget/Widget10.png",
+			"Route/Widget/Widget11.png"
 		],
-		"threshold": 0.88,
+		"roi": [
+			650,
+			200,
+			200,
+			220
+		],
+		"rate_limit": 100,
+		"threshold": 0.7,
 		"action": "Click",
-		"next": "journey"
+		"next": [
+			"normalCargo",
+			"journey@fighting",
+			"inCity"
+		],
+		"interrupt": [
+			"newincity@closeinfo"
+		]
+	},
+
+	"journey@switchview2nd": {
+		"recognition": "FeatureMatch",
+		"template": [
+			"Route/switchView.png"
+		],
+		"roi": [
+			5,
+			634,
+			108,
+			73
+		],
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"normalCargo",
+			"journey@switchview2nd"
+		]
 	}
 }

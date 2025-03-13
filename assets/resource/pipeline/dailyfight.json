@@ -122,14 +122,14 @@
 		"action": "Click",
 		"post_delay": 1500,
 		"next": [
-			"bountylevel5"
+			"missionnum-0"
 		],
 		"interrupt": [
+			"bountylevel5",
 			"bountylevel4",
 			"bountylevel3",
 			"bountylevel2",
-			"bountylevel1",
-			"missionnum-0"
+			"bountylevel1"
 		]
 	},
 
@@ -217,11 +217,8 @@
 		"post_wait_freezes": 2000,
 		"next": [
 			"victory",
-			"defeat"
-		],
-		"interrupt": [
-			"home",
-			"Dailytaskfight"
+			"defeat",
+			"autofighting"
 		]
 	},
 
@@ -243,14 +240,7 @@
 		"action": "Click",
 		"post_delay": 1000,
 		"rate_limit": 2000,
-		"next": "missionnum-0",
-		"interrupt": [
-			"bountylevel5",
-			"bountylevel4",
-			"bountylevel3",
-			"bountylevel2",
-			"bountylevel1"
-		]
+		"next": "bountymission"
 	},
 
 	"delmission": {
@@ -298,6 +288,7 @@
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
+		"post_delay": 1000,
 		"next": "Dailyrest"
 	},
 

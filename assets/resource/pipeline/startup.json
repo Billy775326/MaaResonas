@@ -18,7 +18,6 @@
 			"Enter"
 		],
 		"interrupt": [
-			"checkupdate",
 			"Update",
 			"NetError"
 		]
@@ -34,27 +33,14 @@
 			"Enter"
 		],
 		"interrupt": [
-			"checkupdate",
 			"Update",
 			"NetError"
-		]
-	},
-	"checkupdate": {
-		"recognition": "OCR",
-		"expected": [
-			"正在检测更新"
-		],
-		"post_delay": 500,
-		"next": [
-			"Update",
-			"Enter"
 		]
 	},
 
 	"Update": {
 		"recognition": "OCR",
 		"expected": [
-			"更新",
 			"资源包",
 			"需要下载资源包",
 			"(共?\\d+(\\.\\d+)?[KMG]B)",
@@ -64,6 +50,12 @@
 			"KB/s",
 			"KB/S",
 			"kb/s"
+		],
+		"roi": [
+			45,
+			268,
+			1218,
+			192
 		],
 		"rate_limit": 5000,
 		"next": [
@@ -79,6 +71,12 @@
 			"连接",
 			"失败",
 			"服务器"
+		],
+		"roi": [
+			45,
+			268,
+			1218,
+			192
 		],
 		"doc": "网络错误重连",
 		"next": "confirm"
@@ -121,10 +119,23 @@
 		"post_delay": 10000,
 		"next": [
 			"closeinfo",
+			"Enter1",
+			"Enter1@inCity"
+		]
+	},
+	"Enter1@inCity": {
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
 			"stopnow"
 		]
 	},
-
 	"closeinfo": {
 		"recognition": "OCR",
 		"expected": [
@@ -141,9 +152,7 @@
 			19
 		],
 		"next": [
-			"closeinfo",
-			"home",
-			"stopnow"
+			"closeinfo"
 		]
 	},
 

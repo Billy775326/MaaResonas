@@ -1,0 +1,116 @@
+{
+	"B:R.C.L.Outpost": {
+		"doc": "铁盟哨站",
+		"recognition": "OCR",
+		"expected": ["铁盟哨站"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"WildernessStation": {
+		"doc": "荒原站",
+		"recognition": "OCR",
+		"expected": ["荒原站"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"YunXiuBridge": {
+		"doc": "云岫桥基地",
+		"recognition": "OCR",
+		"expected": ["云岫桥基地"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"SumihhaneStation": {
+		"doc": "栖羽站",
+		"recognition": "OCR",
+		"expected": ["栖羽站"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Onederland": {
+		"doc": "淘金乐园",
+		"recognition": "OCR",
+		"expected": ["淘金乐园"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"AnitaWeaponResearchInstitute": {
+		"doc": "阿妮塔战备工厂",
+		"recognition": "OCR",
+		"expected": ["阿妮塔战备工厂"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"AnitaEnergyResearchInstitute": {
+		"doc": "阿妮塔能源研究所",
+		"recognition": "OCR",
+		"expected": ["阿妮塔能源研究所"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"ApoasterBridge": {
+		"doc": "远星大桥",
+		"recognition": "OCR",
+		"expected": ["远星大桥"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"ConfluenceTower": {
+		"doc": "汇流塔",
+		"recognition": "OCR",
+		"expected": ["汇流塔"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"TatoInstitution": {
+		"doc": "塔图站",
+		"recognition": "OCR",
+		"expected": ["塔图站"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	}
+}

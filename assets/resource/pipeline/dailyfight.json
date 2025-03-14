@@ -281,7 +281,10 @@
 			300,
 			220
 		],
-		"next": "home@store"
+		"doc": "home@store,使用plcli集成任务",
+		"next": [
+			"home@StopTask"
+		]
 	},
 
 	"home@store": {

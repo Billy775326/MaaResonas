@@ -31,7 +31,17 @@
 			"GetRewards@Activity@600end"
 		]
 	},
-
+	"GetRewards@Activity@closeinfo": {
+		"recognition": "OCR",
+		"expected": "(获得\\s*(\\d+)\\s*活跃度)",
+		"action": "Click",
+		"roi": [
+			534,
+			255,
+			215,
+			172
+		]
+	},
 	"GetRewards@Activity@Available": {
 		"recognition": "OCR",
 		"expected": "可领取",
@@ -50,7 +60,8 @@
 			"home@StopTask"
 		],
 		"interrupt": [
-			"closeinfo"
+			"closeinfo",
+			"GetRewards@Activity@closeinfo"
 		]
 	},
 
@@ -82,8 +93,9 @@
 		],
 		"threshold": 0.9,
 		"action": "Click",
+		"post_delay": 500,
 		"next": [
-			"Activity@home@manual"
+			"GetRewards@Activity@600end"
 		],
 		"interrupt": [
 			"closeinfo"
@@ -110,7 +122,7 @@
 		"recognition": "TemplateMatch",
 		"template": "Reward/ManualRewards.png",
 		"action": "Click",
-		"post_delay": 1000,
+		"post_delay": 1500,
 		"next": [
 			"GetRewards@Manual@judge"
 		],
@@ -149,6 +161,7 @@
 			90
 		],
 		"action": "Click",
+		"post_wait_freezes": 200,
 		"next": [
 			"GetRewards@Manual@tasklist@switch@confirm",
 			"GetRewards@Manual@level@switch"

@@ -42,7 +42,8 @@
 		"post_delay": 500,
 		"next": [
 			"closeinfo@newsignincity@order",
-			"Dailytaskorder"
+			"Dailytaskorder",
+			"home@Dailyorder"
 		]
 	},
 
@@ -182,9 +183,9 @@
 		"expected": [
 			"取消订单"
 		],
+		"doc": "home@tofight任务取消调用,使用plcli集成任务",
 		"next": [
 			"nextOrder",
-			"home@tofight",
 			"home@StopTask"
 		],
 		"interrupt": "closeinfo@shipConfirmfailed"

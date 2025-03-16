@@ -265,10 +265,24 @@
 
 	"GetRewards@Delegation": {
 		"next": [
-			"GetRewards@Delegation@inCityOpenSummary"
+			"GetRewards@Delegation@inCityOpenSummary",
+			"GetRewards@Delegation@inSummary"
 		]
 	},
+	"GetRewards@Delegation@inSummary": {
+		"recognition": "FeatureMatch",
+		"template": "Reward/delegationloaction.png",
+		"roi": [
+			0,
+			255,
+			80,
+			460
+		],
 
+		"next": [
+			"GetRewards@Delegation@start"
+		]
+	},
 	"GetRewards@Delegation@inCityOpenSummary": {
 		"recognition": "OCR",
 		"roi": [
@@ -291,5 +305,94 @@
 		]
 	},
 
-	"GetRewards@Delegation@start": {}
+	"GetRewards@Delegation@start": {
+		"recognition": "OCR",
+		"expected": "委托",
+		"roi": [
+			0,
+			0,
+			0,
+			0
+		],
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"GetRewards@Delegation@Determinelocation"
+		]
+	},
+	"GetRewards@Delegation@Determinelocation": {
+		"recognition": "OCR",
+		"expected": "派遣委托",
+		"roi": [
+			348,
+			8,
+			255,
+			73
+		],
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"GetRewards@Delegation@getit"
+		]
+	},
+	"GetRewards@Delegation@getit": {
+		"recognition": "OCR",
+		"expected": "一键领取",
+		"roi": [
+			825,
+			11,
+			176,
+			59
+		],
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"GetRewards@Delegateagain"
+		]
+	},
+	"GetRewards@Delegateagain": {
+		"recognition": "OCR",
+		"roi": [
+			195,
+			18,
+			905,
+			672
+		],
+		"expected": "再次委托",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"GetRewards@Delegation@recall"
+		]
+	},
+	"GetRewards@Delegation@recall": {
+		"recognition": "OCR",
+		"roi": [
+			725,
+			605,
+			519,
+			74
+		],
+		"expected": "召回",
+		"next": [
+			"GetRewards@Delegation@home"
+		]
+	},
+	"GetRewards@Delegation@home": {
+		"recognition": "TemplateMatch",
+		"roi": [
+			0,
+			0,
+			244,
+			74
+		],
+		"template": "home.png",
+		"action": "Click",
+		"next": [
+			"GetRewards@Delegation@StopTask"
+		]
+	},
+	"GetRewards@Delegation@StopTask": {
+		"action": "StopTask"
+	}
 }

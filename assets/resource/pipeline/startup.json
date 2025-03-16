@@ -151,6 +151,7 @@
 			105,
 			19
 		],
+		"post_delay": 800,
 		"next": [
 			"closeinfo"
 		]

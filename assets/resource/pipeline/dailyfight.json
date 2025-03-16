@@ -1,6 +1,6 @@
 {
 	"Dailytaskfight": {
-		"timeout": 5000,
+		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"

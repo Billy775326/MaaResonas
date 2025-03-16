@@ -1,0 +1,495 @@
+{
+	"test1": {
+		"next": [
+			"start@inCity111",
+			"journey111"
+		]
+	},
+	"journey111": {
+		"recognition": "OCR",
+		"expected": "自动巡航中",
+		"rate_limit": 10000,
+		"roi": [
+			546,
+			99,
+			185,
+			47
+		],
+		"next": [
+			"journey111",
+			"start@inCity111",
+			"newincity@closeinfo",
+			"home"
+		]
+	},
+	"start@inCity111": {
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"visitCity111"
+		]
+	},
+	"start@inCity@ManderMine111": {
+		"doc": "起点:曼德矿场",
+		"recognition": "OCR",
+		"expected": ["曼德矿场"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"action": "Click"
+	},
+	"visitCity111": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"roi": [
+			1100,
+			475,
+			180,
+			60
+		],
+		"pre_delay": 1000,
+		"action": "Click",
+		"next": [
+			"jiaoyisuo@ManderMine"
+		],
+		"interrupt": [
+			"swipseekjiaoyisuo"
+		]
+	},
+
+	"jiaoyisuo@ManderMine": {
+		"recognition": "OCR",
+		"expected": "交易所",
+		"action": "Click",
+		"target_offset": [
+			0,
+			50,
+			0,
+			0
+		],
+		"post_delay": 1500,
+		"next": [
+			"buy@ManderMine"
+		]
+	},
+
+	"swipseekjiaoyisuo": {
+		"action": "Swipe",
+		"begin": [
+			842,
+			454,
+			10,
+			10
+		],
+		"end": [
+			630,
+			322,
+			10,
+			10
+		]
+	},
+	"buy@ManderMine": {
+		"recognition": "OCR",
+		"roi": [
+			722,
+			268,
+			481,
+			352
+		],
+		"expected": "我要买",
+		"action": "Click",
+
+		"post_delay": 1500,
+		"next": [
+			"buy@instore@useProps"
+		]
+	},
+	"sell@ManderMine": {
+		"recognition": "OCR",
+		"roi": [
+			722,
+			268,
+			481,
+			352
+		],
+		"expected": "我要卖",
+		"action": "Click",
+
+		"post_delay": 1000,
+		"next": []
+	},
+
+	"buy@instore@useProps": {
+		"recognition": "OCR",
+		"roi": [
+			453,
+			63,
+			824,
+			648
+		],
+		"expected": "使用道具",
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"buy@instore@useProps@confirm"
+		]
+	},
+
+	"buy@instore@useProps@confirm": {
+		"recognition": "OCR",
+		"roi": [
+			589,
+			128,
+			420,
+			80
+		],
+		"expected": "使用",
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"buy@instore@useProps@confirm11"
+		]
+	},
+	"buy@instore@useProps@confirm11": {
+		"recognition": "OCR",
+		"expected": ["是否使用进货采买书增加交易品库存"],
+
+		"next": "buy@instore@usePropsconfirmshort@closeinfo"
+	},
+
+	"buy@instore@usePropsconfirmshort@closeinfo": {
+		"recognition": "TemplateMatch",
+		"template": "confirmshort.png",
+		"action": "Click",
+		"post_delay": 500,
+		"next": "buy@instore@usePropscloseinfo"
+	},
+
+	"buy@instore@usePropscloseinfo": {
+		"recognition": "OCR",
+		"expected": [
+			"进货成功"
+		],
+		"post_delay": 800,
+		"next": [
+			"buyall"
+		]
+	},
+	"buyall": {
+		"recognition": "OCR",
+		"roi": [
+			453,
+			63,
+			824,
+			648
+		],
+		"expected": "全部买入",
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"buyall@Bargaining"
+		]
+	},
+	"buyall@Bargaining": {
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "砍价",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"buyall@Bargaining@closeinfo@success",
+			"buyall@Bargaining@closeinfo@failed"
+		]
+	},
+	"buyall@Bargaining@closeinfo@success": {
+		"recognition": "OCR",
+		"roi": [
+			523,
+			221,
+			244,
+			220
+		],
+		"expected": "砍价成功",
+		"next": [
+			"buyall@Bargaining@1"
+		]
+	},
+	"buyall@Bargaining@closeinfo@failed": {
+		"recognition": "OCR",
+		"roi": [
+			523,
+			221,
+			244,
+			220
+		],
+		"expected": "砍价失败",
+		"next": [
+			"buyall@Bargaining"
+		]
+	},
+	"buyall@Bargaining@1": {
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "砍价",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"buyall@Bargaining@closeinfo@success@1",
+			"buyall@Bargaining@closeinfo@failed@1"
+		]
+	},
+	"buyall@Bargaining@closeinfo@success@1": {
+		"recognition": "OCR",
+		"roi": [
+			523,
+			221,
+			244,
+			220
+		],
+		"expected": "砍价成功",
+		"next": [
+			"Buyitin"
+		]
+	},
+	"buyall@Bargaining@closeinfo@failed@1": {
+		"recognition": "OCR",
+		"roi": [
+			523,
+			221,
+			244,
+			220
+		],
+		"expected": "砍价失败",
+		"next": [
+			"buyall@Bargaining@1"
+		]
+	},
+	"Buyitin": {
+		"recognition": "OCR",
+		"roi": [
+			894,
+			614,
+			309,
+			69
+		],
+		"expected": "买入",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"Buyitin@closeinfo",
+			"Bought@home"
+		]
+	},
+	"MarketChanges": {
+		"recognition": "OCR",
+		"expected": "行情已经发生变动",
+		"post_wait_freezes": 400,
+		"next": [
+			"Buyitin"
+		]
+	},
+	"Buyitin@closeinfo": {
+		"recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出"
+		],
+		"action": "Click",
+		"next": [
+			"Buyitin@closeinfo",
+			"Bought@home"
+		]
+	},
+	"Bought@home": {
+		"recognition": "TemplateMatch",
+		"template": "home.png",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"ManderMine@map"
+		]
+	},
+	"ManderMine@map": {
+		"doc": "曼德矿场",
+		"recognition": "OCR",
+		"expected": ["曼德矿场"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"seek@AnitaRocketBase"
+		]
+	},
+
+	"seek@AnitaRocketBase": {
+		"action": "Swipe",
+		"begin": [
+			636,
+			435,
+			10,
+			10
+		],
+		"end": [
+			1146,
+			420,
+			10,
+			10
+		],
+		"next": [
+			"navigate@AnitaRocketBase"
+		]
+	},
+	"navigate@AnitaRocketBase": {
+		"recognition": "OCR",
+		"expected": ["阿妮塔发射中心"],
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"AnitaRocketBase@solicitpax"
+		]
+	},
+	"AnitaRocketBase@solicitpax": {
+		"recognition": "TemplateMatch",
+		"template": "City/solicitpax.png",
+		"roi": [
+			0,
+			570,
+			530,
+			140
+		],
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"AnitaRocketBase@solicitpax@Flyer"
+		]
+	},
+	"AnitaRocketBase@solicitpax@Flyer": {
+		"recognition": "OCR",
+		"expected": ["传单揽客"],
+		"action": "Click",
+		"post_delay": 500,
+		"next": [
+			"solicitpax@Flyer@swipe"
+		]
+	},
+
+	"solicitpax@Flyer@swipe": {
+		"action": "Swipe",
+		"begin": [
+			905,
+			85,
+			10,
+			10
+		],
+		"end": [
+			905,
+			541,
+			10,
+			10
+		],
+		"next": [
+			"solicitpax@Flyer@seekcity"
+		]
+	},
+	"solicitpax@Flyer@seekcity": {
+		"recognition": "OCR",
+		"expected": ["阿妮塔发射中心"],
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"solicitpax@Flyer@seekcity@nextstep"
+		]
+	},
+	"solicitpax@Flyer@seekcity@nextstep": {
+		"recognition": "OCR",
+		"expected": ["下一步"],
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"solicitpax@Flyer@seekcity@nextstep@location"
+		]
+	},
+	"solicitpax@Flyer@seekcity@nextstep@location": {
+		"recognition": "OCR",
+		"expected": ["私人金库"],
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"solicitpax@Flyer@seekcity@nextstep@location@confirm"
+		]
+	},
+	"solicitpax@Flyer@seekcity@nextstep@location@confirm": {
+		"recognition": "OCR",
+		"expected": ["确认派发"],
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"location@confirm@maxmum"
+		]
+	},
+	"location@confirm@maxmum": {
+		"recognition": "OCR",
+		"roi": [
+			158,
+			227,
+			864,
+			213
+		],
+		"expected": ["最多"],
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"location@confirm@maxmum@confirm"
+		]
+	},
+	"location@confirm@maxmum@confirm": {
+		"recognition": "TemplateMatch",
+		"template": "confirmshort.png",
+		"action": "Click",
+		"post_wait_freezes": 500,
+		"next": [
+			"solicitpax@Flyer@success"
+		]
+	},
+	"solicitpax@Flyer@success": {
+		"recognition": "OCR",
+		"expected": ["传单揽客成功"],
+		"action": "Click",
+		"post_delay": 2000,
+		"next": [
+			"AnitaRocketBase@gogogo"
+		]
+	},
+	"AnitaRocketBase@gogogo": {
+		"recognition": "TemplateMatch",
+		"template": "City/gotodestination.png",
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"journey111"
+		]
+	}
+}

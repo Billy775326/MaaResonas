@@ -1,5 +1,5 @@
 {
-	"Dailytaskfight": {
+	"DailyFight": {
 		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
@@ -32,7 +32,7 @@
 		],
 		"next": [
 			"closeinfo@newsignincity@fight",
-			"Dailytaskfight"
+			"DailyFight"
 		]
 	},
 
@@ -50,7 +50,7 @@
 		"next": "Dailyfight",
 		"interrupt": [
 			"home",
-			"Dailytaskfight"
+			"DailyFight"
 		]
 	},
 
@@ -292,7 +292,7 @@
 		"template": "home.png",
 		"action": "Click",
 		"post_delay": 1000,
-		"next": "Dailyrest"
+		"next": "DailyRest"
 	},
 
 	"home@StopTask": {

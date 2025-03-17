@@ -34,8 +34,20 @@
 			"entry": "startup"
 		},
 		{
-			"name": "每日任务",
-			"entry": "startup"
+			"name": "每日商会订单",
+			"entry": "DailyOrder"
+		},
+		{
+			"name": "每日铁安局悬赏战斗",
+			"entry": "DailyFight"
+		},
+		{
+			"name": "每日休息区购物",
+			"entry": "DailyRest"
+		},
+		{
+			"name": "每日奖励",
+			"entry": "GetRewards"
 		},
 		{
 			"name": "选项任务",

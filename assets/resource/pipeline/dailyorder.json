@@ -1,5 +1,5 @@
 {
-	"Dailytaskorder": {
+	"DailyOrder": {
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
@@ -22,7 +22,7 @@
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
-		"next": "Dailytaskorder"
+		"next": "DailyOrder"
 	},
 
 	"closeinfo@newsignincity@order": {
@@ -42,7 +42,7 @@
 		"post_delay": 500,
 		"next": [
 			"closeinfo@newsignincity@order",
-			"Dailytaskorder",
+			"DailyOrder",
 			"home@Dailyorder"
 		]
 	},
@@ -203,7 +203,7 @@
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
-		"next": "Dailytaskfight"
+		"next": "DailyFight"
 	},
 
 	"visitCity": {

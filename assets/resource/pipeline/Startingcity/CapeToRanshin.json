@@ -1,11 +1,11 @@
 {
-	"test1": {
+	"Cape@test": {
 		"next": [
-			"start@inCity111",
-			"journey111"
+			"start@inCity@Cape",
+			"journey@Cape"
 		]
 	},
-	"journey111": {
+	"journey@Cape": {
 		"recognition": "OCR",
 		"expected": "自动巡航中",
 		"rate_limit": 10000,
@@ -16,13 +16,13 @@
 			47
 		],
 		"next": [
-			"journey111",
-			"start@inCity111",
+			"journey@Cape",
+			"start@inCity@Cape",
 			"newincity@closeinfo",
 			"home"
 		]
 	},
-	"start@inCity111": {
+	"start@inCity@Cape": {
 		"recognition": "OCR",
 		"roi": [
 			1135,
@@ -32,13 +32,13 @@
 		],
 		"expected": "启程",
 		"next": [
-			"visitCity111"
+			"visitCity@Cape"
 		]
 	},
-	"start@inCity@ManderMine111": {
-		"doc": "起点:曼德矿场",
+	"start@inCity@Capego": {
+		"doc": "起点:海角城",
 		"recognition": "OCR",
-		"expected": ["曼德矿场"],
+		"expected": ["海角城"],
 		"roi": [
 			0,
 			0,
@@ -47,7 +47,7 @@
 		],
 		"action": "Click"
 	},
-	"visitCity111": {
+	"visitCity@Cape": {
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"roi": [
@@ -59,14 +59,14 @@
 		"pre_delay": 1000,
 		"action": "Click",
 		"next": [
-			"jiaoyisuo@ManderMine"
+			"Exchanges@Cape"
 		],
 		"interrupt": [
-			"swipseekjiaoyisuo"
+			"swipeseek@Exchanges"
 		]
 	},
 
-	"jiaoyisuo@ManderMine": {
+	"Exchanges@Cape": {
 		"recognition": "OCR",
 		"expected": "交易所",
 		"action": "Click",
@@ -78,11 +78,11 @@
 		],
 		"post_delay": 1500,
 		"next": [
-			"buy@ManderMine"
+			"buy@Cape"
 		]
 	},
 
-	"swipseekjiaoyisuo": {
+	"swipeseek@Exchanges": {
 		"action": "Swipe",
 		"begin": [
 			842,
@@ -97,7 +97,7 @@
 			10
 		]
 	},
-	"buy@ManderMine": {
+	"buy@Cape": {
 		"recognition": "OCR",
 		"roi": [
 			722,
@@ -110,10 +110,10 @@
 
 		"post_delay": 1500,
 		"next": [
-			"buy@instore@useProps"
+			"buy@Cape@useProps"
 		]
 	},
-	"sell@ManderMine": {
+	"sell@Cape": {
 		"recognition": "OCR",
 		"roi": [
 			722,
@@ -128,7 +128,7 @@
 		"next": []
 	},
 
-	"buy@instore@useProps": {
+	"buy@Cape@useProps": {
 		"recognition": "OCR",
 		"roi": [
 			453,
@@ -140,11 +140,11 @@
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
-			"buy@instore@useProps@confirm"
+			"buy@Cape@useProps@confirm"
 		]
 	},
 
-	"buy@instore@useProps@confirm": {
+	"buy@Cape@useProps@confirm": {
 		"recognition": "OCR",
 		"roi": [
 			589,
@@ -156,35 +156,35 @@
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
-			"buy@instore@useProps@confirm11"
+			"buy@Cape@useProps@confirm11"
 		]
 	},
-	"buy@instore@useProps@confirm11": {
+	"buy@Cape@useProps@confirm11": {
 		"recognition": "OCR",
 		"expected": ["是否使用进货采买书增加交易品库存"],
 
-		"next": "buy@instore@usePropsconfirmshort@closeinfo"
+		"next": "buy@Cape@usePropsconfirmshort@closeinfo"
 	},
 
-	"buy@instore@usePropsconfirmshort@closeinfo": {
+	"buy@Cape@usePropsconfirmshort@closeinfo": {
 		"recognition": "TemplateMatch",
 		"template": "confirmshort.png",
 		"action": "Click",
 		"post_delay": 500,
-		"next": "buy@instore@usePropscloseinfo"
+		"next": "buy@Cape@usePropscloseinfo"
 	},
 
-	"buy@instore@usePropscloseinfo": {
+	"buy@Cape@usePropscloseinfo": {
 		"recognition": "OCR",
 		"expected": [
 			"进货成功"
 		],
 		"post_delay": 800,
 		"next": [
-			"buyall"
+			"buyall@Cape"
 		]
 	},
-	"buyall": {
+	"buyall@Cape": {
 		"recognition": "OCR",
 		"roi": [
 			453,
@@ -196,10 +196,10 @@
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
-			"buyall@Bargaining"
+			"buyall@Cape@Bargaining"
 		]
 	},
-	"buyall@Bargaining": {
+	"buyall@Cape@Bargaining": {
 		"recognition": "OCR",
 		"roi": [
 			1092,
@@ -211,11 +211,11 @@
 		"action": "Click",
 		"post_delay": 400,
 		"next": [
-			"buyall@Bargaining@closeinfo@success",
-			"buyall@Bargaining@closeinfo@failed"
+			"buyall@Cape@Bargaining@closeinfo@success",
+			"buyall@Cape@Bargaining@closeinfo@failed"
 		]
 	},
-	"buyall@Bargaining@closeinfo@success": {
+	"buyall@Cape@Bargaining@closeinfo@success": {
 		"recognition": "OCR",
 		"roi": [
 			523,
@@ -225,10 +225,10 @@
 		],
 		"expected": "砍价成功",
 		"next": [
-			"buyall@Bargaining@1"
+			"buyall@Cape@Bargaining@1"
 		]
 	},
-	"buyall@Bargaining@closeinfo@failed": {
+	"buyall@Cape@Bargaining@closeinfo@failed": {
 		"recognition": "OCR",
 		"roi": [
 			523,
@@ -238,10 +238,10 @@
 		],
 		"expected": "砍价失败",
 		"next": [
-			"buyall@Bargaining"
+			"buyall@Cape@Bargaining"
 		]
 	},
-	"buyall@Bargaining@1": {
+	"buyall@Cape@Bargaining@1": {
 		"recognition": "OCR",
 		"roi": [
 			1092,
@@ -253,11 +253,11 @@
 		"action": "Click",
 		"post_delay": 400,
 		"next": [
-			"buyall@Bargaining@closeinfo@success@1",
-			"buyall@Bargaining@closeinfo@failed@1"
+			"buyall@Cape@Bargaining@closeinfo@success@1",
+			"buyall@Cape@Bargaining@closeinfo@failed@1"
 		]
 	},
-	"buyall@Bargaining@closeinfo@success@1": {
+	"buyall@Cape@Bargaining@closeinfo@success@1": {
 		"recognition": "OCR",
 		"roi": [
 			523,
@@ -267,10 +267,10 @@
 		],
 		"expected": "砍价成功",
 		"next": [
-			"Buyitin"
+			"Buyitin@Cape"
 		]
 	},
-	"buyall@Bargaining@closeinfo@failed@1": {
+	"buyall@Cape@Bargaining@closeinfo@failed@1": {
 		"recognition": "OCR",
 		"roi": [
 			523,
@@ -280,10 +280,10 @@
 		],
 		"expected": "砍价失败",
 		"next": [
-			"buyall@Bargaining@1"
+			"buyall@Cape@Bargaining@1"
 		]
 	},
-	"Buyitin": {
+	"Buyitin@Cape": {
 		"recognition": "OCR",
 		"roi": [
 			894,
@@ -295,42 +295,42 @@
 		"action": "Click",
 		"post_delay": 400,
 		"next": [
-			"Buyitin@closeinfo",
-			"Bought@home"
+			"Buyitin@Cape@closeinfo",
+			"Bought@Cape@home"
 		]
 	},
-	"MarketChanges": {
+	"MarketChanges@Cape": {
 		"recognition": "OCR",
 		"expected": "行情已经发生变动",
 		"post_wait_freezes": 400,
 		"next": [
-			"Buyitin"
+			"Buyitin@Cape"
 		]
 	},
-	"Buyitin@closeinfo": {
+	"Buyitin@Cape@closeinfo": {
 		"recognition": "OCR",
 		"expected": [
 			"触碰空白区域退出"
 		],
 		"action": "Click",
 		"next": [
-			"Buyitin@closeinfo",
-			"Bought@home"
+			"Buyitin@Cape@closeinfo",
+			"Bought@Cape@home"
 		]
 	},
-	"Bought@home": {
+	"Bought@Cape@home": {
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
 		"post_delay": 800,
 		"next": [
-			"ManderMine@map"
+			"Cape@map"
 		]
 	},
-	"ManderMine@map": {
-		"doc": "曼德矿场",
+	"Cape@map": {
+		"doc": "海角城",
 		"recognition": "OCR",
-		"expected": ["曼德矿场"],
+		"expected": ["海角城"],
 		"roi": [
 			0,
 			0,
@@ -340,11 +340,11 @@
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
-			"seek@AnitaRocketBase"
+			"seek@Ranshin"
 		]
 	},
 
-	"seek@AnitaRocketBase": {
+	"seek@Ranshin": {
 		"action": "Swipe",
 		"begin": [
 			636,
@@ -359,19 +359,19 @@
 			10
 		],
 		"next": [
-			"navigate@AnitaRocketBase"
+			"navigate@Ranshin"
 		]
 	},
-	"navigate@AnitaRocketBase": {
+	"navigate@Ranshin": {
 		"recognition": "OCR",
-		"expected": ["阿妮塔发射中心"],
+		"expected": ["岚心城"],
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
-			"AnitaRocketBase@solicitpax"
+			"Ranshin@solicitpax"
 		]
 	},
-	"AnitaRocketBase@solicitpax": {
+	"Ranshin@solicitpax": {
 		"recognition": "TemplateMatch",
 		"template": "City/solicitpax.png",
 		"roi": [
@@ -383,10 +383,10 @@
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
-			"AnitaRocketBase@solicitpax@Flyer"
+			"Ranshin@solicitpax@Flyer"
 		]
 	},
-	"AnitaRocketBase@solicitpax@Flyer": {
+	"Ranshin@solicitpax@Flyer": {
 		"recognition": "OCR",
 		"expected": ["传单揽客"],
 		"action": "Click",
@@ -489,7 +489,7 @@
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
-			"journey111"
+			"journey@Cape"
 		]
 	}
 }

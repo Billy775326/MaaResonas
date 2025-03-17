@@ -1,1 +1,162 @@
-{}
+{
+	"SeekCity@Map@Ranshin-Sumihhane": {
+		"doc": "岚心城到栖羽站",
+		"recognition": "OCR",
+		"expected": "栖羽站",
+		"action": "Click"
+	},
+
+	"SeekCity@Map@Ranshin-Mander": {
+		"doc": "岚心城到曼德城",
+		"recognition": "OCR",
+		"expected": "曼德矿场",
+		"action": "Click",
+		"timeout": 2000,
+		"on_error": ["SeekCity@Map@Ranshin-Mander@Swipe"]
+	},
+	"SeekCity@Map@Ranshin-Mander@Swipe": {
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"roi": [
+			511,
+			250,
+			245,
+			188
+		],
+		"action": "Swipe",
+		"begin": [
+			0,
+			472,
+			10,
+			10
+		],
+		"end": [
+			1000,
+			200,
+			10,
+			10
+		],
+		"duration": 1000,
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"next": "SeekCity@Map@Ranshin-Mander"
+	},
+
+	"SeekCity@Map@Ranshin-YunXiu": {
+		"doc": "岚心城到云岫桥基地",
+		"recognition": "OCR",
+		"expected": [
+			"云.?桥基地"
+		],
+		"action": "Click",
+		"timeout": 2000,
+		"on_error": "SeekCity@Map@Ranshin-YunXiu@swpie"
+	},
+	"SeekCity@Map@Ranshin-YunXiu@swpie": {
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"roi": [
+			511,
+			250,
+			245,
+			188
+		],
+		"action": "Swipe",
+		"begin": [
+			0,
+			372,
+			10,
+			10
+		],
+		"end": [
+			1000,
+			200,
+			10,
+			10
+		],
+		"duration": 2000,
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"next": "SeekCity@Map@Ranshin-YunXiu"
+	},
+
+	"SeekCity@Map@Ranshin-Wilderness": {
+		"doc": "岚心城到荒原站",
+		"recognition": "OCR",
+		"expected": "荒原站",
+		"action": "Click",
+		"timeout": 2000,
+		"on_error": "SeekCity@Map@Ranshin-Wilderness@swpie"
+	},
+	"SeekCity@Map@Ranshin-Wilderness@swpie": {
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"roi": [
+			511,
+			250,
+			245,
+			188
+		],
+		"action": "Swipe",
+		"begin": [
+			0,
+			450,
+			10,
+			10
+		],
+		"end": [
+			1200,
+			200,
+			10,
+			10
+		],
+		"duration": 2000,
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"next": "SeekCity@Map@Ranshin-Wilderness"
+	},
+
+	"SeekCity@Map@Ranshin-Outpost": {
+		"doc": "岚心城到铁盟哨站",
+		"recognition": "OCR",
+		"expected": "铁盟哨站",
+		"action": "Click",
+		"timeout": 2000,
+		"on_error": "SeekCity@Map@Ranshin-Outpost@swpie"
+	},
+	"SeekCity@Map@Ranshin-Outpost@swpie": {
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"roi": [
+			511,
+			250,
+			245,
+			188
+		],
+		"action": "Swipe",
+		"begin": [
+			0,
+			450,
+			10,
+			10
+		],
+		"end": [
+			1000,
+			200,
+			10,
+			10
+		],
+		"duration": 1200,
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"next": "SeekCity@Map@Ranshin-Outpost"
+	}
+}

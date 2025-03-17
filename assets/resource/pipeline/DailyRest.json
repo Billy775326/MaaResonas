@@ -1,11 +1,11 @@
 {
-	"Dailyrest": {
+	"DailyRest": {
 		"timeout": 5000,
 		"next": [
-			"Dailyrest@visitCity"
+			"DailyRest@visitCity"
 		],
 		"interrupt": [
-			"Dailyrest@home",
+			"DailyRest@home",
 			"closeinfo@newsignincity@rest"
 		]
 	},
@@ -28,11 +28,11 @@
 		],
 		"next": [
 			"closeinfo@newsignincity@rest",
-			"Dailyrest"
+			"DailyRest"
 		]
 	},
 
-	"Dailyrest@visitCity": {
+	"DailyRest@visitCity": {
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"roi": [
@@ -45,8 +45,8 @@
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
-			"Dailyrest@store",
-			"Dailyrest@store@errorcity",
+			"DailyRest@store",
+			"DailyRest@store@errorcity",
 			"Rest@seekUpright"
 		],
 		"interrupt": [
@@ -75,7 +75,7 @@
 			10
 		],
 		"next": [
-			"Dailyrest@store",
+			"DailyRest@store",
 			"Rest@seekDownleft"
 		]
 	},
@@ -96,8 +96,8 @@
 			10
 		],
 		"next": [
-			"Dailyrest@store",
-			"Dailyrest@store@errorcity"
+			"DailyRest@store",
+			"DailyRest@store@errorcity"
 		],
 		"on_error": "home"
 	},
@@ -111,16 +111,16 @@
 		]
 	},
 
-	"Dailyrest@home": {
+	"DailyRest@home": {
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
 		"next": [
-			"Dailyrest"
+			"DailyRest"
 		]
 	},
 
-	"Dailyrest@store": {
+	"DailyRest@store": {
 		"recognition": "OCR",
 		"expected": "休息区",
 		"pre_delay": 800,
@@ -136,14 +136,14 @@
 		"next": "blackmoonstore"
 	},
 
-	"Dailyrest@store@rightcity": {
+	"DailyRest@store@rightcity": {
 		"recognition": "OCR",
 		"expected": [
 			"(修格里城|曼德矿场|澄明数据中心|7号自由港|阿妮塔发射中心|海角城|岚心城|贡露城)"
 		]
 	},
 
-	"Dailyrest@store@errorcity": {
+	"DailyRest@store@errorcity": {
 		"recognition": "OCR",
 		"roi": [
 			29,

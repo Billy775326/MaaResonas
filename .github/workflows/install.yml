@@ -49,12 +49,33 @@ jobs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
 
-  install:
+  update:
     needs: meta
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: update
+        shell: bash
+        run: |
+          mkdir -p ./update
+          rsync -av --exclude='MaaCommonAssets' ./assets/ ./update/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: update
+          path: "update"
+
+  windows:
+    needs: meta
+    runs-on: windows-latest
     strategy:
       matrix:
-        os: [win, macos, linux, android]
         arch: [aarch64, x86_64]
       fail-fast: false
 
@@ -67,7 +88,51 @@ jobs:
         uses: robinraju/release-downloader@v1
         with:
           repository: MaaXYZ/MaaFramework
-          fileName: "MAA-${{ matrix.os }}-${{ matrix.arch }}*"
+          fileName: "MAA-win-${{ matrix.arch }}*"
+          latest: true
+          out-file-path: "deps"
+          extract: true
+
+      - name: Download MFAWPF
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: SweetSmellFox/MFAWPF
+          filename: MFAWPF*
+          latest: true
+          out-file-path: MFA
+          extract: true
+
+      - name: Install
+        shell: bash
+        run: |
+          python ./install.py ${{ needs.meta.outputs.tag }}
+          cp ./MFA/MFAWPF.exe ./install
+          # url项示例  https://github.com/SweetSmellFox/MFAWPF
+          jq --arg version_name "MaaResonas" --arg url ""https://github.com/Billy775326/MaaResonas"" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./install/interface.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MAAResonas-win-${{ matrix.arch }}
+          path: "install"
+
+  ubuntu:
+    needs: meta
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: [aarch64, x86_64]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Download MaaFramework
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: MaaXYZ/MaaFramework
+          fileName: "MAA-linux-${{ matrix.arch }}*"
           latest: true
           out-file-path: "deps"
           extract: true
@@ -77,47 +142,79 @@ jobs:
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
 
-      - name: Download MFAWPF
-        if: ${{ matrix.os == 'win' }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MAAxxx-linux-${{ matrix.arch }}
+          path: "install"
+
+  macos:
+    needs: meta
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        arch: [aarch64, x86_64]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Download MaaFramework
         uses: robinraju/release-downloader@v1
         with:
-          repository: SweetSmellFox/MFAWPF
-          fileName: "MFAWPF*"
+          repository: MaaXYZ/MaaFramework
+          fileName: "MAA-macos-${{ matrix.arch }}*"
           latest: true
-          out-file-path: "MFAWPF"
+          out-file-path: "deps"
           extract: true
 
-      - name: Install MFAWPF
-        if: ${{ matrix.os == 'win' }}
+      - name: Install
         shell: bash
         run: |
-          cp MFAWPF/MFAWPF.exe install
-
-      - name: Download MFW
-        if: ${{ matrix.os != 'win' && matrix.os != 'android' }}
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-${{ matrix.os }}-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "MFW-PyQt6"
-          extract: true
-
-      - name: Install MFW-PyQt6
-        if: ${{ matrix.os != 'win' && matrix.os != 'android' }}
-        shell: bash
-        run: |
-          rm -rf MFW-PyQt6/MFW_resource/model
-          cp -r MFW-PyQt6/* install
+          python ./install.py ${{ needs.meta.outputs.tag }}
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MaaResonas-${{ matrix.os }}-${{ matrix.arch }}
+          name: MAAxxx-macos-${{ matrix.arch }}
+          path: "install"
+
+  android:
+    needs: meta
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        arch: [aarch64, x86_64]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Download MaaFramework
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: MaaXYZ/MaaFramework
+          fileName: "MAA-android-${{ matrix.arch }}*"
+          latest: true
+
+          out-file-path: "deps"
+          extract: true
+
+      - name: Install
+        shell: bash
+        run: |
+          python ./install.py ${{ needs.meta.outputs.tag }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MAAxxx-android-${{ matrix.arch }}
           path: "install"
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: install
+    needs: [meta, windows, ubuntu, macos, android]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -129,9 +226,7 @@ jobs:
           for f in *; do
             (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
           done
-
       - uses: softprops/action-gh-release@v2
         with:
           files: assets/*
           tag_name: ${{ needs.meta.outputs.tag }}
-          generate_release_notes: true

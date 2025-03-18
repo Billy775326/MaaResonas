@@ -50,10 +50,12 @@
 			"entry": "GetRewards"
 		},
 		{
-			"name": "选项任务",
-			"entry": "MyTask2",
+			"name": "每日任务",
+			"entry": "JudgeCity",
 			"option": [
-				"任务选项1"
+				"每日商会订单",
+				"每日铁安局悬赏战斗",
+				"每日休息区购物"
 			]
 		},
 		{

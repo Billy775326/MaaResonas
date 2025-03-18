@@ -61,10 +61,10 @@
 		],
 		"action": "Click",
 		"next": [
-			"toMaderMine@SwitchCity@route"
+			"ShoggolithCity@toMaderMine@SwitchCity@route"
 		]
 	},
-	"toMaderMine@SwitchCity@route": {
+	"ShoggolithCity@toMaderMine@SwitchCity@route": {
 		"recognition": "OCR",
 		"expected": "自动巡航中",
 		"timeout": 40000,
@@ -77,12 +77,12 @@
 		],
 
 		"next": [
-			"toMaderMine@SwitchCity@route",
-			"toMaderMine@SwitchCity@route@fighting"
+			"ShoggolithCity@toMaderMine@SwitchCity@route",
+			"ShoggolithCity@toMaderMine@SwitchCity@route@fighting"
 		]
 	},
 
-	"toMaderMine@SwitchCity@route@fighting": {
+	"ShoggolithCity@toMaderMine@SwitchCity@route@fighting": {
 		"recognition": "TemplateMatch",
 		"template": [
 			"Fight/autofight.png",
@@ -98,16 +98,16 @@
 		],
 		"post_delay": 3000,
 		"next": [
-			"toMaderMine@SwitchCity@route@fighting",
-			"toMaderMine@SwitchCity@route",
-			"toMaderMine@SwitchCity@inCity"
+			"ShoggolithCity@toMaderMine@SwitchCity@route@fighting",
+			"ShoggolithCity@toMaderMine@SwitchCity@route",
+			"ShoggolithCity@toMaderMine@SwitchCity@inCity"
 		],
 		"interrupt": [
 			"newincity@closeinfo"
 		]
 	},
 
-	"toMaderMine@SwitchCity@inCity": {
+	"ShoggolithCity@toMaderMine@SwitchCity@inCity": {
 		"recognition": "OCR",
 		"roi": [
 			1135,
@@ -258,6 +258,91 @@
 			0,
 			243,
 			210
+		],
+		"action": "Click",
+		"next": [
+			"Initial@B:R.C.L.Outpost@toMaderMine"
+		]
+	},
+
+	"Initial@B:R.C.L.Outpost@toMaderMine": {
+		"doc": "铁盟哨站到曼德矿场",
+		"recognition": "OCR",
+		"expected": ["铁盟哨站"],
+		"action": "Click",
+		"next": [
+			"Initial@B:R.C.L.Outpost@toMaderMine@clickgo"
+		]
+	},
+	"Initial@B:R.C.L.Outpost@toMaderMine@clickgo": {
+		"doc": "铁盟哨站到曼德矿场",
+		"recognition": "OCR",
+		"expected": ["前往目的地"],
+		"roi": [
+			934,
+			603,
+			285,
+			81
+		],
+		"action": "Click",
+		"next": [
+			"B:R.C.L.Outpost@toMaderMine@SwitchCity@route"
+		]
+	},
+	"B:R.C.L.Outpost@toMaderMine@SwitchCity@route": {
+		"recognition": "OCR",
+		"expected": "自动巡航中",
+		"timeout": 40000,
+		"rate_limit": 2000,
+		"roi": [
+			546,
+			99,
+			185,
+			47
+		],
+
+		"next": [
+			"B:R.C.L.Outpost@toMaderMine@SwitchCity@route",
+			"B:R.C.L.Outpost@toMaderMine@SwitchCity@route@fighting"
+		]
+	},
+
+	"B:R.C.L.Outpost@toMaderMine@SwitchCity@route@fighting": {
+		"recognition": "TemplateMatch",
+		"template": [
+			"Fight/autofight.png",
+			"Fight/autofight1.png"
+		],
+		"threshold": 0.8,
+		"rate_limit": 5000,
+		"roi": [
+			114,
+			10,
+			86,
+			67
+		],
+		"post_delay": 3000,
+		"next": [
+			"B:R.C.L.Outpost@toMaderMine@SwitchCity@route@fighting",
+			"B:R.C.L.Outpost@toMaderMine@SwitchCity@route",
+			"B:R.C.L.Outpost@toMaderMine@SwitchCity@inCity"
+		],
+		"interrupt": [
+			"newincity@closeinfo"
+		]
+	},
+
+	"B:R.C.L.Outpost@toMaderMine@SwitchCity@inCity": {
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"Start@ManderMine"
 		]
 	},
 
@@ -270,8 +355,94 @@
 			0,
 			243,
 			210
+		],
+		"action": "Click",
+		"next": [
+			"Initial@WildernessStation@toMaderMine"
 		]
 	},
+
+	"Initial@WildernessStation@toMaderMine": {
+		"doc": "荒原站到曼德矿场",
+		"recognition": "OCR",
+		"expected": ["荒原站"],
+		"action": "Click",
+		"next": [
+			"Initial@WildernessStation@toMaderMine@clickgo"
+		]
+	},
+	"Initial@WildernessStation@toMaderMine@clickgo": {
+		"doc": "荒原站到曼德矿场",
+		"recognition": "OCR",
+		"expected": ["前往目的地"],
+		"roi": [
+			934,
+			603,
+			285,
+			81
+		],
+		"action": "Click",
+		"next": [
+			"WildernessStation@toMaderMine@SwitchCity@route"
+		]
+	},
+	"WildernessStation@toMaderMine@SwitchCity@route": {
+		"recognition": "OCR",
+		"expected": "自动巡航中",
+		"timeout": 40000,
+		"rate_limit": 2000,
+		"roi": [
+			546,
+			99,
+			185,
+			47
+		],
+
+		"next": [
+			"WildernessStation@toMaderMine@SwitchCity@route",
+			"WildernessStation@toMaderMine@SwitchCity@route@fighting"
+		]
+	},
+
+	"WildernessStation@toMaderMine@SwitchCity@route@fighting": {
+		"recognition": "TemplateMatch",
+		"template": [
+			"Fight/autofight.png",
+			"Fight/autofight1.png"
+		],
+		"threshold": 0.8,
+		"rate_limit": 5000,
+		"roi": [
+			114,
+			10,
+			86,
+			67
+		],
+		"post_delay": 3000,
+		"next": [
+			"WildernessStation@toMaderMine@SwitchCity@route@fighting",
+			"WildernessStation@toMaderMine@SwitchCity@route",
+			"WildernessStation@toMaderMine@SwitchCity@inCity"
+		],
+		"interrupt": [
+			"newincity@closeinfo"
+		]
+	},
+
+	"WildernessStation@toMaderMine@SwitchCity@inCity": {
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"Start@ManderMine"
+		]
+	},
+
 	"Initial@YunXiuBridge": {
 		"doc": "云岫桥基地",
 		"recognition": "OCR",
@@ -304,6 +475,91 @@
 			0,
 			243,
 			210
+		],
+		"action": "Click",
+		"next": [
+			"Initial@Onederland@toMaderMine"
+		]
+	},
+
+	"Initial@Onederland@toMaderMine": {
+		"doc": "淘金乐园到曼德矿场",
+		"recognition": "OCR",
+		"expected": ["淘金乐园"],
+		"action": "Click",
+		"next": [
+			"Initial@Onederland@toMaderMine@clickgo"
+		]
+	},
+	"Initial@Onederland@toMaderMine@clickgo": {
+		"doc": "淘金乐园到曼德矿场",
+		"recognition": "OCR",
+		"expected": ["前往目的地"],
+		"roi": [
+			934,
+			603,
+			285,
+			81
+		],
+		"action": "Click",
+		"next": [
+			"Onederland@toMaderMine@SwitchCity@route"
+		]
+	},
+	"Onederland@toMaderMine@SwitchCity@route": {
+		"recognition": "OCR",
+		"expected": "自动巡航中",
+		"timeout": 40000,
+		"rate_limit": 2000,
+		"roi": [
+			546,
+			99,
+			185,
+			47
+		],
+
+		"next": [
+			"Onederland@toMaderMine@SwitchCity@route",
+			"Onederland@toMaderMine@SwitchCity@route@fighting"
+		]
+	},
+
+	"Onederland@toMaderMine@SwitchCity@route@fighting": {
+		"recognition": "TemplateMatch",
+		"template": [
+			"Fight/autofight.png",
+			"Fight/autofight1.png"
+		],
+		"threshold": 0.8,
+		"rate_limit": 5000,
+		"roi": [
+			114,
+			10,
+			86,
+			67
+		],
+		"post_delay": 3000,
+		"next": [
+			"Onederland@toMaderMine@SwitchCity@route@fighting",
+			"Onederland@toMaderMine@SwitchCity@route",
+			"Onederland@toMaderMine@SwitchCity@inCity"
+		],
+		"interrupt": [
+			"newincity@closeinfo"
+		]
+	},
+
+	"Onederland@toMaderMine@SwitchCity@inCity": {
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"Start@ManderMine"
 		]
 	},
 

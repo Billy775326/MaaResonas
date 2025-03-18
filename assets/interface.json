@@ -33,10 +33,6 @@
 			"name": "唤醒",
 			"entry": "startup"
 		},
-		{
-			"name": "每日商会订单",
-			"entry": "DailyOrder"
-		},
 
 		{
 			"name": "领取每日奖励",

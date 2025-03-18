@@ -103,7 +103,7 @@
 	},
 
 	"GetRewards@Activity@600end": {
-		"recognition": "TemplateMatch",
+		"recognition": "FeatureMatch",
 		"template": "Reward/Activity600end.jpg",
 		"roi": [
 			1010,
@@ -111,7 +111,7 @@
 			80,
 			125
 		],
-		"threshold": 0.95,
+		"threshold": 0.9,
 		"post_delay": 500,
 		"next": [
 			"Activity@home@manual"

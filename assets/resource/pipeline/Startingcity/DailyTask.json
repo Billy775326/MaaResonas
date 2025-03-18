@@ -46,7 +46,7 @@
 		"expected": ["曼德矿场"],
 		"action": "Click",
 		"next": [
-			"@ShoggolithCity@toMaderMine@clickgo"
+			"Initial@ShoggolithCity@toMaderMine@clickgo"
 		]
 	},
 	"Initial@ShoggolithCity@toMaderMine@clickgo": {

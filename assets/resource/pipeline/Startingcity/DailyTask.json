@@ -1,0 +1,366 @@
+{
+	"Daily@Initial": {
+		"next": [
+			"Initial@ShoggolithCity",
+			"Initial@ManderMine",
+			"Initial@ClarityDataCenterAdministrationBureau",
+			"Initial@AnitaRocketBase",
+			"Initial@CapeCity",
+			"Initial@RanShinCity",
+			"Initial@FreePortⅦ",
+			"Initial@GroNruCity"
+		],
+		"interrupt": [
+			"Initial@B:R.C.L.Outpost",
+			"Initial@WildernessStation",
+			"Initial@YunXiuBridge",
+			"Initial@SumihhaneStation",
+			"Initial@Onederland",
+			"Initial@AnitaWeaponResearchInstitute",
+			"Initial@AnitaEnergyResearchInstitute",
+			"Initial@ApoasterBridge",
+			"Initial@ConfluenceTower",
+			"Initial@TatoInstitution",
+			"home"
+		]
+	},
+
+	"Initial@ShoggolithCity": {
+		"doc": "修格里城",
+		"recognition": "OCR",
+		"expected": ["修格里城"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"action": "Click",
+		"next": [
+			"Initial@ShoggolithCity@toMaderMine"
+		]
+	},
+	"Initial@ShoggolithCity@toMaderMine": {
+		"doc": "修格里城到曼德矿场",
+		"recognition": "OCR",
+		"expected": ["曼德矿场"],
+		"action": "Click",
+		"next": [
+			"@ShoggolithCity@toMaderMine@clickgo"
+		]
+	},
+	"Initial@ShoggolithCity@toMaderMine@clickgo": {
+		"doc": "修格里城到曼德矿场",
+		"recognition": "OCR",
+		"expected": ["前往目的地"],
+		"roi": [
+			934,
+			603,
+			285,
+			81
+		],
+		"action": "Click",
+		"next": [
+			"toMaderMine@SwitchCity@route"
+		]
+	},
+	"toMaderMine@SwitchCity@route": {
+		"recognition": "OCR",
+		"expected": "自动巡航中",
+		"timeout": 40000,
+		"rate_limit": 2000,
+		"roi": [
+			546,
+			99,
+			185,
+			47
+		],
+
+		"next": [
+			"toMaderMine@SwitchCity@route",
+			"toMaderMine@SwitchCity@route@fighting"
+		]
+	},
+
+	"toMaderMine@SwitchCity@route@fighting": {
+		"recognition": "TemplateMatch",
+		"template": [
+			"Fight/autofight.png",
+			"Fight/autofight1.png"
+		],
+		"threshold": 0.8,
+		"rate_limit": 5000,
+		"roi": [
+			114,
+			10,
+			86,
+			67
+		],
+		"post_delay": 3000,
+		"next": [
+			"toMaderMine@SwitchCity@route@fighting",
+			"toMaderMine@SwitchCity@route",
+			"toMaderMine@SwitchCity@inCity"
+		],
+		"interrupt": [
+			"newincity@closeinfo"
+		]
+	},
+
+	"toMaderMine@SwitchCity@inCity": {
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"Start@ManderMine"
+		]
+	},
+
+	"Initial@ManderMine": {
+		"doc": "曼德矿场",
+		"recognition": "OCR",
+		"expected": ["曼德矿场"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"next": [
+			"Start@ManderMine"
+		]
+	},
+
+	"Start@ManderMine": {
+		"doc": "开始",
+		"recognition": "OCR",
+		"expected": ["开始"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"next": [
+			"DailyOrder@ManderMine",
+			"DailyFight@ManderMine",
+			"DailyRest"
+		]
+	},
+
+	"DailyOrder@ManderMine": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder"
+		],
+		"next": [
+			"Dailyship"
+		]
+	},
+
+	"DailyFight@ManderMine": {
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight"
+		],
+		"next": [
+			"Dailyfight@visitCity"
+		]
+	},
+
+	"Initial@ClarityDataCenterAdministrationBureau": {
+		"doc": "澄明数据中心",
+		"recognition": "OCR",
+		"expected": ["澄明数据中心"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Initial@AnitaRocketBase": {
+		"doc": "阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": ["阿妮塔发射中心"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Initial@CapeCity": {
+		"doc": "海角城",
+		"recognition": "OCR",
+		"expected": ["海角城"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Initial@RanShinCity": {
+		"doc": "岚心城",
+		"recognition": "OCR",
+		"expected": ["岚心城"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Initial@GroNruCity": {
+		"doc": "贡露城",
+		"recognition": "OCR",
+		"expected": ["贡露城"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Initial@FreePortⅦ": {
+		"doc": "7号自由港",
+		"recognition": "OCR",
+		"expected": ["7号自由港"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"Initial@B:R.C.L.Outpost": {
+		"doc": "铁盟哨站",
+		"recognition": "OCR",
+		"expected": ["铁盟哨站"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Initial@WildernessStation": {
+		"doc": "荒原站",
+		"recognition": "OCR",
+		"expected": ["荒原站"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"Initial@YunXiuBridge": {
+		"doc": "云岫桥基地",
+		"recognition": "OCR",
+		"expected": ["云岫桥基地"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"Initial@SumihhaneStation": {
+		"doc": "栖羽站",
+		"recognition": "OCR",
+		"expected": ["栖羽站"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Initial@Onederland": {
+		"doc": "淘金乐园",
+		"recognition": "OCR",
+		"expected": ["淘金乐园"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Initial@AnitaWeaponResearchInstitute": {
+		"doc": "阿妮塔战备工厂",
+		"recognition": "OCR",
+		"expected": ["阿妮塔战备工厂"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"Initial@AnitaEnergyResearchInstitute": {
+		"doc": "阿妮塔能源研究所",
+		"recognition": "OCR",
+		"expected": ["阿妮塔能源研究所"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"Initial@ApoasterBridge": {
+		"doc": "远星大桥",
+		"recognition": "OCR",
+		"expected": ["远星大桥"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"Initial@ConfluenceTower": {
+		"doc": "汇流塔",
+		"recognition": "OCR",
+		"expected": ["汇流塔"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Initial@TatoInstitution": {
+		"doc": "塔图站",
+		"recognition": "OCR",
+		"expected": ["塔图站"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	}
+}

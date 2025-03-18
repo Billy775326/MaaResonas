@@ -47,14 +47,14 @@
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
-		"next": "Dailyfight",
+		"next": "Dailyfight@task",
 		"interrupt": [
 			"home",
 			"DailyFight"
 		]
 	},
 
-	"Dailyfight": {
+	"Dailyfight@task": {
 		"post_delay": 2000,
 		"next": [
 			"Bureau",
@@ -281,13 +281,16 @@
 			300,
 			220
 		],
-		"doc": "home@store,使用plcli集成任务",
+		"doc": "home@store默认关闭,pipeline_override设置enable 使用plcli集成任务",
 		"next": [
-			"home@StopTask"
+			"home@store",
+			"home@StopTask",
+			"home"
 		]
 	},
 
 	"home@store": {
+		"enabled": false,
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
@@ -296,6 +299,7 @@
 	},
 
 	"home@StopTask": {
+		"enabled": false,
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",

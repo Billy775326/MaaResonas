@@ -183,10 +183,13 @@
 		"expected": [
 			"取消订单"
 		],
-		"doc": "home@tofight任务取消调用,使用plcli集成任务",
+		"doc": "home@tofight任务可取消调用,pipeline_override 设置enable=false使用plcli集成任务",
 		"next": [
 			"nextOrder",
-			"home@StopTask"
+			"home@tofight",
+			"home@store",
+			"home@StopTask",
+			"home"
 		],
 		"interrupt": "closeinfo@shipConfirmfailed"
 	},
@@ -200,6 +203,7 @@
 	},
 
 	"home@tofight": {
+		"enabled": false,
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",

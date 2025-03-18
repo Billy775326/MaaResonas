@@ -37,52 +37,65 @@
 			"name": "每日商会订单",
 			"entry": "DailyOrder"
 		},
+
 		{
-			"name": "每日铁安局悬赏战斗",
-			"entry": "DailyFight"
-		},
-		{
-			"name": "每日休息区购物",
-			"entry": "DailyRest"
-		},
-		{
-			"name": "每日奖励",
+			"name": "领取每日奖励",
 			"entry": "GetRewards"
 		},
 		{
-			"name": "每日任务",
-			"entry": "JudgeCity",
+			"name": "商会订单",
+			"entry": "Daily@Initial",
 			"option": [
-				"每日商会订单",
-				"每日铁安局悬赏战斗",
-				"每日休息区购物"
-			]
+				"曼德矿场订单"
+			],
+			"pipeline_override": {}
 		},
 		{
-			"name": "参数任务",
-			"entry": "MyTask3",
+			"name": "铁安局悬赏",
+			"entry": "Daily@Initial",
 			"option": [
-				"任务选项1"
+				"曼德矿场悬赏"
 			],
 			"pipeline_override": {}
 		}
 	],
 	"option": {
-		"任务选项1": {
+		"曼德矿场订单": {
 			"cases": [
 				{
-					"name": "文本1",
+					"name": "turn on",
 					"pipeline_override": {
-						"OcrTask": {
-							"text": "文本1"
+						"DailyOrder@ManderMine": {
+							"enabled": true
 						}
 					}
 				},
 				{
-					"name": "文本2",
+					"name": "turn off",
 					"pipeline_override": {
-						"OcrTask": {
-							"text": "文本2"
+						"DailyOrder@ManderMine": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"曼德矿场悬赏": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyFight@ManderMine": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyFight@ManderMine": {
+							"enabled": false
 						}
 					}
 				}

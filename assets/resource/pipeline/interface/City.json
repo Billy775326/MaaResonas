@@ -1,14 +1,109 @@
 {
-	"JudgeCity": {
+	"Daliy@JudgeCity": {
 		"next": [
-			"ManderMine",
-			"ShoggolithCity",
-			"ClarityDataCenterAdministrationBureau",
-			"AnitaRocketBase",
-			"CapeCity",
-			"RanShinCity",
-			"GroNruCity",
-			"FreePortⅦ"
+			"Daliy@ManderMine",
+			"Daliy@ShoggolithCity",
+			"Daliy@ClarityDataCenterAdministrationBureau",
+			"Daliy@AnitaRocketBase",
+			"Daliy@CapeCity",
+			"Daliy@RanShinCity",
+			"Daliy@GroNruCity",
+			"Daliy@FreePortⅦ"
+		]
+	},
+	"Daliy@ShoggolithCity": {
+		"doc": "修格里城",
+		"recognition": "OCR",
+		"expected": ["修格里城"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Daliy@ManderMine": {
+		"doc": "曼德矿场",
+		"recognition": "OCR",
+		"expected": ["曼德矿场"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Daliy@ClarityDataCenterAdministrationBureau": {
+		"doc": "澄明数据中心",
+		"recognition": "OCR",
+		"expected": ["澄明数据中心"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Daliy@AnitaRocketBase": {
+		"doc": "阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": ["阿妮塔发射中心"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Daliy@CapeCity": {
+		"doc": "海角城",
+		"recognition": "OCR",
+		"expected": ["海角城"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Daliy@RanShinCity": {
+		"doc": "岚心城",
+		"recognition": "OCR",
+		"expected": ["岚心城"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Daliy@GroNruCity": {
+		"doc": "贡露城",
+		"recognition": "OCR",
+		"expected": ["贡露城"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+
+	"Daliy@FreePortⅦ": {
+		"doc": "7号自由港",
+		"recognition": "OCR",
+		"expected": ["7号自由港"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
 		]
 	}
 }

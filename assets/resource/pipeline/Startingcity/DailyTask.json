@@ -37,77 +37,12 @@
 		],
 		"action": "Click",
 		"next": [
-			"Initial@ShoggolithCity@toMaderMine"
-		]
-	},
-	"Initial@ShoggolithCity@toMaderMine": {
-		"doc": "修格里城到曼德矿场",
-		"recognition": "OCR",
-		"expected": ["曼德矿场"],
-		"action": "Click",
-		"next": [
-			"Initial@ShoggolithCity@toMaderMine@clickgo"
-		]
-	},
-	"Initial@ShoggolithCity@toMaderMine@clickgo": {
-		"doc": "修格里城到曼德矿场",
-		"recognition": "OCR",
-		"expected": ["前往目的地"],
-		"roi": [
-			934,
-			603,
-			285,
-			81
-		],
-		"action": "Click",
-		"next": [
-			"ShoggolithCity@toMaderMine@SwitchCity@route"
-		]
-	},
-	"ShoggolithCity@toMaderMine@SwitchCity@route": {
-		"recognition": "OCR",
-		"expected": "自动巡航中",
-		"timeout": 40000,
-		"rate_limit": 2000,
-		"roi": [
-			546,
-			99,
-			185,
-			47
-		],
-
-		"next": [
-			"ShoggolithCity@toMaderMine@SwitchCity@route",
-			"ShoggolithCity@toMaderMine@SwitchCity@route@fighting"
+			"Start@ShoggolithCity"
 		]
 	},
 
-	"ShoggolithCity@toMaderMine@SwitchCity@route@fighting": {
-		"recognition": "TemplateMatch",
-		"template": [
-			"Fight/autofight.png",
-			"Fight/autofight1.png"
-		],
-		"threshold": 0.8,
-		"rate_limit": 5000,
-		"roi": [
-			114,
-			10,
-			86,
-			67
-		],
-		"post_delay": 3000,
-		"next": [
-			"ShoggolithCity@toMaderMine@SwitchCity@route@fighting",
-			"ShoggolithCity@toMaderMine@SwitchCity@route",
-			"ShoggolithCity@toMaderMine@SwitchCity@inCity"
-		],
-		"interrupt": [
-			"newincity@closeinfo"
-		]
-	},
-
-	"ShoggolithCity@toMaderMine@SwitchCity@inCity": {
+	"Start@ShoggolithCity": {
+		"doc": "开始",
 		"recognition": "OCR",
 		"roi": [
 			1135,
@@ -117,7 +52,37 @@
 		],
 		"expected": "启程",
 		"next": [
-			"Start@ManderMine"
+			"DailyOrder@ShoggolithCity",
+			"DailyFight@ShoggolithCity",
+			"DailyRest"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+
+	"DailyOrder@ShoggolithCity": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder"
+		],
+		"next": [
+			"Dailyship"
+		]
+	},
+
+	"DailyFight@ShoggolithCity": {
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight"
+		],
+		"next": [
+			"Dailyfight@visitCity"
 		]
 	},
 
@@ -139,17 +104,20 @@
 	"Start@ManderMine": {
 		"doc": "开始",
 		"recognition": "OCR",
-		"expected": ["开始"],
 		"roi": [
-			0,
-			0,
-			243,
-			210
+			1135,
+			605,
+			145,
+			115
 		],
+		"expected": "启程",
 		"next": [
 			"DailyOrder@ManderMine",
 			"DailyFight@ManderMine",
 			"DailyRest"
+		],
+		"interrupt": [
+			"home"
 		]
 	},
 
@@ -189,6 +157,50 @@
 			210
 		]
 	},
+	"Start@ClarityDataCenterAdministrationBureau": {
+		"doc": "开始",
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"DailyOrder@ClarityDataCenterAdministrationBureau",
+			"DailyFight@ClarityDataCenterAdministrationBureau",
+			"DailyRest"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+
+	"DailyOrder@ClarityDataCenterAdministrationBureau": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder"
+		],
+		"next": [
+			"Dailyship"
+		]
+	},
+
+	"DailyFight@ClarityDataCenterAdministrationBureau": {
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight"
+		],
+		"next": [
+			"Dailyfight@visitCity"
+		]
+	},
 
 	"Initial@AnitaRocketBase": {
 		"doc": "阿妮塔发射中心",
@@ -199,6 +211,50 @@
 			0,
 			243,
 			210
+		]
+	},
+	"Start@AnitaRocketBase": {
+		"doc": "开始",
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"DailyOrder@AnitaRocketBase",
+			"DailyFight@AnitaRocketBase",
+			"DailyRest"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+
+	"DailyOrder@AnitaRocketBase": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder"
+		],
+		"next": [
+			"Dailyship"
+		]
+	},
+
+	"DailyFight@AnitaRocketBase": {
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight"
+		],
+		"next": [
+			"Dailyfight@visitCity"
 		]
 	},
 
@@ -213,6 +269,50 @@
 			210
 		]
 	},
+	"Start@CapeCity": {
+		"doc": "开始",
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"DailyOrder@CapeCity",
+			"DailyFight@CapeCity",
+			"DailyRest"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+
+	"DailyOrder@CapeCity": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder"
+		],
+		"next": [
+			"Dailyship"
+		]
+	},
+
+	"DailyFight@CapeCity": {
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight"
+		],
+		"next": [
+			"Dailyfight@visitCity"
+		]
+	},
 
 	"Initial@RanShinCity": {
 		"doc": "岚心城",
@@ -223,6 +323,50 @@
 			0,
 			243,
 			210
+		]
+	},
+	"Start@RanShinCity": {
+		"doc": "开始",
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"DailyOrder@RanShinCity",
+			"DailyFight@RanShinCity",
+			"DailyRest"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+
+	"DailyOrder@RanShinCity": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder"
+		],
+		"next": [
+			"Dailyship"
+		]
+	},
+
+	"DailyFight@RanShinCity": {
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight"
+		],
+		"next": [
+			"Dailyfight@visitCity"
 		]
 	},
 
@@ -237,6 +381,50 @@
 			210
 		]
 	},
+	"Start@GroNruCity": {
+		"doc": "开始",
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"DailyOrder@GroNruCity",
+			"DailyFight@GroNruCity",
+			"DailyRest"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+
+	"DailyOrder@GroNruCity": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder"
+		],
+		"next": [
+			"Dailyship"
+		]
+	},
+
+	"DailyFight@GroNruCity": {
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight"
+		],
+		"next": [
+			"Dailyfight@visitCity"
+		]
+	},
 
 	"Initial@FreePortⅦ": {
 		"doc": "7号自由港",
@@ -247,6 +435,50 @@
 			0,
 			243,
 			210
+		]
+	},
+	"Start@FreePortⅦ": {
+		"doc": "开始",
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"next": [
+			"DailyOrder@FreePortⅦ",
+			"DailyFight@FreePortⅦ",
+			"DailyRest"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+
+	"DailyOrder@FreePortⅦ": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder"
+		],
+		"next": [
+			"Dailyship"
+		]
+	},
+
+	"DailyFight@FreePortⅦ": {
+		"timeout": 3000,
+		"on_error": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight"
+		],
+		"next": [
+			"Dailyfight@visitCity"
 		]
 	},
 	"Initial@B:R.C.L.Outpost": {

@@ -42,7 +42,14 @@
 			"name": "商会订单",
 			"entry": "Daily@Initial",
 			"option": [
-				"曼德矿场订单"
+				"曼德矿场订单",
+				"修格里城订单",
+				"澄明数据中心订单",
+				"7号自由港订单",
+				"阿妮塔发射中心订单",
+				"海角城订单",
+				"岚心城订单",
+				"贡露城订单"
 			],
 			"pipeline_override": {}
 		},
@@ -50,7 +57,14 @@
 			"name": "铁安局悬赏",
 			"entry": "Daily@Initial",
 			"option": [
-				"曼德矿场悬赏"
+				"曼德矿场悬赏",
+				"修格里城悬赏",
+				"澄明数据中心悬赏",
+				"7号自由港悬赏",
+				"阿妮塔发射中心悬赏",
+				"海角城悬赏",
+				"岚心城悬赏",
+				"贡露城悬赏"
 			],
 			"pipeline_override": {}
 		}
@@ -91,6 +105,300 @@
 					"name": "turn off",
 					"pipeline_override": {
 						"DailyFight@ManderMine": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"修格里城订单": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyOrder@ShoggolithCity": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyOrder@ShoggolithCity": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"修格里城悬赏": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyFight@ShoggolithCity": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyFight@ShoggolithCity": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"澄明数据中心订单": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyOrder@ClarityDataCenterAdministrationBureau": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyOrder@ClarityDataCenterAdministrationBureau": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"澄明数据中心悬赏": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyFight@ClarityDataCenterAdministrationBureau": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyFight@ClarityDataCenterAdministrationBureau": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"7号自由港订单": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyOrder@FreePortⅦ": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyOrder@FreePortⅦ": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"7号自由港悬赏": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyFight@FreePortⅦ": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyFight@FreePortⅦ": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"阿妮塔发射中心订单": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyOrder@AnitaRocketBase": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyOrder@AnitaRocketBase": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"阿妮塔发射中心悬赏": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyFight@AnitaRocketBase": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyFight@AnitaRocketBase": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"海角城订单": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyOrder@CapeCity": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyOrder@CapeCity": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"海角城悬赏": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyFight@CapeCity": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyFight@CapeCity": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"岚心城订单": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyOrder@RanShinCity": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyOrder@RanShinCity": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"岚心城悬赏": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyFight@RanShinCity": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyFight@RanShinCity": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"贡露城订单": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyOrder@GroNruCity": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyOrder@GroNruCity": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+
+		"贡露城悬赏": {
+			"cases": [
+				{
+					"name": "turn on",
+					"pipeline_override": {
+						"DailyFight@GroNruCity": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "turn off",
+					"pipeline_override": {
+						"DailyFight@GroNruCity": {
 							"enabled": false
 						}
 					}

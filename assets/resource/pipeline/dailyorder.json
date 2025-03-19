@@ -134,9 +134,22 @@
 		],
 		"action": "Click",
 		"post_delay": 1200,
-		"next": "shipConfirm"
+		"next": [
+			"shipConfirm",
+			"missingorder"
+		]
 	},
-
+	"missingorder": {
+		"recognition": "OCR",
+		"expected": ["追加新的订单"],
+		"roi": [
+			458,
+			83,
+			808,
+			188
+		],
+		"next": "home"
+	},
 	"shipConfirm": {
 		"recognition": "OCR",
 		"expected": [

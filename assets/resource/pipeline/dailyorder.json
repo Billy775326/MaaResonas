@@ -172,7 +172,7 @@
 			"查看订单"
 		],
 		"focus": true,
-
+		"focus_tip": "接取订单",
 		"action": "Click",
 		"post_delay": 400,
 		"next": [

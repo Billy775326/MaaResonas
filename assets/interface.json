@@ -35,10 +35,6 @@
 		},
 
 		{
-			"name": "领取每日奖励",
-			"entry": "GetRewards"
-		},
-		{
 			"name": "商会订单",
 			"entry": "Daily@Initial",
 			"option": [
@@ -67,6 +63,11 @@
 				"贡露城悬赏"
 			],
 			"pipeline_override": {}
+		},
+
+		{
+			"name": "领取每日奖励",
+			"entry": "GetRewards"
 		}
 	],
 	"option": {

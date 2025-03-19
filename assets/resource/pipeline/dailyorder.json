@@ -33,6 +33,8 @@
 			"客运收益结算"
 		],
 		"action": "Click",
+		"focus": true,
+		"focus_tip": "关闭游戏弹窗",
 		"target": [
 			100,
 			661,
@@ -148,6 +150,9 @@
 			808,
 			188
 		],
+		"focus": true,
+		"focus_tip": "该城市订单已全部完成",
+		"focus_tip_color": "blue",
 		"next": "home"
 	},
 	"shipConfirm": {
@@ -157,6 +162,8 @@
 			"查看订单"
 		],
 		"action": "Click",
+		"focus": true,
+		"focus_tip": "接取订单",
 		"post_delay": 600,
 		"next": [
 			"shipConfirmfinish",
@@ -171,8 +178,7 @@
 			"接取订单",
 			"查看订单"
 		],
-		"focus": true,
-		"focus_tip": "接取订单",
+
 		"action": "Click",
 		"post_delay": 400,
 		"next": [
@@ -228,7 +234,9 @@
 	"visitCity": {
 		"recognition": "OCR",
 		"expected": "访问城市",
-		"action": "Click"
+		"action": "Click",
+		"focus": true,
+		"focus_tip": "访问城市"
 	},
 
 	"inCity": {
@@ -247,7 +255,8 @@
 		"template": "home.png",
 		"action": "Click",
 		"post_delay": 400,
-		"doc": "回到首页"
+		"focus": true,
+		"focus_tip": "回到首页"
 	},
 
 	"backup": {

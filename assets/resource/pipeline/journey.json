@@ -125,7 +125,7 @@
 			220
 		],
 		"rate_limit": 100,
-		"threshold": 0.7,
+		"threshold": 0.3,
 		"action": "Click",
 		"next": [
 			"normalCargo",

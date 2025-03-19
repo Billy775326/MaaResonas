@@ -180,6 +180,8 @@
 			696,
 			341
 		],
+		"focus": true,
+		"focus_tip": "每日桦石",
 		"action": "Click",
 		"post_delay": 1000,
 		"next": "birchstone@confirm"

@@ -12,8 +12,10 @@
 		"action": "StartApp",
 		"package": "com.hermes.goda",
 		"doc": "包名启动应用",
-		"pre_wait_freezes": 8000,
-		"rate_limit": 3000,
+		"focus": true,
+		"focus_tip": "启动app",
+		"post_delay": 30000,
+		"rate_limit": 5000,
 		"next": [
 			"Enter"
 		],
@@ -57,6 +59,8 @@
 			1218,
 			192
 		],
+		"focus": true,
+		"focus_tip": "下载更新",
 		"rate_limit": 5000,
 		"next": [
 			"update@confirm",
@@ -115,6 +119,8 @@
 		"recognition": "OCR",
 		"expected": "点击屏幕进入游戏",
 		"action": "Click",
+		"focus": true,
+		"focus_tip": "登录首页",
 		"rate_limit": 5000,
 		"post_delay": 10000,
 		"next": [
@@ -155,6 +161,8 @@
 		"on_error": [
 			"Enter1@inCity"
 		],
+		"focus": true,
+		"focus_tip": "签到奖励",
 		"post_delay": 800,
 		"next": [
 			"closeinfo"

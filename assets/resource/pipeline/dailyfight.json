@@ -89,6 +89,8 @@
 			"负责人不在",
 			"先去其他地方逛逛吧"
 		],
+		"focus": true,
+		"focus_tip": "铁安局未解锁",
 		"next": "home@StopTask"
 	},
 
@@ -136,6 +138,9 @@
 	"bountylevel5": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/5stars.png",
+		"focus": true,
+		"focus_tip": "五星悬赏",
+		"focus_tip_color": "gold",
 		"threshold": 0.95,
 		"next": "gofightingsmall",
 		"interrupt": "deleteimage"
@@ -144,6 +149,9 @@
 	"bountylevel4": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/4star.png",
+		"focus": true,
+		"focus_tip": "四星悬赏",
+		"focus_tip_color": "purple",
 		"threshold": 0.95,
 		"next": "deleteimage"
 	},
@@ -151,6 +159,9 @@
 	"bountylevel3": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/3star.png",
+		"focus_tip_color": "blue",
+		"focus": true,
+		"focus_tip": "三星悬赏",
 		"threshold": 0.95,
 		"next": "deleteimage"
 	},
@@ -158,6 +169,8 @@
 	"bountylevel2": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/2star.png",
+		"focus": true,
+		"focus_tip": "二星悬赏",
 		"threshold": 0.95,
 		"next": "deleteimage"
 	},
@@ -165,6 +178,8 @@
 	"bountylevel1": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/1star.png",
+		"focus": true,
+		"focus_tip": "一星悬赏",
 		"threshold": 0.95,
 		"next": "deleteimage"
 	},
@@ -180,6 +195,8 @@
 	"gofightinglarge-20": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/gofightinglarge-20.png",
+		"focus": true,
+		"focus_tip": "进入战斗",
 		"action": "Click",
 		"post_delay": 1500,
 		"next": [
@@ -193,7 +210,9 @@
 	"pasuefighting": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/pause.png",
-		"post_delay": 2000
+		"post_delay": 2000,
+		"focus": true,
+		"focus_tip": "暂停战斗"
 	},
 
 	"autofighting": {
@@ -202,6 +221,8 @@
 			"Fight/autofight.png",
 			"Fight/autofight1.png"
 		],
+		"focus": true,
+		"focus_tip": "自动战斗中",
 		"post_wait_freezes": 30000,
 		"rate_limit": 8000,
 		"next": "fightingend"
@@ -225,12 +246,16 @@
 	"victory": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/victory.png",
+		"focus": true,
+		"focus_tip": "战斗胜利",
 		"next": "nextstep"
 	},
 
 	"defeat": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/defeat.png",
+		"focus": true,
+		"focus_tip": "战斗失败",
 		"next": "nextstep"
 	},
 
@@ -251,6 +276,8 @@
 	"deleteimage": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/delete.png",
+		"focus": true,
+		"focus_tip": "删除悬赏",
 		"action": "Click",
 		"next": [
 			"confirmshort"
@@ -275,6 +302,8 @@
 		"recognition": "OCR",
 		"pre_delay": 800,
 		"expected": "暂无城市悬赏任务",
+		"focus": true,
+		"focus_tip": "当前城市悬赏任务全部完成",
 		"roi": [
 			620,
 			270,

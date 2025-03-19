@@ -16,6 +16,8 @@
 			"Reward/ActivityRewards1.png",
 			"Reward/ActivityRewards2.png"
 		],
+		"focus": true,
+		"focus_tip": "领取活跃度奖励",
 		"action": "Click",
 		"roi": [
 			0,
@@ -53,7 +55,8 @@
 			80
 		],
 		"post_delay": 400,
-
+		"focus": true,
+		"focus_tip": "领取活跃任务",
 		"next": [
 			"GetRewards@Activity@Available",
 			"GetRewards@Activity@600ing",
@@ -76,6 +79,8 @@
 			80,
 			125
 		],
+		"focus": true,
+		"focus_tip": "活跃度未满",
 		"threshold": 0.95,
 		"next": [
 			"GetRewards@Activity@Available"
@@ -91,6 +96,8 @@
 			80,
 			125
 		],
+		"focus": true,
+		"focus_tip": "领取600活跃度奖励",
 		"threshold": 0.9,
 		"action": "Click",
 		"post_delay": 500,
@@ -111,6 +118,8 @@
 			80,
 			125
 		],
+		"focus": true,
+		"focus_tip": "活跃度奖励领取完成",
 		"threshold": 0.9,
 		"post_delay": 500,
 		"next": [
@@ -126,6 +135,8 @@
 		"next": [
 			"GetRewards@Manual@judge"
 		],
+		"focus": true,
+		"focus_tip": "手册奖励",
 		"interrupt": [
 			"Activity@home@manual"
 		]
@@ -180,6 +191,8 @@
 			280,
 			100
 		],
+		"focus": true,
+		"focus_tip": "手册任务一键领取",
 		"timeout": 2000,
 		"action": "Click",
 		"post_delay": 800,
@@ -230,6 +243,8 @@
 			280,
 			100
 		],
+		"focus": true,
+		"focus_tip": "手册等级奖励领取",
 		"timeout": 2000,
 		"action": "Click",
 		"post_delay": 800,
@@ -249,7 +264,7 @@
 		],
 		"action": "Click",
 		"next": [
-			"home@StopTask"
+			"home"
 		]
 	},
 
@@ -314,6 +329,8 @@
 			0,
 			0
 		],
+		"focus": true,
+		"focus_tip": "委托派遣奖励",
 		"action": "Click",
 		"post_delay": 800,
 		"next": [
@@ -344,6 +361,8 @@
 			176,
 			59
 		],
+		"focus": true,
+		"focus_tip": "领取委托奖励",
 		"action": "Click",
 		"post_delay": 800,
 		"next": [
@@ -358,6 +377,8 @@
 			905,
 			672
 		],
+		"focus": true,
+		"focus_tip": "再次委托",
 		"expected": "再次委托",
 		"action": "Click",
 		"post_delay": 800,
@@ -374,6 +395,8 @@
 			74
 		],
 		"expected": "召回",
+		"focus": true,
+		"focus_tip": "上次派遣未完成",
 		"next": [
 			"GetRewards@Delegation@home"
 		]
@@ -386,11 +409,11 @@
 			244,
 			74
 		],
+		"focus": true,
+		"focus_tip": "回到首页",
 		"template": "home.png",
 		"action": "Click",
-		"next": [
-			"GetRewards@Delegation@StopTask"
-		]
+		"doc": "next GetRewards@Delegation@StopTask"
 	},
 	"GetRewards@Delegation@StopTask": {
 		"action": "StopTask"

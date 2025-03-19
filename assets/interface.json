@@ -73,17 +73,23 @@
 		"曼德矿场订单": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyOrder@ManderMine": {
 							"enabled": true
+						},
+						"DailyFight@ManderMine": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyOrder@ManderMine": {
+							"enabled": false
+						},
+						"DailyFight@ManderMine": {
 							"enabled": false
 						}
 					}
@@ -94,17 +100,23 @@
 		"曼德矿场悬赏": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyFight@ManderMine": {
 							"enabled": true
+						},
+						"DailyOrder@ManderMine": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyFight@ManderMine": {
+							"enabled": false
+						},
+						"DailyOrder@ManderMine": {
 							"enabled": false
 						}
 					}
@@ -115,17 +127,23 @@
 		"修格里城订单": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyOrder@ShoggolithCity": {
 							"enabled": true
+						},
+						"DailyFight@ShoggolithCity": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyOrder@ShoggolithCity": {
+							"enabled": false
+						},
+						"DailyFight@ShoggolithCity": {
 							"enabled": false
 						}
 					}
@@ -136,17 +154,23 @@
 		"修格里城悬赏": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyFight@ShoggolithCity": {
 							"enabled": true
+						},
+						"DailyOrder@ShoggolithCity": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyFight@ShoggolithCity": {
+							"enabled": false
+						},
+						"DailyOrder@ShoggolithCity": {
 							"enabled": false
 						}
 					}
@@ -157,17 +181,23 @@
 		"澄明数据中心订单": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyOrder@ClarityDataCenterAdministrationBureau": {
 							"enabled": true
+						},
+						"DailyFight@ClarityDataCenterAdministrationBureau": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyOrder@ClarityDataCenterAdministrationBureau": {
+							"enabled": false
+						},
+						"DailyFight@ClarityDataCenterAdministrationBureau": {
 							"enabled": false
 						}
 					}
@@ -178,17 +208,23 @@
 		"澄明数据中心悬赏": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyFight@ClarityDataCenterAdministrationBureau": {
 							"enabled": true
+						},
+						"DailyOrder@ClarityDataCenterAdministrationBureau": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyFight@ClarityDataCenterAdministrationBureau": {
+							"enabled": false
+						},
+						"DailyOrder@ClarityDataCenterAdministrationBureau": {
 							"enabled": false
 						}
 					}
@@ -199,17 +235,23 @@
 		"7号自由港订单": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyOrder@FreePortⅦ": {
 							"enabled": true
+						},
+						"DailyFight@FreePortⅦ": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyOrder@FreePortⅦ": {
+							"enabled": false
+						},
+						"DailyFight@FreePortⅦ": {
 							"enabled": false
 						}
 					}
@@ -220,17 +262,23 @@
 		"7号自由港悬赏": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyFight@FreePortⅦ": {
 							"enabled": true
+						},
+						"DailyOrder@FreePortⅦ": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyFight@FreePortⅦ": {
+							"enabled": false
+						},
+						"DailyOrder@FreePortⅦ": {
 							"enabled": false
 						}
 					}
@@ -241,17 +289,23 @@
 		"阿妮塔发射中心订单": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyOrder@AnitaRocketBase": {
 							"enabled": true
+						},
+						"DailyFight@AnitaRocketBase": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyOrder@AnitaRocketBase": {
+							"enabled": false
+						},
+						"DailyFight@AnitaRocketBase": {
 							"enabled": false
 						}
 					}
@@ -262,17 +316,23 @@
 		"阿妮塔发射中心悬赏": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyFight@AnitaRocketBase": {
 							"enabled": true
+						},
+						"DailyOrder@AnitaRocketBase": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyFight@AnitaRocketBase": {
+							"enabled": false
+						},
+						"DailyOrder@AnitaRocketBase": {
 							"enabled": false
 						}
 					}
@@ -283,17 +343,23 @@
 		"海角城订单": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyOrder@CapeCity": {
 							"enabled": true
+						},
+						"DailyFight@CapeCity": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyOrder@CapeCity": {
+							"enabled": false
+						},
+						"DailyFight@CapeCity": {
 							"enabled": false
 						}
 					}
@@ -304,17 +370,23 @@
 		"海角城悬赏": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyFight@CapeCity": {
 							"enabled": true
+						},
+						"DailyOrder@CapeCity": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyFight@CapeCity": {
+							"enabled": false
+						},
+						"DailyOrder@CapeCity": {
 							"enabled": false
 						}
 					}
@@ -325,17 +397,23 @@
 		"岚心城订单": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyOrder@RanShinCity": {
 							"enabled": true
+						},
+						"DailyFight@RanShinCity": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyOrder@RanShinCity": {
+							"enabled": false
+						},
+						"DailyFight@RanShinCity": {
 							"enabled": false
 						}
 					}
@@ -346,17 +424,23 @@
 		"岚心城悬赏": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyFight@RanShinCity": {
 							"enabled": true
+						},
+						"DailyOrder@RanShinCity": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyFight@RanShinCity": {
+							"enabled": false
+						},
+						"DailyOrder@RanShinCity": {
 							"enabled": false
 						}
 					}
@@ -367,17 +451,23 @@
 		"贡露城订单": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyOrder@GroNruCity": {
 							"enabled": true
+						},
+						"DailyFight@GroNruCity": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyOrder@GroNruCity": {
+							"enabled": false
+						},
+						"DailyFight@GroNruCity": {
 							"enabled": false
 						}
 					}
@@ -388,17 +478,23 @@
 		"贡露城悬赏": {
 			"cases": [
 				{
-					"name": "turn on",
+					"name": "ON",
 					"pipeline_override": {
 						"DailyFight@GroNruCity": {
 							"enabled": true
+						},
+						"DailyOrder@GroNruCity": {
+							"enabled": false
 						}
 					}
 				},
 				{
-					"name": "turn off",
+					"name": "OFF",
 					"pipeline_override": {
 						"DailyFight@GroNruCity": {
+							"enabled": false
+						},
+						"DailyOrder@GroNruCity": {
 							"enabled": false
 						}
 					}

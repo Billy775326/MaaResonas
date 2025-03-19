@@ -171,6 +171,7 @@
 			"接取订单",
 			"查看订单"
 		],
+		"focus_tip": "成功接取订单",
 		"action": "Click",
 		"post_delay": 400,
 		"next": [

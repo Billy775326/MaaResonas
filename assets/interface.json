@@ -78,8 +78,20 @@
 				"活跃度奖励",
 				"手册奖励",
 				"委托派遣",
-				"每日桦石"
+				"每日桦石",
+				"列车便当"
 			]
+		},
+		{
+			"name": "跑商交易",
+			"entry": "GetRewards",
+			"check": false,
+			"option": [
+				"跑商路线",
+				"进货采买书",
+				"砍价策略"
+			],
+			"doc": "跑商路线,默认曼德矿场--阿妮塔发射中心,暂不支持其他路线,暂不支持除采买书外的其他道具,暂不支持客运.暂不支持自主选择商品"
 		}
 	],
 	"option": {
@@ -113,10 +125,10 @@
 		"曼德矿场悬赏": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@ManderMine": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyOrder@ManderMine": {
 							"enabled": false
@@ -124,10 +136,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@ManderMine": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyOrder@ManderMine": {
 							"enabled": false
@@ -167,10 +179,10 @@
 		"修格里城悬赏": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@ShoggolithCity": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyOrder@ShoggolithCity": {
 							"enabled": false
@@ -178,10 +190,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@ShoggolithCity": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyOrder@ShoggolithCity": {
 							"enabled": false
@@ -221,10 +233,10 @@
 		"澄明数据中心悬赏": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@ClarityDataCenterAdministrationBureau": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyOrder@ClarityDataCenterAdministrationBureau": {
 							"enabled": false
@@ -232,10 +244,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@ClarityDataCenterAdministrationBureau": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyOrder@ClarityDataCenterAdministrationBureau": {
 							"enabled": false
@@ -275,10 +287,10 @@
 		"7号自由港悬赏": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@FreePortⅦ": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyOrder@FreePortⅦ": {
 							"enabled": false
@@ -286,10 +298,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@FreePortⅦ": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyOrder@FreePortⅦ": {
 							"enabled": false
@@ -329,10 +341,10 @@
 		"阿妮塔发射中心悬赏": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@AnitaRocketBase": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyOrder@AnitaRocketBase": {
 							"enabled": false
@@ -340,10 +352,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@AnitaRocketBase": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyOrder@AnitaRocketBase": {
 							"enabled": false
@@ -383,10 +395,10 @@
 		"海角城悬赏": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@CapeCity": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyOrder@CapeCity": {
 							"enabled": false
@@ -394,10 +406,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@CapeCity": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyOrder@CapeCity": {
 							"enabled": false
@@ -410,10 +422,10 @@
 		"岚心城订单": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@RanShinCity": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyFight@RanShinCity": {
 							"enabled": false
@@ -421,10 +433,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@RanShinCity": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyFight@RanShinCity": {
 							"enabled": false
@@ -437,10 +449,10 @@
 		"岚心城悬赏": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@RanShinCity": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyOrder@RanShinCity": {
 							"enabled": false
@@ -448,10 +460,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@RanShinCity": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyOrder@RanShinCity": {
 							"enabled": false
@@ -574,6 +586,26 @@
 				}
 			]
 		},
+		"列车便当": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {
+						"DailyReward@Bento": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {
+						"DailyReward@Bento": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
 		"每日桦石": {
 			"cases": [
 				{
@@ -591,6 +623,102 @@
 							"enabled": false
 						}
 					}
+				}
+			]
+		},
+		"跑商路线选择": {
+			"cases": [
+				{
+					"name": "曼德矿场——阿妮塔发射中心",
+					"pipeline_override": {
+						"Route@Mader-Anita": {
+							"enabled": true
+						}
+					}
+				}
+			]
+		},
+		"使用进货采买书": {
+			"cases": [
+				{
+					"name": "2书",
+					"pipeline_override": {
+						"Restocking@Exchange@useProps+2": {
+							"enabled": true
+						},
+						"Restocking@Exchange@useProps+1": {
+							"enabled": false
+						},
+						"Restocking@Exchange@useProps+3": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "1书",
+					"pipeline_override": {
+						"Restocking@Exchange@useProps+1": {
+							"enabled": true
+						},
+						"Restocking@Exchange@useProps+2": {
+							"enabled": false
+						},
+						"Restocking@Exchange@useProps+3": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "0书",
+					"doc": "交易额50w以上不建议使用0书方案!",
+					"pipeline_override": {
+						"Restocking@Exchange@useProps+0": {
+							"enabled": true
+						},
+						"Mander@Restocking@Exchange@useProps": {
+							"enabled": false
+						},
+						"Restocking@Exchange@useProps+1": {
+							"enabled": false
+						},
+						"Restocking@Exchange@useProps+2": {
+							"enabled": false
+						},
+						"Restocking@Exchange@useProps+3": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "3书",
+					"doc": "暂不支持,请勿勾选该选项!",
+					"pipeline_override": {
+						"Restocking@Exchange@useProps+1": {
+							"enabled": false
+						},
+						"Restocking@Exchange@useProps+2": {
+							"enabled": false
+						},
+						"Restocking@Exchange@useProps+3": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"砍价策略": {
+			"cases": [
+				{
+					"name": "只砍两次",
+					"pipeline_override": {}
+				},
+				{
+					"name": "只砍三次",
+					"pipeline_override": {}
+				},
+				{
+					"name": "砍成功2次",
+					"pipeline_override": {}
 				}
 			]
 		}

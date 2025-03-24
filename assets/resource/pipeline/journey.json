@@ -154,5 +154,21 @@
 			"normalCargo",
 			"journey@switchview2nd"
 		]
+	},
+	"StopSwpie": {
+		"action": "Swipe",
+		"begin": [
+			0,
+			301,
+			10,
+			10
+		],
+		"end": [
+			0,
+			300,
+			10,
+			10
+		],
+		"duration": 200
 	}
 }

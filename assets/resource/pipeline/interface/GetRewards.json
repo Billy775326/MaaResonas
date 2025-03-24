@@ -1,6 +1,6 @@
 {
 	"GetRewards@Activity": {
-		"enabled": false,
+		"enabled": true,
 		"recognition": "TemplateMatch",
 		"template": [
 			"Reward/ActivityRewards.png",
@@ -8,7 +8,7 @@
 			"Reward/ActivityRewards2.png"
 		],
 		"focus": true,
-		"focus_tip": "领取活跃度奖励",
+		"focus_tip": "进入活跃度页面",
 		"action": "Click",
 		"roi": [
 			0,
@@ -119,7 +119,7 @@
 	},
 
 	"GetRewards@Manual": {
-		"enabled": false,
+		"enabled": true,
 		"recognition": "TemplateMatch",
 		"template": "Reward/ManualRewards.png",
 		"action": "Click",
@@ -128,7 +128,7 @@
 			"GetRewards@Manual@judge"
 		],
 		"focus": true,
-		"focus_tip": "手册奖励",
+		"focus_tip": "进入手册奖励界面",
 		"interrupt": [
 			"Activity@home@manual"
 		]
@@ -163,6 +163,8 @@
 			500,
 			90
 		],
+		"focus": true,
+		"focus_tip": "进入任务列表",
 		"action": "Click",
 		"post_wait_freezes": 200,
 		"next": [
@@ -216,6 +218,8 @@
 			500,
 			90
 		],
+		"focus": true,
+		"focus_tip": "回到环游手册首页",
 		"action": "Click",
 		"next": [
 			"GetRewards@Manual@level@switch@confirm",
@@ -271,7 +275,7 @@
 	},
 
 	"GetRewards@Delegation": {
-		"enabled": false,
+		"enabled": true,
 		"next": [
 			"GetRewards@Delegation@inCityOpenSummary",
 			"GetRewards@Delegation@inSummary"
@@ -307,6 +311,8 @@
 			54,
 			56
 		],
+		"focus": true,
+		"focus_tip": "点击首页列车长头像",
 		"post_delay": 800,
 		"next": [
 			"GetRewards@Delegation@start"
@@ -319,11 +325,11 @@
 		"roi": [
 			0,
 			0,
-			0,
-			0
+			686,
+			718
 		],
 		"focus": true,
-		"focus_tip": "委托派遣奖励",
+		"focus_tip": "进入委托派遣页面",
 		"action": "Click",
 		"post_delay": 800,
 		"next": [
@@ -339,10 +345,10 @@
 			255,
 			73
 		],
-		"action": "Click",
 		"post_delay": 800,
 		"next": [
-			"GetRewards@Delegation@getit"
+			"GetRewards@Delegation@getit",
+			"GetRewards@Delegation@recall"
 		]
 	},
 	"GetRewards@Delegation@getit": {
@@ -376,7 +382,7 @@
 		"action": "Click",
 		"post_delay": 800,
 		"next": [
-			"GetRewards@Delegation@recall"
+			"GetRewards@Delegation@home"
 		]
 	},
 	"GetRewards@Delegation@recall": {
@@ -403,7 +409,7 @@
 			74
 		],
 		"focus": true,
-		"focus_tip": "回到首页",
+		"focus_tip": "委托派遣完成,回到首页",
 		"template": "home.png",
 		"action": "Click",
 		"doc": "next GetRewards@Delegation@StopTask"
@@ -413,7 +419,7 @@
 	},
 
 	"GetRewards@Birchstone": {
-		"enabled": false,
+		"enabled": true,
 		"recognition": "TemplateMatch",
 		"roi": [
 			903,
@@ -465,6 +471,143 @@
 	"GetRewards@birchstone@Mall@birchstone": {
 		"next": [
 			"birchstone"
+		]
+	},
+	"GetRewards@Bento": {
+		"enabled": true,
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"action": "Click",
+		"target": [
+			130,
+			634,
+			54,
+			56
+		],
+		"focus": true,
+		"focus_tip": "点击首页列车长头像",
+		"next": [
+			"GetRewards@Bento@Fatigue"
+		]
+	},
+	"GetRewards@Bento@Fatigue": {
+		"recognition": "OCR",
+		"expected": "\\d+/\\d+\\+",
+		"roi": [
+			0,
+			0,
+			686,
+			718
+		],
+		"focus": true,
+		"focus_tip": "进入疲劳值页面",
+		"action": "Click",
+		"index": 1,
+		"post_delay": 800,
+		"next": [
+			"GetRewards@Bento@forcer@lack",
+			"GetRewards@Bento@forcer@enough"
+		]
+	},
+	"GetRewards@Bento@forcer@lack": {
+		"recognition": "OCR",
+		"expected": "当前便当余量不足",
+		"focus": true,
+		"focus_tip": "当前便当余量不足",
+		"roi": [
+			1027,
+			403,
+			165,
+			249
+		],
+		"next": [
+			"home"
+		]
+	},
+	"GetRewards@Bento@forcer@enough": {
+		"recognition": "OCR",
+		"expected": "当前便当余量充足",
+		"focus": true,
+		"focus_tip": "当前便当余量充足",
+		"roi": [
+			1027,
+			403,
+			165,
+			249
+		],
+		"next": [
+			"GetRewards@Bento@forcer"
+		]
+	},
+	"GetRewards@Bento@forcer": {
+		"recognition": "OCR",
+		"expected": "前往便当柜",
+		"focus": true,
+		"focus_tip": "前往便当柜",
+		"roi": [
+			1027,
+			403,
+			165,
+			249
+		],
+		"action": "Click",
+		"target": [
+			1027,
+			403,
+			165,
+			249
+		],
+		"next": [
+			"GetRewards@Bento@Eat"
+		]
+	},
+	"GetRewards@Bento@Eat": {
+		"recognition": "OCR",
+		"expected": "全部使用",
+		"roi": [
+			917,
+			545,
+			279,
+			86
+		],
+		"focus": true,
+		"focus_tip": "便当全部使用",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"GetRewards@Bento@Eatfinish",
+			"GetRewards@Bento@Eatfailed"
+		]
+	},
+	"GetRewards@Bento@Eatfinish": {
+		"recognition": "OCR",
+		"expected": "疲劳值已消除\\s*\\d+\\s*点",
+		"focus": true,
+		"focus_tip": "便当食用完毕,疲劳值已降低",
+		"action": "Click",
+		"next": [
+			"home"
+		]
+	},
+	"GetRewards@Bento@Eatfailed": {
+		"recognition": "OCR",
+		"expected": "便当不足,无法使用",
+		"focus": true,
+		"focus_tip": "便当不足,无法使用",
+		"target": [
+			491,
+			325,
+			289,
+			70
+		],
+		"next": [
+			"home"
 		]
 	}
 }

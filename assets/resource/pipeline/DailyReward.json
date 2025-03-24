@@ -1,14 +1,37 @@
 {
 	"DailyReward@Activity": {
-		"next": "GetRewards@Activity"
+		"enabled": false,
+		"next": "GetRewards@Activity",
+		"interrupt": "home",
+		"focus": true,
+		"focus_tip": "活跃度奖励"
 	},
 	"DailyReward@Manual": {
-		"next": "GetRewards@Manual"
+		"enabled": false,
+		"next": "GetRewards@Manual",
+		"interrupt": "home",
+		"focus": true,
+		"focus_tip": "手册奖励"
 	},
 	"DailyReward@Delegation": {
-		"next": "GetRewards@Delegation"
+		"enabled": false,
+		"next": "GetRewards@Delegation",
+		"interrupt": "home",
+		"focus": true,
+		"focus_tip": "委托派遣奖励"
 	},
 	"DailyReward@Birchstone": {
-		"next": "GetRewards@Birchstone"
+		"enabled": false,
+		"next": "GetRewards@Birchstone",
+		"interrupt": "home",
+		"focus": true,
+		"focus_tip": "每日桦石奖励"
+	},
+	"DailyReward@Bento": {
+		"enabled": false,
+		"next": "GetRewards@Bento",
+		"interrupt": "home",
+		"focus": true,
+		"focus_tip": "每日列车便当"
 	}
 }

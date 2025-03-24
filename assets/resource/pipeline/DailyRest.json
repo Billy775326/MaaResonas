@@ -206,6 +206,8 @@
 		"recognition": "TemplateMatch",
 		"template": "confirmshort.png",
 		"action": "Click",
+		"focus": true,
+		"focus_tip": "确认购买",
 		"next": "closeinfo@StorePurchase"
 	},
 

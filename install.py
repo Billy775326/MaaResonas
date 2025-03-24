@@ -84,7 +84,7 @@ def install_chores():
         install_path,
     )
     # 将working_dir目录下的logo.ico文件复制到install_path目录下
-    shutil.copy3(
+    shutil.copy2(
         working_dir / "logo.ico",
         install_path,
     )

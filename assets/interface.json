@@ -31,9 +31,14 @@
 	"task": [
 		{
 			"name": "唤醒",
-			"entry": "startup"
+			"entry": "startup",
+			"check": true
 		},
-
+		{
+			"name": "每日任务",
+			"entry": "Daily@Initial",
+			"pipeline_override": {}
+		},
 		{
 			"name": "商会订单",
 			"entry": "Daily@Initial",

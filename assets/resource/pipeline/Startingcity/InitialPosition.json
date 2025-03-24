@@ -1,1 +1,24 @@
-{}
+{
+	"WildernessStation": {
+		"doc": "荒原站",
+		"recognition": "OCR",
+		"expected": ["荒原站"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	},
+	"ApoasterBridge": {
+		"doc": "远星大桥",
+		"recognition": "OCR",
+		"expected": ["远星大桥"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		]
+	}
+}

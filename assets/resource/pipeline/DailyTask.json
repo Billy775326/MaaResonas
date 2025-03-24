@@ -35,7 +35,6 @@
 			243,
 			210
 		],
-		"action": "Click",
 		"next": [
 			"Start@ShoggolithCity"
 		]
@@ -62,6 +61,7 @@
 	},
 
 	"DailyOrder@ShoggolithCity": {
+		"enabled": false,
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
@@ -76,13 +76,14 @@
 	},
 
 	"DailyFight@ShoggolithCity": {
+		"enabled": false,
 		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"
 		],
 		"next": [
-			"Dailyfight@visitCity"
+			"Dailyfight"
 		]
 	},
 
@@ -122,6 +123,7 @@
 	},
 
 	"DailyOrder@ManderMine": {
+		"enabled": false,
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
@@ -136,13 +138,14 @@
 	},
 
 	"DailyFight@ManderMine": {
+		"enabled": false,
 		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"
 		],
 		"next": [
-			"Dailyfight@visitCity"
+			"Dailyfight"
 		]
 	},
 
@@ -181,6 +184,7 @@
 	},
 
 	"DailyOrder@ClarityDataCenterAdministrationBureau": {
+		"enabled": false,
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
@@ -195,13 +199,14 @@
 	},
 
 	"DailyFight@ClarityDataCenterAdministrationBureau": {
+		"enabled": false,
 		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"
 		],
 		"next": [
-			"Dailyfight@visitCity"
+			"Dailyfight"
 		]
 	},
 
@@ -240,6 +245,7 @@
 	},
 
 	"DailyOrder@AnitaRocketBase": {
+		"enabled": false,
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
@@ -254,13 +260,14 @@
 	},
 
 	"DailyFight@AnitaRocketBase": {
+		"enabled": false,
 		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"
 		],
 		"next": [
-			"Dailyfight@visitCity"
+			"Dailyfight"
 		]
 	},
 
@@ -299,6 +306,7 @@
 	},
 
 	"DailyOrder@CapeCity": {
+		"enabled": false,
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
@@ -313,13 +321,14 @@
 	},
 
 	"DailyFight@CapeCity": {
+		"enabled": false,
 		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"
 		],
 		"next": [
-			"Dailyfight@visitCity"
+			"Dailyfight"
 		]
 	},
 
@@ -358,6 +367,7 @@
 	},
 
 	"DailyOrder@RanShinCity": {
+		"enabled": false,
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
@@ -372,13 +382,14 @@
 	},
 
 	"DailyFight@RanShinCity": {
+		"enabled": false,
 		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"
 		],
 		"next": [
-			"Dailyfight@visitCity"
+			"Dailyfight"
 		]
 	},
 
@@ -417,6 +428,7 @@
 	},
 
 	"DailyOrder@GroNruCity": {
+		"enabled": false,
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
@@ -431,13 +443,14 @@
 	},
 
 	"DailyFight@GroNruCity": {
+		"enabled": false,
 		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"
 		],
 		"next": [
-			"Dailyfight@visitCity"
+			"Dailyfight"
 		]
 	},
 
@@ -476,6 +489,7 @@
 	},
 
 	"DailyOrder@FreePortⅦ": {
+		"enabled": false,
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
@@ -490,13 +504,14 @@
 	},
 
 	"DailyFight@FreePortⅦ": {
+		"enabled": false,
 		"timeout": 3000,
 		"on_error": [
 			"closeinfo@newsignincity@fight",
 			"home@Dailyfight"
 		],
 		"next": [
-			"Dailyfight@visitCity"
+			"Dailyfight"
 		]
 	},
 	"Initial@B:R.C.L.Outpost": {

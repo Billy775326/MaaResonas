@@ -1,19 +1,7 @@
 {
-	"start@inCity": {
-		"recognition": "OCR",
-		"roi": [
-			1135,
-			605,
-			145,
-			115
-		],
-		"expected": "启程",
-		"next": [
-			"ManderMine"
-		]
-	},
-	"start@inCity@ManderMine": {
-		"doc": "起点:曼德矿场",
+	"Startingcity@ManderMine": {
+		"focus": true,
+		"focus_tip": "起点:曼德矿场",
 		"recognition": "OCR",
 		"expected": ["曼德矿场"],
 		"roi": [
@@ -22,6 +10,9 @@
 			243,
 			210
 		],
-		"action": "Click"
+		"action": "Click",
+		"next": [
+			"ManderMine"
+		]
 	}
 }

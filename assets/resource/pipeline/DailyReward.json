@@ -1,0 +1,14 @@
+{
+	"DailyReward@Activity": {
+		"next": "GetRewards@Activity"
+	},
+	"DailyReward@Manual": {
+		"next": "GetRewards@Manual"
+	},
+	"DailyReward@Delegation": {
+		"next": "GetRewards@Delegation"
+	},
+	"DailyReward@Birchstone": {
+		"next": "GetRewards@Birchstone"
+	}
+}

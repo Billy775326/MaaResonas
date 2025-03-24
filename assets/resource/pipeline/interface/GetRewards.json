@@ -1,15 +1,6 @@
 {
-	"GetRewards": {
-		"next": [
-			"GetRewards@Activity"
-		],
-		"interrupt": [
-			"home",
-			"stopnow"
-		]
-	},
-
 	"GetRewards@Activity": {
+		"enabled": false,
 		"recognition": "TemplateMatch",
 		"template": [
 			"Reward/ActivityRewards.png",
@@ -60,7 +51,7 @@
 		"next": [
 			"GetRewards@Activity@Available",
 			"GetRewards@Activity@600ing",
-			"home@StopTask"
+			"home"
 		],
 		"interrupt": [
 			"closeinfo",
@@ -128,6 +119,7 @@
 	},
 
 	"GetRewards@Manual": {
+		"enabled": false,
 		"recognition": "TemplateMatch",
 		"template": "Reward/ManualRewards.png",
 		"action": "Click",
@@ -279,6 +271,7 @@
 	},
 
 	"GetRewards@Delegation": {
+		"enabled": false,
 		"next": [
 			"GetRewards@Delegation@inCityOpenSummary",
 			"GetRewards@Delegation@inSummary"
@@ -417,5 +410,61 @@
 	},
 	"GetRewards@Delegation@StopTask": {
 		"action": "StopTask"
+	},
+
+	"GetRewards@Birchstone": {
+		"enabled": false,
+		"recognition": "TemplateMatch",
+		"roi": [
+			903,
+			8,
+			90,
+			80
+		],
+		"focus": true,
+		"focus_tip": "商城",
+		"template": "Reward/Mall.png",
+		"action": "Click",
+		"next": [
+			"GetRewards@birchstone@Mall@swpie"
+		]
+	},
+	"GetRewards@birchstone@Mall@swpie": {
+		"action": "Swipe",
+		"begin": [
+			1002,
+			34,
+			10,
+			10
+		],
+		"end": [
+			429,
+			33,
+			10,
+			10
+		],
+		"next": [
+			"GetRewards@birchstone@Mall@HeadquartersStore"
+		]
+	},
+	"GetRewards@birchstone@Mall@HeadquartersStore": {
+		"recognition": "OCR",
+		"expected": "总部商店",
+		"roi": [
+			238,
+			0,
+			1041,
+			75
+		],
+		"focus": true,
+		"focus_tip": "总部商店",
+		"next": [
+			"GetRewards@birchstone@Mall@birchstone"
+		]
+	},
+	"GetRewards@birchstone@Mall@birchstone": {
+		"next": [
+			"birchstone"
+		]
 	}
 }

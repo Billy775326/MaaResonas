@@ -72,14 +72,21 @@
 
 		{
 			"name": "领取每日奖励",
-			"entry": "GetRewards"
+			"entry": "GetRewards",
+			"check": true,
+			"option": [
+				"活跃度奖励",
+				"手册奖励",
+				"委托派遣",
+				"每日桦石"
+			]
 		}
 	],
 	"option": {
 		"曼德矿场订单": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@ManderMine": {
 							"enabled": true
@@ -90,7 +97,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@ManderMine": {
 							"enabled": false
@@ -106,7 +113,7 @@
 		"曼德矿场悬赏": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@ManderMine": {
 							"enabled": true
@@ -117,7 +124,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@ManderMine": {
 							"enabled": false
@@ -133,7 +140,7 @@
 		"修格里城订单": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@ShoggolithCity": {
 							"enabled": true
@@ -144,7 +151,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@ShoggolithCity": {
 							"enabled": false
@@ -160,7 +167,7 @@
 		"修格里城悬赏": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@ShoggolithCity": {
 							"enabled": true
@@ -171,7 +178,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@ShoggolithCity": {
 							"enabled": false
@@ -187,7 +194,7 @@
 		"澄明数据中心订单": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@ClarityDataCenterAdministrationBureau": {
 							"enabled": true
@@ -198,7 +205,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@ClarityDataCenterAdministrationBureau": {
 							"enabled": false
@@ -214,7 +221,7 @@
 		"澄明数据中心悬赏": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@ClarityDataCenterAdministrationBureau": {
 							"enabled": true
@@ -225,7 +232,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@ClarityDataCenterAdministrationBureau": {
 							"enabled": false
@@ -241,7 +248,7 @@
 		"7号自由港订单": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@FreePortⅦ": {
 							"enabled": true
@@ -252,7 +259,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@FreePortⅦ": {
 							"enabled": false
@@ -268,7 +275,7 @@
 		"7号自由港悬赏": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@FreePortⅦ": {
 							"enabled": true
@@ -279,7 +286,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@FreePortⅦ": {
 							"enabled": false
@@ -295,7 +302,7 @@
 		"阿妮塔发射中心订单": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@AnitaRocketBase": {
 							"enabled": true
@@ -306,7 +313,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@AnitaRocketBase": {
 							"enabled": false
@@ -322,7 +329,7 @@
 		"阿妮塔发射中心悬赏": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@AnitaRocketBase": {
 							"enabled": true
@@ -333,7 +340,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@AnitaRocketBase": {
 							"enabled": false
@@ -349,7 +356,7 @@
 		"海角城订单": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@CapeCity": {
 							"enabled": true
@@ -360,7 +367,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@CapeCity": {
 							"enabled": false
@@ -376,7 +383,7 @@
 		"海角城悬赏": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@CapeCity": {
 							"enabled": true
@@ -387,7 +394,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@CapeCity": {
 							"enabled": false
@@ -403,7 +410,7 @@
 		"岚心城订单": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@RanShinCity": {
 							"enabled": true
@@ -414,7 +421,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@RanShinCity": {
 							"enabled": false
@@ -430,7 +437,7 @@
 		"岚心城悬赏": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@RanShinCity": {
 							"enabled": true
@@ -441,7 +448,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@RanShinCity": {
 							"enabled": false
@@ -457,7 +464,7 @@
 		"贡露城订单": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@GroNruCity": {
 							"enabled": true
@@ -468,7 +475,7 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@GroNruCity": {
 							"enabled": false
@@ -484,7 +491,7 @@
 		"贡露城悬赏": {
 			"cases": [
 				{
-					"name": "ON",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@GroNruCity": {
 							"enabled": true
@@ -495,12 +502,92 @@
 					}
 				},
 				{
-					"name": "OFF",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@GroNruCity": {
 							"enabled": false
 						},
 						"DailyOrder@GroNruCity": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"活跃度奖励": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {
+						"DailyReward@Activity": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {
+						"DailyReward@Activity": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"手册奖励": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {
+						"DailyReward@Manual": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {
+						"DailyReward@Manual": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"委托派遣": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {
+						"DailyReward@Delegation": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {
+						"DailyReward@Delegation": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"每日桦石": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {
+						"DailyReward@Birchstone": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {
+						"DailyReward@Birchstone": {
 							"enabled": false
 						}
 					}

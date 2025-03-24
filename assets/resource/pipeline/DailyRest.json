@@ -184,7 +184,10 @@
 		"focus_tip": "每日桦石",
 		"action": "Click",
 		"post_delay": 1000,
-		"next": "birchstone@confirm"
+		"next": [
+			"birchstone@confirm",
+			"home"
+		]
 	},
 
 	"birchstone@confirm": {
@@ -220,7 +223,6 @@
 		],
 		"next": [
 			"closeinfo@StorePurchase",
-			"home@StopTask",
 			"home"
 		]
 	}

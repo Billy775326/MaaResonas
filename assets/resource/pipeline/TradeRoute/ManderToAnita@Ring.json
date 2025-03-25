@@ -1,5 +1,5 @@
 {
-	"Route@Mader-Anita": {
+	"Route@Mander-Anita": {
 		"enabled": false,
 		"next": [
 			"RouteFirst@Mander",
@@ -31,7 +31,7 @@
 	},
 	"RouteFirst@Mander": {
 		"focus": true,
-		"focus_tip": "线路起点:曼德矿场",
+		"focus_tip": "线路起点补货:曼德矿场",
 		"recognition": "OCR",
 		"expected": ["曼德矿场"],
 		"roi": [
@@ -41,25 +41,25 @@
 			210
 		],
 		"next": [
-			"Mander@Restocking@visitCity"
+			"Restocking@visitCity"
 		],
 		"interrupt": [
 			"home"
 		]
 	},
-	"Mander@Restocking@visitCity": {
+	"Restocking@visitCity": {
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
 		"post_delay": 1000,
 		"focus": true,
-		"focus_tip": "访问曼德矿场",
+		"focus_tip": "访问城市补货",
 		"next": [
-			"Mander@Restocking@Exchange",
-			"Mander@Restocking@seekExchange"
+			"Restocking@Exchange",
+			"Mander@seekExchange"
 		]
 	},
-	"Mander@Restocking@Exchange": {
+	"Restocking@Exchange": {
 		"recognition": "OCR",
 		"expected": "交易所",
 		"action": "Click",
@@ -73,10 +73,10 @@
 		"focus_tip": "访问交易所",
 
 		"next": [
-			"Mander@Restocking@Exchange@buy"
+			"Restocking@Exchange@buy"
 		]
 	},
-	"Mander@Restocking@Exchange@buy": {
+	"Restocking@Exchange@buy": {
 		"recognition": "OCR",
 		"roi": [
 			722,
@@ -91,11 +91,11 @@
 		"post_delay": 1500,
 		"next": [
 			"Restocking@Exchange@useProps+0",
-			"Mander@Restocking@Exchange@useProps"
+			"Restocking@Exchange@useProps"
 		]
 	},
 
-	"Mander@Restocking@Exchange@useProps": {
+	"Restocking@Exchange@useProps": {
 		"recognition": "OCR",
 		"roi": [
 			453,
@@ -109,7 +109,7 @@
 		"focus_tip": "使用道具",
 		"post_delay": 1000,
 		"next": [
-			"Mander@Restocking@Exchange@useProps@use"
+			"Restocking@Exchange@useProps@use"
 		]
 	},
 	"Restocking@Exchange@useProps+1": {
@@ -117,7 +117,7 @@
 		"focus": true,
 		"focus_tip": "1书",
 		"next": [
-			"Mander@Restocking@Exchange@useProps@confirm"
+			"Restocking@Exchange@useProps@confirm"
 		]
 	},
 	"Restocking@Exchange@useProps+2": {
@@ -134,7 +134,7 @@
 		"focus_tip": "2书",
 		"action": "Click",
 		"next": [
-			"Mander@Restocking@Exchange@useProps@confirm"
+			"Restocking@Exchange@useProps@confirm"
 		]
 	},
 	"Restocking@Exchange@useProps+3": {
@@ -157,7 +157,7 @@
 			0
 		],
 		"next": [
-			"Mander@Restocking@Exchange@useProps@confirm"
+			"Restocking@Exchange@useProps@confirm"
 		]
 	},
 	"Restocking@Exchange@useProps+0": {
@@ -166,11 +166,11 @@
 		"focus_tip": "0书",
 		"doc": "+0不建议",
 		"next": [
-			"Mander@Restocking@Exchange@buyall"
+			"Restocking@Exchange@buyall"
 		]
 	},
 
-	"Mander@Restocking@Exchange@useProps@use": {
+	"Restocking@Exchange@useProps@use": {
 		"enabled": true,
 		"recognition": "OCR",
 		"roi": [
@@ -187,27 +187,27 @@
 			"Restocking@Exchange@useProps+2",
 			"Restocking@Exchange@useProps+1",
 			"Restocking@Exchange@useProps+3",
-			"Mander@Restocking@Exchange@useProps@confirm"
+			"Restocking@Exchange@useProps@confirm"
 		]
 	},
-	"Mander@Restocking@Exchange@useProps@confirm": {
+	"Restocking@Exchange@useProps@confirm": {
 		"recognition": "TemplateMatch",
 		"template": "confirmshort.png",
 		"action": "Click",
 		"post_delay": 500,
-		"next": "buy@Cape@usePropscloseinfo"
+		"next": "Restocking@Exchange@useProps@closeinfo"
 	},
-	"Mander@Restocking@Exchange@useProps@closeinfo": {
+	"Restocking@Exchange@useProps@closeinfo": {
 		"recognition": "OCR",
 		"expected": [
 			"进货成功"
 		],
 		"post_delay": 800,
 		"next": [
-			"Mander@Restocking@Exchange@buyall"
+			"Restocking@Exchange@buyall"
 		]
 	},
-	"Mander@Restocking@Exchange@buyall": {
+	"Restocking@Exchange@buyall": {
 		"recognition": "OCR",
 		"roi": [
 			453,
@@ -219,10 +219,10 @@
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
-			"Mander@Restocking@Exchange@Bargaining"
+			"Restocking@Exchange@Bargaining"
 		]
 	},
-	"Mander@Restocking@Exchange@Bargaining": {
+	"Restocking@Exchange@Bargaining": {
 		"recognition": "OCR",
 		"roi": [
 			1092,
@@ -236,11 +236,50 @@
 		"action": "Click",
 		"post_delay": 400,
 		"next": [
-			"Mander@Restocking@Exchange@Bargainingsucceed@1",
-			"Mander@Restocking@Exchange@Bargainingfailed@1"
+			"Restocking@Exchange@Bargaining@2",
+			"Restocking@Exchange@Bargainingsucceed@1",
+			"Restocking@Exchange@Bargainingfailed@1"
 		]
 	},
-	"Mander@Restocking@Exchange@Bargainingsucceed@1": {
+	"Restocking@Exchange@Bargaining@2": {
+		"enabled": true,
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "砍价",
+		"focus": true,
+		"focus_tip": "砍价次数+1",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"Restocking@Exchange@Bargaining@3",
+			"Restocking@Exchange@buyin"
+		]
+	},
+	"Restocking@Exchange@Bargaining@3": {
+		"enabled": false,
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "砍价",
+		"focus": true,
+		"focus_tip": "成功0,砍价次数+1",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"Restocking@Exchange@buyin"
+		]
+	},
+	"Restocking@Exchange@Bargainingsucceed@1": {
+		"enabled": false,
 		"recognition": "OCR",
 		"roi": [
 			523,
@@ -252,10 +291,12 @@
 		"focus": true,
 		"focus_tip": "砍价成功1",
 		"next": [
-			"Mander@Restocking@Exchange@Bargaining@again"
+			"Restocking@Exchange@Bargaining@again",
+			"Restocking@Exchange@buyin"
 		]
 	},
-	"Mander@Restocking@Exchange@Bargainingfailed@1": {
+	"Restocking@Exchange@Bargainingfailed@1": {
+		"enabled": false,
 		"recognition": "OCR",
 		"roi": [
 			523,
@@ -267,10 +308,10 @@
 		"focus": true,
 		"focus_tip": "砍价失败1",
 		"next": [
-			"Mander@Restocking@Exchange@Bargaining"
+			"Restocking@Exchange@Bargaining"
 		]
 	},
-	"Mander@Restocking@Exchange@Bargaining@again": {
+	"Restocking@Exchange@Bargaining@again": {
 		"recognition": "OCR",
 		"roi": [
 			1092,
@@ -284,11 +325,11 @@
 		"action": "Click",
 		"post_delay": 400,
 		"next": [
-			"Mander@Restocking@Exchange@Bargainingsucceed@2",
-			"Mander@Restocking@Exchange@Bargainingfailed@2"
+			"Restocking@Exchange@Bargainingsucceed@2",
+			"Restocking@Exchange@Bargainingfailed@2"
 		]
 	},
-	"Mander@Restocking@Exchange@Bargainingsucceed@2": {
+	"Restocking@Exchange@Bargainingsucceed@2": {
 		"recognition": "OCR",
 		"roi": [
 			523,
@@ -300,11 +341,11 @@
 		"focus": true,
 		"focus_tip": "砍价成功2",
 		"next": [
-			"Mander@Restocking@Exchange@buyin"
+			"Restocking@Exchange@buyin"
 		]
 	},
 
-	"Mander@Restocking@Exchange@Bargainingfailed@2": {
+	"Restocking@Exchange@Bargainingfailed@2": {
 		"recognition": "OCR",
 		"roi": [
 			523,
@@ -316,10 +357,10 @@
 		"focus": true,
 		"focus_tip": "砍价失败2",
 		"next": [
-			"Mander@Restocking@Exchange@Bargaining@again"
+			"Restocking@Exchange@Bargaining@again"
 		]
 	},
-	"Mander@Restocking@Exchange@buyin": {
+	"Restocking@Exchange@buyin": {
 		"recognition": "OCR",
 		"roi": [
 			894,
@@ -331,11 +372,11 @@
 		"action": "Click",
 		"post_delay": 400,
 		"next": [
-			"Mander@Restocking@Exchange@buyin@closeinfo",
-			"Mander@Restocking@Exchange@MarketChanges"
+			"Exchange@closeinfo@buy",
+			"Exchange@MarketChanges"
 		]
 	},
-	"Mander@Restocking@Exchange@MarketChanges": {
+	"Exchange@MarketChanges": {
 		"recognition": "OCR",
 		"roi": [
 			0,
@@ -345,21 +386,61 @@
 		],
 		"expected": "行情已经发生变动",
 		"next": [
-			"Mander@Restocking@Exchange@buyin"
+			"Restocking@Exchange@buyin",
+			"Clearout@Exchange@sellout"
 		]
 	},
-	"Mander@Restocking@Exchange@buyin@closeinfo": {
+	"Exchange@closeinfo@buy": {
 		"recognition": "OCR",
 		"expected": [
 			"触碰空白区域退出"
 		],
 		"action": "Click",
+		"focus": true,
+		"focus_tip": "满仓",
 		"next": [
-			"Mander@Restocking@Exchange@buyin@closeinfo",
-			"home@ToAnita"
+			"Exchange@closeinfo@buy",
+			"home@ToAnita",
+			"home@ToMander"
 		]
 	},
-	"Mander@Restocking@seekExchange": {
+	"home@ToAnita": {
+		"recognition": "OCR",
+		"expected": "阿妮塔发射中心",
+		"roi": [
+			784,
+			213,
+			362,
+			45
+		],
+		"focus": true,
+		"focus_tip": "补货结束回到首页,曼德矿场出发前往阿妮塔发射中心",
+		"next": [
+			"RouteFirst@City@Mander"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+	"home@ToMander": {
+		"recognition": "OCR",
+		"expected": "曼德矿场",
+		"roi": [
+			784,
+			213,
+			362,
+			45
+		],
+		"focus": true,
+		"focus_tip": "补货结束回到首页,阿妮塔出发前往曼德矿场",
+		"next": [
+			"RouteFirst@City@Anita"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+	"Mander@seekExchange": {
 		"action": "Swipe",
 		"begin": [
 			300,
@@ -377,15 +458,7 @@
 		"focus_tip": "滑动寻找交易所",
 		"post_delay": 500,
 		"next": [
-			"Mander@Restocking@Exchange"
-		]
-	},
-	"home@ToAnita": {
-		"recognition": "TemplateMatch",
-		"template": "home.png",
-		"action": "Click",
-		"next": [
-			"RouteFirst@City@Mander"
+			"Restocking@Exchange"
 		]
 	},
 	"Mander@seekAnita": {
@@ -443,13 +516,13 @@
 		"doc": "去目的地前是否要招揽乘客ManderToAnita@PAXtransport",
 		"action": "Click",
 		"next": [
-			"ManderToAnita@gotodestination"
+			"gotodestination"
 		]
 	},
 	"ManderToAnita@PAXtransport": {
 		"enabled": false
 	},
-	"ManderToAnita@gotodestination": {
+	"gotodestination": {
 		"recognition": "TemplateMatch",
 		"template": "City/gotodestination.png",
 		"roi": [
@@ -459,9 +532,9 @@
 			78
 		],
 		"action": "Click",
-		"next": "ManderToAnita@journey"
+		"next": "Injourney"
 	},
-	"ManderToAnita@journey": {
+	"Injourney": {
 		"recognition": "OCR",
 		"expected": [
 			"自动巡航中",
@@ -477,12 +550,12 @@
 			47
 		],
 		"next": [
-			"ManderToAnita@journey",
-			"ManderToAnita@journey@fighting",
+			"Injourney",
+			"Injourney@fighting",
 			"ManderToAnita@arrive"
 		]
 	},
-	"ManderToAnita@journey@fighting": {
+	"Injourney@fighting": {
 		"recognition": "TemplateMatch",
 		"template": [
 			"Fight/autofight.png",
@@ -501,11 +574,339 @@
 			67
 		],
 		"next": [
-			"ManderToAnita@journey",
-			"ManderToAnita@journey@fighting"
+			"Injourney",
+			"Injourney@fighting"
 		]
 	},
-	"ManderToAnita@arrive": {},
+	"ManderToAnita@arrive": {
+		"enabled": true,
+		"next": [
+			"RouteFinal@Anita"
+		],
+		"interrupt": [
+			"newincity@closeinfo"
+		]
+	},
+	"RouteFinal@Anita": {
+		"focus": true,
+		"focus_tip": "线路终点:阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": ["阿妮塔发射中心"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"next": [
+			"Clearout@visitCity"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+	"Clearout@visitCity": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"post_delay": 1000,
+		"focus": true,
+		"focus_tip": "访问城市卖货",
+		"next": [
+			"Clearout@Exchange"
+		]
+	},
+	"Clearout@Exchange": {
+		"recognition": "OCR",
+		"expected": "交易所",
+		"action": "Click",
+		"target_offset": [
+			0,
+			50,
+			0,
+			0
+		],
+		"focus": true,
+		"focus_tip": "访问交易所",
 
-	"RouteFirst@Anita": {}
+		"next": [
+			"Clearout@Exchange@sell"
+		]
+	},
+	"Clearout@Exchange@sell": {
+		"recognition": "OCR",
+		"roi": [
+			722,
+			268,
+			481,
+			352
+		],
+		"expected": "我要卖",
+		"action": "Click",
+		"focus": true,
+		"focus_tip": "我要卖",
+		"post_delay": 1500,
+		"next": [
+			"Clearout@Exchange@sellall"
+		]
+	},
+	"Clearout@Exchange@sellall": {
+		"recognition": "OCR",
+		"roi": [
+			453,
+			63,
+			824,
+			648
+		],
+		"expected": "全部卖出",
+		"focus": true,
+		"focus_tip": "全部卖出",
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"Clearout@Exchange@Markup"
+		]
+	},
+	"Clearout@Exchange@Markup": {
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "抬价",
+		"focus": true,
+		"focus_tip": "成功0,抬价次数+1",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"Clearout@Exchange@Markup@2",
+			"Clearout@Exchange@Markupsucceed@1",
+			"Clearout@Exchange@Markupfailed@1"
+		]
+	},
+	"Clearout@Exchange@Markup@2": {
+		"enabled": true,
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "砍价",
+		"focus": true,
+		"focus_tip": "砍价次数+1",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"Clearout@Exchange@Markup@3",
+			"Clearout@Exchange@sellout"
+		]
+	},
+	"Clearout@Exchange@Markup@3": {
+		"enabled": false,
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "抬价",
+		"focus": true,
+		"focus_tip": "成功0,抬价次数+1",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"Clearout@Exchange@sellout"
+		]
+	},
+	"Clearout@Exchange@Markupsucceed@1": {
+		"enabled": false,
+		"recognition": "OCR",
+		"roi": [
+			523,
+			221,
+			244,
+			220
+		],
+		"expected": "抬价成功",
+		"focus": true,
+		"focus_tip": "抬价成功1",
+		"next": [
+			"Clearout@Exchange@Markup@again",
+			"Clearout@Exchange@sellout"
+		]
+	},
+	"Clearout@Exchange@Markupfailed@1": {
+		"enabled": false,
+		"recognition": "OCR",
+		"roi": [
+			523,
+			221,
+			244,
+			220
+		],
+		"expected": "抬价失败",
+		"focus": true,
+		"focus_tip": "抬价失败1",
+		"next": [
+			"Clearout@Exchange@Markup"
+		]
+	},
+	"Clearout@Exchange@Markup@again": {
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "抬价",
+		"focus": true,
+		"focus_tip": "成功1,抬价次数+1",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"Clearout@Exchange@Markupsucceed@2",
+			"Clearout@Exchange@Markupfailed@2"
+		]
+	},
+	"Clearout@Exchange@Markupsucceed@2": {
+		"recognition": "OCR",
+		"roi": [
+			523,
+			221,
+			244,
+			220
+		],
+		"expected": "抬价成功",
+		"focus": true,
+		"focus_tip": "抬价成功2",
+		"next": [
+			"Clearout@Exchange@sellout"
+		]
+	},
+
+	"Clearout@Exchange@Markupfailed@2": {
+		"recognition": "OCR",
+		"roi": [
+			523,
+			221,
+			244,
+			220
+		],
+		"expected": "抬价失败",
+		"focus": true,
+		"focus_tip": "抬价失败2",
+		"next": [
+			"Clearout@Exchange@Markup@again"
+		]
+	},
+	"Clearout@Exchange@sellout": {
+		"recognition": "OCR",
+		"roi": [
+			894,
+			614,
+			309,
+			69
+		],
+		"expected": "卖出",
+		"action": "Click",
+		"post_delay": 400,
+		"next": [
+			"Exchange@closeinfo@sell",
+			"Exchange@MarketChanges"
+		]
+	},
+	"Exchange@closeinfo@sell": {
+		"recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出"
+		],
+		"focus": true,
+		"focus_tip": "清仓",
+		"action": "Click",
+		"next": [
+			"Exchange@closeinfo@sell",
+			"home@InAnita",
+			"home@InMander"
+		]
+	},
+	"home@InAnita": {
+		"recognition": "OCR",
+		"expected": "阿妮塔发射中心",
+		"roi": [
+			784,
+			213,
+			362,
+			45
+		],
+		"focus": true,
+		"focus_tip": "清仓结束回到首页,前往阿妮塔发射中心补货",
+		"next": [
+			"RouteFirst@Anita"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+	"home@InMander": {
+		"recognition": "OCR",
+		"expected": "曼德矿场",
+		"roi": [
+			784,
+			213,
+			362,
+			45
+		],
+		"focus": true,
+		"focus_tip": "清仓结束回到首页,前往曼德矿场补货",
+		"next": [
+			"RouteFirst@Mander"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+	"RouteFirst@City@Anita": {
+		"focus": true,
+		"focus_tip": "线路起点:阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": ["阿妮塔发射中心"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"action": "Click",
+		"next": [
+			"ManderToAnita",
+			"Mander@seekAnita"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+	"RouteFirst@Anita": {
+		"focus": true,
+		"focus_tip": "线路起点补货:阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": ["阿妮塔发射中心"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"next": [
+			"Restocking@visitCity"
+		],
+		"interrupt": [
+			"home"
+		]
+	}
 }

@@ -8,8 +8,10 @@
 
 	"newincity@closeinfo": {
 		"next": [
-			"newincity@closeinfo@passengerend",
 			"newincity@closeinfo@taskend"
+		],
+		"interrupt": [
+			"newincity@closeinfo@passengerend"
 		]
 	},
 

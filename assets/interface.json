@@ -89,7 +89,8 @@
 			"option": [
 				"跑商路线",
 				"进货采买书",
-				"砍价策略"
+				"砍价策略",
+				"抬价策略"
 			],
 			"doc": "跑商路线,默认曼德矿场--阿妮塔发射中心,暂不支持其他路线,暂不支持除采买书外的其他道具,暂不支持客运.暂不支持自主选择商品"
 		}
@@ -368,10 +369,10 @@
 		"海角城订单": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@CapeCity": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyFight@CapeCity": {
 							"enabled": false
@@ -379,10 +380,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@CapeCity": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyFight@CapeCity": {
 							"enabled": false
@@ -476,10 +477,10 @@
 		"贡露城订单": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@GroNruCity": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyFight@GroNruCity": {
 							"enabled": false
@@ -487,10 +488,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyOrder@GroNruCity": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyFight@GroNruCity": {
 							"enabled": false
@@ -503,10 +504,10 @@
 		"贡露城悬赏": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "No",
 					"pipeline_override": {
 						"DailyFight@GroNruCity": {
-							"enabled": true
+							"enabled": false
 						},
 						"DailyOrder@GroNruCity": {
 							"enabled": false
@@ -514,10 +515,10 @@
 					}
 				},
 				{
-					"name": "No",
+					"name": "Yes",
 					"pipeline_override": {
 						"DailyFight@GroNruCity": {
-							"enabled": false
+							"enabled": true
 						},
 						"DailyOrder@GroNruCity": {
 							"enabled": false
@@ -675,7 +676,7 @@
 						"Restocking@Exchange@useProps+0": {
 							"enabled": true
 						},
-						"Mander@Restocking@Exchange@useProps": {
+						"Restocking@Exchange@useProps": {
 							"enabled": false
 						},
 						"Restocking@Exchange@useProps+1": {
@@ -690,7 +691,7 @@
 					}
 				},
 				{
-					"name": "3书",
+					"name": "3书(暂不支持,先去其他地方逛逛吧)",
 					"doc": "暂不支持,请勿勾选该选项!",
 					"pipeline_override": {
 						"Restocking@Exchange@useProps+1": {
@@ -710,15 +711,125 @@
 			"cases": [
 				{
 					"name": "只砍两次",
-					"pipeline_override": {}
+					"pipeline_override": {
+						"Restocking@Exchange@Bargainingsucceed@1": {
+							"enabled": false
+						},
+						"Restocking@Exchange@Bargainingfailed@1": {
+							"enabled": false
+						},
+						"Restocking@Exchange@Bargaining@2": {
+							"enabled": true
+						},
+						"Restocking@Exchange@Bargaining@3": {
+							"enabled": false
+						}
+					}
 				},
 				{
 					"name": "只砍三次",
-					"pipeline_override": {}
+					"pipeline_override": {
+						"Restocking@Exchange@Bargainingsucceed@1": {
+							"enabled": false
+						},
+						"Restocking@Exchange@Bargainingfailed@1": {
+							"enabled": false
+						},
+						"Restocking@Exchange@Bargaining@2": {
+							"enabled": true
+						},
+						"Restocking@Exchange@Bargaining@3": {
+							"enabled": true
+						}
+					}
 				},
 				{
 					"name": "砍成功2次",
-					"pipeline_override": {}
+					"pipeline_override": {
+						"Restocking@Exchange@Bargaining@2": {
+							"enabled": false
+						},
+						"Restocking@Exchange@Bargaining@3": {
+							"enabled": false
+						},
+						"Restocking@Exchange@Bargainingsucceed@1": {
+							"enabled": true
+						},
+						"Restocking@Exchange@Bargainingfailed@1": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "砍成功1次",
+					"pipeline_override": {
+						"Restocking@Exchange@Bargaining@again": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"抬价策略": {
+			"cases": [
+				{
+					"name": "只抬两次",
+					"pipeline_override": {
+						"Clearout@Exchange@Markupsucceed@1": {
+							"enabled": false
+						},
+						"Clearout@Exchange@Markupfailed@1": {
+							"enabled": false
+						},
+						"Clearout@Exchange@Markup@2": {
+							"enabled": true
+						},
+						"Clearout@Exchange@Markup@3": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "只抬三次",
+					"pipeline_override": {
+						"Clearout@Exchange@Markupsucceed@1": {
+							"enabled": false
+						},
+						"Clearout@Exchange@Markupfailed@1": {
+							"enabled": false
+						},
+						"Clearout@Exchange@Markup@2": {
+							"enabled": true
+						},
+						"Clearout@Exchange@Markup@3": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "抬成功2次",
+					"pipeline_override": {
+						"Clearout@Exchange@Markup@2": {
+							"enabled": false
+						},
+						"Clearout@Exchange@Markup@3": {
+							"enabled": false
+						},
+						"Clearout@Exchange@Markupsucceed@1": {
+							"enabled": true
+						},
+						"Clearout@Exchange@Markupfailed@1": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "抬成功1次",
+					"pipeline_override": {
+						"Clearout@Exchange@Markup@again": {
+							"enabled": false
+						}
+					}
 				}
 			]
 		}

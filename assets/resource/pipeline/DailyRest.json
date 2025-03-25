@@ -154,7 +154,7 @@
 		"expected": [
 			"(铁盟哨站|阿妮塔战备工厂|阿妮塔能源研究所|荒原站|淘金乐园|云岫桥基地|汇流塔|远星大桥|栖羽站|阿妮塔发射中心)"
 		],
-		"next": "home@StopTask"
+		"next": "home"
 	},
 
 	"blackmoonstore": {
@@ -166,7 +166,7 @@
 		"doc": "添加新的购买物品",
 		"next": [
 			"birchstone",
-			"home@StopTask"
+			"Birchstone@home"
 		]
 	},
 
@@ -186,7 +186,7 @@
 		"post_delay": 1000,
 		"next": [
 			"birchstone@confirm",
-			"home"
+			"Birchstone@home"
 		]
 	},
 
@@ -202,16 +202,16 @@
 		"next": "confirmshort@closeinfo"
 	},
 
-	"confirmshort@closeinfo": {
+	"confirmshort@StorePurchase": {
 		"recognition": "TemplateMatch",
 		"template": "confirmshort.png",
 		"action": "Click",
 		"focus": true,
 		"focus_tip": "确认购买",
-		"next": "closeinfo@StorePurchase"
+		"next": "confirmshort@closeinfo"
 	},
 
-	"closeinfo@StorePurchase": {
+	"confirmshort@closeinfo": {
 		"recognition": "OCR",
 		"expected": [
 			"触碰空白区域退出"
@@ -224,8 +224,8 @@
 			90
 		],
 		"next": [
-			"closeinfo@StorePurchase",
-			"home"
+			"confirmshort@closeinfo",
+			"Birchstone@home"
 		]
 	}
 }

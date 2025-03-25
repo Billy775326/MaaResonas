@@ -74,7 +74,7 @@
 		"threshold": 0.95,
 		"next": [
 			"GetRewards@Activity@Available",
-			"home"
+			"Activity@home"
 		]
 	},
 
@@ -114,7 +114,7 @@
 		"threshold": 0.9,
 		"post_delay": 500,
 		"next": [
-			"home"
+			"Activity@home"
 		]
 	},
 
@@ -128,10 +128,7 @@
 			"GetRewards@Manual@judge"
 		],
 		"focus": true,
-		"focus_tip": "开始领取手册奖励",
-		"interrupt": [
-			"home"
-		]
+		"focus_tip": "开始领取手册奖励"
 	},
 
 	"GetRewards@Manual@judge": {
@@ -223,7 +220,7 @@
 		"action": "Click",
 		"next": [
 			"GetRewards@Manual@level@switch@confirm",
-			"home"
+			"Manual@home"
 		]
 	},
 
@@ -246,7 +243,7 @@
 		"post_delay": 800,
 		"next": [
 			"GetRewards@Manual@level@closeinfo",
-			"home"
+			"Manual@home"
 		]
 	},
 
@@ -263,13 +260,6 @@
 		"next": [
 			"GetRewards@Manual@level@closeinfo"
 		]
-	},
-	"GetRewards@home@next": {
-		"recognition": "TemplateMatch",
-		"template": "home.png",
-		"action": "Click",
-		"post_delay": 400,
-		"next": []
 	},
 	"GetRewards@Delegation": {
 		"enabled": true,
@@ -381,7 +371,7 @@
 		"action": "Click",
 		"post_delay": 800,
 		"next": [
-			"GetRewards@Delegation@home"
+			"Delegation@home"
 		]
 	},
 	"GetRewards@Delegation@recall": {
@@ -396,21 +386,8 @@
 		"focus": true,
 		"focus_tip": "上次派遣未完成",
 		"next": [
-			"GetRewards@Delegation@home"
+			"Delegation@home"
 		]
-	},
-	"GetRewards@Delegation@home": {
-		"recognition": "TemplateMatch",
-		"roi": [
-			0,
-			0,
-			244,
-			74
-		],
-		"focus": true,
-		"focus_tip": "委托派遣完成,回到首页",
-		"template": "home.png",
-		"action": "Click"
 	},
 
 	"GetRewards@Birchstone": {
@@ -522,7 +499,7 @@
 			249
 		],
 		"next": [
-			"home"
+			"Bento@home"
 		]
 	},
 	"GetRewards@Bento@forcer@enough": {
@@ -587,7 +564,7 @@
 		"focus_tip": "便当食用完毕,疲劳值已降低",
 		"action": "Click",
 		"next": [
-			"home"
+			"Bento@home"
 		]
 	},
 	"GetRewards@Bento@Eatfailed": {
@@ -602,7 +579,7 @@
 			70
 		],
 		"next": [
-			"home"
+			"Bento@home"
 		]
 	}
 }

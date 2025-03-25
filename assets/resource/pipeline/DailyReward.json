@@ -10,6 +10,90 @@
 		],
 		"interrupt": "home"
 	},
+	"Activity@home": {
+		"recognition": "TemplateMatch",
+		"roi": [
+			0,
+			0,
+			244,
+			74
+		],
+		"focus": true,
+		"focus_tip": "活跃度奖励领取完成,回到首页",
+		"template": "home.png",
+		"action": "Click",
+		"next": [
+			"GetRewards@Manual",
+			"GetRewards@Delegation",
+			"GetRewards@Birchstone",
+			"GetRewards@Bento"
+		]
+	},
+	"Manual@home": {
+		"recognition": "TemplateMatch",
+		"roi": [
+			0,
+			0,
+			244,
+			74
+		],
+		"focus": true,
+		"focus_tip": "手册奖励领取完成,回到首页",
+		"template": "home.png",
+		"action": "Click",
+		"next": [
+			"GetRewards@Delegation",
+			"GetRewards@Birchstone",
+			"GetRewards@Bento"
+		]
+	},
+	"Delegation@home": {
+		"recognition": "TemplateMatch",
+		"roi": [
+			0,
+			0,
+			244,
+			74
+		],
+		"focus": true,
+		"focus_tip": "委托派遣完成,回到首页",
+		"template": "home.png",
+		"action": "Click",
+		"next": [
+			"GetRewards@Birchstone",
+			"GetRewards@Bento"
+		]
+	},
+	"Birchstone@home": {
+		"recognition": "TemplateMatch",
+		"roi": [
+			0,
+			0,
+			244,
+			74
+		],
+		"focus": true,
+		"focus_tip": "每日桦石奖励领取完成,回到首页",
+		"template": "home.png",
+		"action": "Click",
+		"next": [
+			"GetRewards@Bento"
+		]
+	},
+	"Bento@home": {
+		"recognition": "TemplateMatch",
+		"roi": [
+			0,
+			0,
+			244,
+			74
+		],
+		"focus": true,
+		"focus_tip": "每日便当领取完成,回到首页",
+		"template": "home.png",
+		"action": "Click",
+		"next": []
+	},
 	"DailyReward@Activity": {
 		"enabled": false,
 		"next": [

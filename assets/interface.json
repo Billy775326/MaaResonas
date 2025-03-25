@@ -534,18 +534,6 @@
 					"pipeline_override": {
 						"GetRewards@Activity": {
 							"enabled": true
-						},
-						"GetRewards@Manual": {
-							"enabled": false
-						},
-						"GetRewards@Delegation": {
-							"enabled": false
-						},
-						"GetRewards@Birchstone": {
-							"enabled": false
-						},
-						"GetRewards@Bento": {
-							"enabled": false
 						}
 					}
 				},
@@ -564,20 +552,8 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"GetRewards@Activity": {
-							"enabled": false
-						},
 						"GetRewards@Manual": {
 							"enabled": true
-						},
-						"GetRewards@Delegation": {
-							"enabled": false
-						},
-						"GetRewards@Birchstone": {
-							"enabled": false
-						},
-						"GetRewards@Bento": {
-							"enabled": false
 						}
 					}
 				},
@@ -596,20 +572,8 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"GetRewards@Activity": {
-							"enabled": false
-						},
-						"GetRewards@Manual": {
-							"enabled": false
-						},
 						"GetRewards@Delegation": {
 							"enabled": true
-						},
-						"GetRewards@Birchstone": {
-							"enabled": false
-						},
-						"GetRewards@Bento": {
-							"enabled": false
 						}
 					}
 				},
@@ -617,38 +581,6 @@
 					"name": "No",
 					"pipeline_override": {
 						"GetRewards@Delegation": {
-							"enabled": false
-						}
-					}
-				}
-			]
-		},
-		"列车便当": {
-			"cases": [
-				{
-					"name": "Yes",
-					"pipeline_override": {
-						"GetRewards@Activity": {
-							"enabled": false
-						},
-						"GetRewards@Manual": {
-							"enabled": false
-						},
-						"GetRewards@Delegation": {
-							"enabled": false
-						},
-						"GetRewards@Birchstone": {
-							"enabled": false
-						},
-						"GetRewards@Bento": {
-							"enabled": true
-						}
-					}
-				},
-				{
-					"name": "No",
-					"pipeline_override": {
-						"GetRewards@Bento": {
 							"enabled": false
 						}
 					}
@@ -660,20 +592,8 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"GetRewards@Activity": {
-							"enabled": false
-						},
-						"GetRewards@Manual": {
-							"enabled": false
-						},
-						"GetRewards@Delegation": {
-							"enabled": false
-						},
 						"GetRewards@Birchstone": {
 							"enabled": true
-						},
-						"GetRewards@Bento": {
-							"enabled": false
 						}
 					}
 				},
@@ -681,6 +601,26 @@
 					"name": "No",
 					"pipeline_override": {
 						"GetRewards@Birchstone": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"列车便当": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {
+						"GetRewards@Bento": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {
+						"GetRewards@Bento": {
 							"enabled": false
 						}
 					}

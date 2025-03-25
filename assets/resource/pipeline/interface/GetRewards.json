@@ -264,18 +264,12 @@
 			"GetRewards@Manual@level@closeinfo"
 		]
 	},
-	"GetRewards@home": {
+	"GetRewards@home@next": {
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
 		"post_delay": 400,
-		"next": [
-			"DailyReward@Activity",
-			"DailyReward@Manual",
-			"GetRewards@Delegation",
-			"DailyReward@Birchstone",
-			"DailyReward@Bento"
-		]
+		"next": []
 	},
 	"GetRewards@Delegation": {
 		"enabled": true,

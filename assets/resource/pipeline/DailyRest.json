@@ -173,17 +173,18 @@
 	"birchstone": {
 		"recognition": "TemplateMatch",
 		"template": "Store/birchstone.png",
-		"threshold": 0.88,
+		"timeout": 6000,
+		"threshold": 0.95,
 		"roi": [
-			580,
+			560,
 			64,
-			696,
-			341
+			716,
+			360
 		],
 		"focus": true,
 		"focus_tip": "每日桦石",
 		"action": "Click",
-		"post_delay": 1000,
+		"post_delay": 200,
 		"next": [
 			"birchstone@confirm",
 			"Birchstone@home"
@@ -199,13 +200,15 @@
 			1280,
 			458
 		],
-		"next": "confirmshort@closeinfo"
+		"post_delay": 500,
+		"next": "confirmshort@StorePurchase"
 	},
 
 	"confirmshort@StorePurchase": {
-		"recognition": "TemplateMatch",
+		"recognition": "FeatureMatch",
 		"template": "confirmshort.png",
 		"action": "Click",
+		"post_delay": 500,
 		"focus": true,
 		"focus_tip": "确认购买",
 		"next": "confirmshort@closeinfo"
@@ -223,6 +226,7 @@
 			220,
 			90
 		],
+		"post_delay": 500,
 		"next": [
 			"confirmshort@closeinfo",
 			"Birchstone@home"

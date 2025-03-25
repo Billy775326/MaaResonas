@@ -392,17 +392,46 @@
 
 	"GetRewards@Birchstone": {
 		"enabled": true,
-		"recognition": "TemplateMatch",
+		"recognition": "OCR",
 		"roi": [
-			903,
-			8,
-			90,
-			80
+			1135,
+			605,
+			145,
+			115
 		],
+		"expected": "启程",
+		"action": "Click",
+		"target": [
+			130,
+			634,
+			54,
+			56
+		],
+
 		"focus": true,
 		"focus_tip": "开始领取每日桦石奖励",
-		"template": "Reward/Mall.png",
+		"post_delay": 1000,
+		"next": [
+			"GetRewards@birchstone@Mall"
+		]
+	},
+	"GetRewards@birchstone@Mall": {
+		"recognition": "OCR",
+		"expected": "商城",
+		"roi": [
+			0,
+			0,
+			686,
+			718
+		],
 		"action": "Click",
+		"target_offset": [
+			0,
+			-50,
+			0,
+			0
+		],
+		"post_delay": 500,
 		"next": [
 			"GetRewards@birchstone@Mall@swpie"
 		]
@@ -421,6 +450,7 @@
 			10,
 			10
 		],
+		"post_delay": 500,
 		"next": [
 			"GetRewards@birchstone@Mall@HeadquartersStore"
 		]
@@ -436,13 +466,11 @@
 		],
 		"focus": true,
 		"focus_tip": "总部商店",
+		"action": "Click",
+		"post_delay": 1000,
 		"next": [
-			"GetRewards@birchstone@Mall@birchstone"
-		]
-	},
-	"GetRewards@birchstone@Mall@birchstone": {
-		"next": [
-			"birchstone"
+			"birchstone",
+			"Birchstone@home"
 		]
 	},
 	"GetRewards@Bento": {
@@ -513,6 +541,7 @@
 			165,
 			249
 		],
+		"post_delay": 500,
 		"next": [
 			"GetRewards@Bento@forcer"
 		]
@@ -529,12 +558,7 @@
 			249
 		],
 		"action": "Click",
-		"target": [
-			1027,
-			403,
-			165,
-			249
-		],
+		"post_delay": 500,
 		"next": [
 			"GetRewards@Bento@Eat"
 		]
@@ -553,6 +577,15 @@
 		"action": "Click",
 		"post_delay": 800,
 		"next": [
+			"GetRewards@Bento@Eat@confirm"
+		]
+	},
+	"GetRewards@Bento@Eat@confirm": {
+		"recognition": "OCR",
+		"expected": "确认",
+		"action": "Click",
+		"post_delay": 1500,
+		"next": [
 			"GetRewards@Bento@Eatfinish",
 			"GetRewards@Bento@Eatfailed"
 		]
@@ -560,6 +593,7 @@
 	"GetRewards@Bento@Eatfinish": {
 		"recognition": "OCR",
 		"expected": "疲劳值已消除\\s*\\d+\\s*点",
+		"post_delay": 800,
 		"focus": true,
 		"focus_tip": "便当食用完毕,疲劳值已降低",
 		"action": "Click",

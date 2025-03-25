@@ -72,7 +72,7 @@
 
 		{
 			"name": "领取每日奖励",
-			"entry": "GetRewards",
+			"entry": "DailyReward",
 			"check": true,
 			"option": [
 				"活跃度奖励",
@@ -84,7 +84,7 @@
 		},
 		{
 			"name": "跑商交易",
-			"entry": "GetRewards",
+			"entry": "Route@Mander-Anita",
 			"check": false,
 			"option": [
 				"跑商路线",
@@ -532,7 +532,7 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"GetRewards@Activity": {
+						"DailyReward@Activity": {
 							"enabled": true
 						}
 					}
@@ -540,7 +540,7 @@
 				{
 					"name": "No",
 					"pipeline_override": {
-						"GetRewards@Activity": {
+						"DailyReward@Activity": {
 							"enabled": false
 						}
 					}
@@ -552,7 +552,7 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"GetRewards@Manual": {
+						"DailyReward@Manual": {
 							"enabled": true
 						}
 					}
@@ -560,7 +560,7 @@
 				{
 					"name": "No",
 					"pipeline_override": {
-						"GetRewards@Manual": {
+						"DailyReward@Manual": {
 							"enabled": false
 						}
 					}
@@ -572,7 +572,7 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"GetRewards@Delegation": {
+						"DailyReward@Delegation": {
 							"enabled": true
 						}
 					}
@@ -580,7 +580,7 @@
 				{
 					"name": "No",
 					"pipeline_override": {
-						"GetRewards@Delegation": {
+						"DailyReward@Delegation": {
 							"enabled": false
 						}
 					}
@@ -592,7 +592,7 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"GetRewards@Bento": {
+						"DailyReward@Bento": {
 							"enabled": true
 						}
 					}
@@ -600,7 +600,7 @@
 				{
 					"name": "No",
 					"pipeline_override": {
-						"GetRewards@Bento": {
+						"DailyReward@Bento": {
 							"enabled": false
 						}
 					}
@@ -612,7 +612,7 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"GetRewards@Birchstone": {
+						"DailyReward@Birchstone": {
 							"enabled": true
 						}
 					}
@@ -620,7 +620,7 @@
 				{
 					"name": "No",
 					"pipeline_override": {
-						"GetRewards@Birchstone": {
+						"DailyReward@Birchstone": {
 							"enabled": false
 						}
 					}

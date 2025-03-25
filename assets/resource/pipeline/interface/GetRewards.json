@@ -8,7 +8,7 @@
 			"Reward/ActivityRewards2.png"
 		],
 		"focus": true,
-		"focus_tip": "开始领取活跃度页面",
+		"focus_tip": "开始领取活跃度奖励",
 		"action": "Click",
 		"roi": [
 			0,
@@ -51,7 +51,7 @@
 		"next": [
 			"GetRewards@Activity@Available",
 			"GetRewards@Activity@600ing",
-			"home"
+			"GetRewards@home@next"
 		],
 		"interrupt": [
 			"closeinfo",
@@ -114,7 +114,7 @@
 		"threshold": 0.9,
 		"post_delay": 500,
 		"next": [
-			"Activity@home@manual"
+			"GetRewards@home@next"
 		]
 	},
 
@@ -130,7 +130,7 @@
 		"focus": true,
 		"focus_tip": "开始领取手册奖励",
 		"interrupt": [
-			"Activity@home@manual"
+			"home"
 		]
 	},
 
@@ -223,7 +223,7 @@
 		"action": "Click",
 		"next": [
 			"GetRewards@Manual@level@switch@confirm",
-			"home@StopTask"
+			"GetRewards@home@next"
 		]
 	},
 
@@ -245,7 +245,8 @@
 		"action": "Click",
 		"post_delay": 800,
 		"next": [
-			"GetRewards@Manual@level@closeinfo"
+			"GetRewards@Manual@level@closeinfo",
+			"GetRewards@home@next"
 		]
 	},
 
@@ -260,20 +261,22 @@
 		],
 		"action": "Click",
 		"next": [
-			"home"
+			"GetRewards@Manual@level@closeinfo"
 		]
 	},
-
-	"Activity@home@manual": {
+	"GetRewards@home": {
 		"recognition": "TemplateMatch",
 		"template": "home.png",
 		"action": "Click",
-		"post_wait_freezes": 400,
+		"post_delay": 400,
 		"next": [
-			"GetRewards@Manual"
+			"DailyReward@Activity",
+			"DailyReward@Manual",
+			"GetRewards@Delegation",
+			"DailyReward@Birchstone",
+			"DailyReward@Bento"
 		]
 	},
-
 	"GetRewards@Delegation": {
 		"enabled": true,
 		"next": [
@@ -413,11 +416,7 @@
 		"focus": true,
 		"focus_tip": "委托派遣完成,回到首页",
 		"template": "home.png",
-		"action": "Click",
-		"doc": "next GetRewards@Delegation@StopTask"
-	},
-	"GetRewards@Delegation@StopTask": {
-		"action": "StopTask"
+		"action": "Click"
 	},
 
 	"GetRewards@Birchstone": {
@@ -493,7 +492,7 @@
 			56
 		],
 		"focus": true,
-		"focus_tip": "点击首页列车长头像",
+		"focus_tip": "开始领取每日便当奖励",
 		"next": [
 			"GetRewards@Bento@Fatigue"
 		]

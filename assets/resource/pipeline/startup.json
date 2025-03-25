@@ -14,7 +14,7 @@
 		"doc": "包名启动应用",
 		"focus": true,
 		"focus_tip": "启动app",
-		"post_delay": 30000,
+		"post_delay": 20000,
 		"rate_limit": 5000,
 		"next": [
 			"Enter"

@@ -1,4 +1,15 @@
 {
+	"DailyReward": {
+		"enabled": true,
+		"next": [
+			"DailyReward@Activity",
+			"DailyReward@Manual",
+			"GetRewards@Delegation",
+			"DailyReward@Birchstone",
+			"DailyReward@Bento"
+		],
+		"interrupt": "home"
+	},
 	"DailyReward@Activity": {
 		"enabled": false,
 		"next": [

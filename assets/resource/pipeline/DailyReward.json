@@ -1,7 +1,9 @@
 {
 	"DailyReward@Activity": {
 		"enabled": false,
-		"next": "GetRewards@Activity",
+		"next": [
+			"GetRewards@Activity"
+		],
 		"interrupt": "home",
 		"focus": true,
 		"focus_tip": "活跃度奖励"

@@ -8,7 +8,7 @@
 			"Reward/ActivityRewards2.png"
 		],
 		"focus": true,
-		"focus_tip": "进入活跃度页面",
+		"focus_tip": "开始领取活跃度页面",
 		"action": "Click",
 		"roi": [
 			0,
@@ -128,7 +128,7 @@
 			"GetRewards@Manual@judge"
 		],
 		"focus": true,
-		"focus_tip": "进入手册奖励界面",
+		"focus_tip": "开始领取手册奖励",
 		"interrupt": [
 			"Activity@home@manual"
 		]
@@ -279,7 +279,9 @@
 		"next": [
 			"GetRewards@Delegation@inCityOpenSummary",
 			"GetRewards@Delegation@inSummary"
-		]
+		],
+		"focus": true,
+		"focus_tip": "开始领取委托派遣奖励"
 	},
 	"GetRewards@Delegation@inSummary": {
 		"recognition": "FeatureMatch",
@@ -428,7 +430,7 @@
 			80
 		],
 		"focus": true,
-		"focus_tip": "商城",
+		"focus_tip": "开始领取每日桦石奖励",
 		"template": "Reward/Mall.png",
 		"action": "Click",
 		"next": [

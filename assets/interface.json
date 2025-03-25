@@ -532,15 +532,27 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"DailyReward@Activity": {
+						"GetRewards@Activity": {
 							"enabled": true
+						},
+						"GetRewards@Manual": {
+							"enabled": false
+						},
+						"GetRewards@Delegation": {
+							"enabled": false
+						},
+						"GetRewards@Birchstone": {
+							"enabled": false
+						},
+						"GetRewards@Bento": {
+							"enabled": false
 						}
 					}
 				},
 				{
 					"name": "No",
 					"pipeline_override": {
-						"DailyReward@Activity": {
+						"GetRewards@Activity": {
 							"enabled": false
 						}
 					}
@@ -552,15 +564,27 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"DailyReward@Manual": {
+						"GetRewards@Activity": {
+							"enabled": false
+						},
+						"GetRewards@Manual": {
 							"enabled": true
+						},
+						"GetRewards@Delegation": {
+							"enabled": false
+						},
+						"GetRewards@Birchstone": {
+							"enabled": false
+						},
+						"GetRewards@Bento": {
+							"enabled": false
 						}
 					}
 				},
 				{
 					"name": "No",
 					"pipeline_override": {
-						"DailyReward@Manual": {
+						"GetRewards@Manual": {
 							"enabled": false
 						}
 					}
@@ -572,15 +596,27 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"DailyReward@Delegation": {
+						"GetRewards@Activity": {
+							"enabled": false
+						},
+						"GetRewards@Manual": {
+							"enabled": false
+						},
+						"GetRewards@Delegation": {
 							"enabled": true
+						},
+						"GetRewards@Birchstone": {
+							"enabled": false
+						},
+						"GetRewards@Bento": {
+							"enabled": false
 						}
 					}
 				},
 				{
 					"name": "No",
 					"pipeline_override": {
-						"DailyReward@Delegation": {
+						"GetRewards@Delegation": {
 							"enabled": false
 						}
 					}
@@ -592,7 +628,19 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"DailyReward@Bento": {
+						"GetRewards@Activity": {
+							"enabled": false
+						},
+						"GetRewards@Manual": {
+							"enabled": false
+						},
+						"GetRewards@Delegation": {
+							"enabled": false
+						},
+						"GetRewards@Birchstone": {
+							"enabled": false
+						},
+						"GetRewards@Bento": {
 							"enabled": true
 						}
 					}
@@ -600,7 +648,7 @@
 				{
 					"name": "No",
 					"pipeline_override": {
-						"DailyReward@Bento": {
+						"GetRewards@Bento": {
 							"enabled": false
 						}
 					}
@@ -612,15 +660,27 @@
 				{
 					"name": "Yes",
 					"pipeline_override": {
-						"DailyReward@Birchstone": {
+						"GetRewards@Activity": {
+							"enabled": false
+						},
+						"GetRewards@Manual": {
+							"enabled": false
+						},
+						"GetRewards@Delegation": {
+							"enabled": false
+						},
+						"GetRewards@Birchstone": {
 							"enabled": true
+						},
+						"GetRewards@Bento": {
+							"enabled": false
 						}
 					}
 				},
 				{
 					"name": "No",
 					"pipeline_override": {
-						"DailyReward@Birchstone": {
+						"GetRewards@Birchstone": {
 							"enabled": false
 						}
 					}

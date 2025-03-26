@@ -1,6 +1,6 @@
 {
 	"Route@Mander-Anita": {
-		"enabled": false,
+		"enabled": true,
 		"next": [
 			"RouteFirst@Mander",
 			"RouteFirst@Anita"
@@ -51,7 +51,7 @@
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
-		"post_delay": 1000,
+		"post_delay": 1500,
 		"focus": true,
 		"focus_tip": "访问城市补货",
 		"next": [
@@ -64,14 +64,14 @@
 		"expected": "交易所",
 		"action": "Click",
 		"target_offset": [
-			0,
-			50,
+			-10,
+			70,
 			0,
 			0
 		],
 		"focus": true,
 		"focus_tip": "访问交易所",
-
+		"post_delay": 800,
 		"next": [
 			"Restocking@Exchange@buy"
 		]
@@ -234,7 +234,7 @@
 		"focus": true,
 		"focus_tip": "成功0,砍价次数+1",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Restocking@Exchange@Bargaining@2",
 			"Restocking@Exchange@Bargainingsucceed@1",
@@ -254,7 +254,7 @@
 		"focus": true,
 		"focus_tip": "砍价次数+1",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Restocking@Exchange@Bargaining@3",
 			"Restocking@Exchange@buyin"
@@ -273,7 +273,7 @@
 		"focus": true,
 		"focus_tip": "成功0,砍价次数+1",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Restocking@Exchange@buyin"
 		]
@@ -290,6 +290,7 @@
 		"expected": "砍价成功",
 		"focus": true,
 		"focus_tip": "砍价成功1",
+		"post_delay": 800,
 		"next": [
 			"Restocking@Exchange@Bargaining@again",
 			"Restocking@Exchange@buyin"
@@ -307,6 +308,7 @@
 		"expected": "砍价失败",
 		"focus": true,
 		"focus_tip": "砍价失败1",
+		"post_delay": 800,
 		"next": [
 			"Restocking@Exchange@Bargaining"
 		]
@@ -323,7 +325,7 @@
 		"focus": true,
 		"focus_tip": "成功1,砍价次数+1",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Restocking@Exchange@Bargainingsucceed@2",
 			"Restocking@Exchange@Bargainingfailed@2"
@@ -340,6 +342,7 @@
 		"expected": "砍价成功",
 		"focus": true,
 		"focus_tip": "砍价成功2",
+		"post_delay": 800,
 		"next": [
 			"Restocking@Exchange@buyin"
 		]
@@ -356,6 +359,7 @@
 		"expected": "砍价失败",
 		"focus": true,
 		"focus_tip": "砍价失败2",
+		"post_delay": 800,
 		"next": [
 			"Restocking@Exchange@Bargaining@again"
 		]
@@ -370,7 +374,7 @@
 		],
 		"expected": "买入",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Exchange@closeinfo@buy",
 			"Exchange@MarketChanges"
@@ -385,6 +389,7 @@
 			62
 		],
 		"expected": "行情已经发生变动",
+		"post_delay": 1000,
 		"next": [
 			"Restocking@Exchange@buyin",
 			"Clearout@Exchange@sellout"
@@ -406,7 +411,7 @@
 	},
 	"home@ToAnita": {
 		"recognition": "OCR",
-		"expected": "阿妮塔发射中心",
+		"expected": "曼德矿场",
 		"roi": [
 			784,
 			213,
@@ -424,7 +429,7 @@
 	},
 	"home@ToMander": {
 		"recognition": "OCR",
-		"expected": "曼德矿场",
+		"expected": "阿妮塔发射中心",
 		"roi": [
 			784,
 			213,
@@ -515,6 +520,7 @@
 		"focus_tip": "锁定阿妮塔发射中心",
 		"doc": "去目的地前是否要招揽乘客ManderToAnita@PAXtransport",
 		"action": "Click",
+		"post_delay": 500,
 		"next": [
 			"gotodestination"
 		]
@@ -532,6 +538,7 @@
 			78
 		],
 		"action": "Click",
+		"post_delay": 4000,
 		"next": "Injourney"
 	},
 	"Injourney": {
@@ -540,8 +547,8 @@
 			"自动巡航中",
 			"立即返航"
 		],
-		"rate_limit": 5000,
-		"post_delay": 10000,
+		"rate_limit": 9000,
+		"post_delay": 15000,
 		"timeout": 30000,
 		"roi": [
 			546,
@@ -549,24 +556,32 @@
 			185,
 			47
 		],
+		"focus": true,
+		"focus_tip": "自动巡航中...",
+		"post_wait_freezes": 1000,
 		"next": [
 			"Injourney",
 			"Injourney@fighting",
-			"ManderToAnita@arrive"
+			"RouteFinal@Anita",
+			"RouteFinal@Mander"
+		],
+		"interrupt": [
+			"newincity@closeinfo@taskend",
+			"newincity@closeinfo@passengerend"
 		]
 	},
 	"Injourney@fighting": {
-		"recognition": "TemplateMatch",
+		"recognition": "FeatureMatch",
 		"template": [
 			"Fight/autofight.png",
 			"Fight/autofight1.png"
 		],
 		"focus": true,
 		"focus_tip": "路途自动战斗",
-		"threshold": 0.8,
+		"threshold": 0.75,
 		"post_delay": 10000,
-		"rate_limit": 2000,
-		"timeout": 8000,
+		"rate_limit": 5000,
+		"timeout": 16000,
 		"roi": [
 			114,
 			10,
@@ -576,15 +591,6 @@
 		"next": [
 			"Injourney",
 			"Injourney@fighting"
-		]
-	},
-	"ManderToAnita@arrive": {
-		"enabled": true,
-		"next": [
-			"RouteFinal@Anita"
-		],
-		"interrupt": [
-			"newincity@closeinfo"
 		]
 	},
 	"RouteFinal@Anita": {
@@ -609,9 +615,31 @@
 		"recognition": "OCR",
 		"expected": "访问城市",
 		"action": "Click",
-		"post_delay": 1000,
+		"post_delay": 1500,
 		"focus": true,
 		"focus_tip": "访问城市卖货",
+		"next": [
+			"Clearout@Exchange",
+			"Clearout@seekExchange"
+		]
+	},
+	"Clearout@seekExchange": {
+		"action": "Swipe",
+		"begin": [
+			300,
+			368,
+			10,
+			10
+		],
+		"end": [
+			0,
+			300,
+			10,
+			10
+		],
+		"focus": true,
+		"focus_tip": "滑动寻找交易所",
+		"post_delay": 500,
 		"next": [
 			"Clearout@Exchange"
 		]
@@ -679,7 +707,7 @@
 		"focus": true,
 		"focus_tip": "成功0,抬价次数+1",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Clearout@Exchange@Markup@2",
 			"Clearout@Exchange@Markupsucceed@1",
@@ -695,11 +723,11 @@
 			167,
 			70
 		],
-		"expected": "砍价",
+		"expected": "抬价",
 		"focus": true,
-		"focus_tip": "砍价次数+1",
+		"focus_tip": "抬价次数+1",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Clearout@Exchange@Markup@3",
 			"Clearout@Exchange@sellout"
@@ -716,9 +744,9 @@
 		],
 		"expected": "抬价",
 		"focus": true,
-		"focus_tip": "成功0,抬价次数+1",
+		"focus_tip": "抬价次数+1",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Clearout@Exchange@sellout"
 		]
@@ -735,6 +763,7 @@
 		"expected": "抬价成功",
 		"focus": true,
 		"focus_tip": "抬价成功1",
+		"post_delay": 800,
 		"next": [
 			"Clearout@Exchange@Markup@again",
 			"Clearout@Exchange@sellout"
@@ -750,6 +779,7 @@
 			220
 		],
 		"expected": "抬价失败",
+		"post_delay": 800,
 		"focus": true,
 		"focus_tip": "抬价失败1",
 		"next": [
@@ -768,7 +798,7 @@
 		"focus": true,
 		"focus_tip": "成功1,抬价次数+1",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Clearout@Exchange@Markupsucceed@2",
 			"Clearout@Exchange@Markupfailed@2"
@@ -785,6 +815,7 @@
 		"expected": "抬价成功",
 		"focus": true,
 		"focus_tip": "抬价成功2",
+		"post_delay": 800,
 		"next": [
 			"Clearout@Exchange@sellout"
 		]
@@ -801,6 +832,7 @@
 		"expected": "抬价失败",
 		"focus": true,
 		"focus_tip": "抬价失败2",
+		"post_delay": 800,
 		"next": [
 			"Clearout@Exchange@Markup@again"
 		]
@@ -815,7 +847,7 @@
 		],
 		"expected": "卖出",
 		"action": "Click",
-		"post_delay": 400,
+		"post_delay": 800,
 		"next": [
 			"Exchange@closeinfo@sell",
 			"Exchange@MarketChanges"
@@ -828,6 +860,7 @@
 		],
 		"focus": true,
 		"focus_tip": "清仓",
+		"post_delay": 800,
 		"action": "Click",
 		"next": [
 			"Exchange@closeinfo@sell",
@@ -884,13 +917,73 @@
 		],
 		"action": "Click",
 		"next": [
-			"ManderToAnita",
-			"Mander@seekAnita"
+			"AnitaToMander",
+			"Anita@seekMander"
 		],
 		"interrupt": [
 			"home"
 		]
 	},
+	"AnitaToMander": {
+		"recognition": "OCR",
+		"expected": ["曼德矿场"],
+		"focus": true,
+		"focus_tip": "锁定曼德矿场",
+		"doc": "去目的地前是否要招揽乘客ManderToAnita@PAXtransport",
+		"action": "Click",
+		"post_delay": 500,
+		"next": [
+			"gotodestination"
+		]
+	},
+	"Anita@seekMander": {
+		"focus": true,
+		"focus_tip": "寻找曼德矿场",
+		"action": "Swipe",
+		"begin": [
+			300,
+			300,
+			10,
+			10
+		],
+		"end": [
+			0,
+			368,
+			10,
+			10
+		],
+		"duration": 200,
+		"post_wait_freezes": {
+			"threshold": 0.5,
+			"time": 800
+		},
+		"next": [
+			"Anita@seekMander@StopSwpie",
+			"AnitaToMander"
+		]
+	},
+
+	"Anita@seekMander@StopSwpie": {
+		"action": "Swipe",
+		"begin": [
+			0,
+			301,
+			10,
+			10
+		],
+		"end": [
+			0,
+			300,
+			10,
+			10
+		],
+		"duration": 200,
+		"next": [
+			"AnitaToMander",
+			"home"
+		]
+	},
+
 	"RouteFirst@Anita": {
 		"focus": true,
 		"focus_tip": "线路起点补货:阿妮塔发射中心",
@@ -904,6 +997,24 @@
 		],
 		"next": [
 			"Restocking@visitCity"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+	"RouteFinal@Mander": {
+		"focus": true,
+		"focus_tip": "线路终点:曼德矿场",
+		"recognition": "OCR",
+		"expected": ["曼德矿场"],
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"next": [
+			"Clearout@visitCity"
 		],
 		"interrupt": [
 			"home"

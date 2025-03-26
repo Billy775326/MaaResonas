@@ -630,7 +630,7 @@
 		"跑商路线": {
 			"cases": [
 				{
-					"name": "曼德矿场——阿妮塔发射中心",
+					"name": "环路:曼德矿场——阿妮塔发射中心",
 					"pipeline_override": {
 						"Route@Mader-Anita": {
 							"enabled": true
@@ -642,7 +642,7 @@
 		"进货采买书": {
 			"cases": [
 				{
-					"name": "2书",
+					"name": "单程2书,环路4书",
 					"pipeline_override": {
 						"Restocking@Exchange@useProps+2": {
 							"enabled": true
@@ -656,7 +656,7 @@
 					}
 				},
 				{
-					"name": "1书",
+					"name": "单程1书,环路2书",
 					"pipeline_override": {
 						"Restocking@Exchange@useProps+1": {
 							"enabled": true

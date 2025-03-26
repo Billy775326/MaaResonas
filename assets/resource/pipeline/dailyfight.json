@@ -1,14 +1,12 @@
 {
 	"DailyFight": {
 		"timeout": 3000,
-		"on_error": [
-			"closeinfo@newsignincity@fight",
-			"home@Dailyfight"
-		],
 		"next": [
 			"Dailyfight@visitCity"
 		],
 		"interrupt": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight",
 			"inCity",
 			"journey"
 		]

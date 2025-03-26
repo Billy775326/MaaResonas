@@ -4,15 +4,13 @@
 		"expected": "访问城市",
 		"action": "Click",
 		"timeout": 3000,
-		"on_error": [
-			"closeinfo@newsignincity@order",
-			"home@Dailyorder"
-		],
 		"next": [
 			"Dailyship"
 		],
 
 		"interrupt": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder",
 			"inCity",
 			"journey"
 		]
@@ -34,7 +32,7 @@
 		],
 		"action": "Click",
 		"focus": true,
-		"focus_tip": "关闭游戏弹窗",
+		"focus_tip": "关闭弹窗",
 		"target": [
 			100,
 			661,

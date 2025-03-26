@@ -174,7 +174,7 @@
 		"recognition": "TemplateMatch",
 		"template": "Store/birchstone.png",
 		"timeout": 6000,
-		"threshold": 0.95,
+		"threshold": 0.9,
 		"roi": [
 			560,
 			64,
@@ -184,7 +184,7 @@
 		"focus": true,
 		"focus_tip": "每日桦石",
 		"action": "Click",
-		"post_delay": 200,
+		"post_delay": 800,
 		"next": [
 			"birchstone@confirm",
 			"Birchstone@home"

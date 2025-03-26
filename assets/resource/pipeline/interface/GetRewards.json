@@ -117,11 +117,39 @@
 			"Activity@home"
 		]
 	},
-
 	"GetRewards@Manual": {
+		"recognition": "OCR",
+		"roi": [
+			1135,
+			605,
+			145,
+			115
+		],
+		"expected": "启程",
+		"action": "Click",
+		"target": [
+			130,
+			634,
+			54,
+			56
+		],
+		"focus": true,
+		"focus_tip": "点击首页列车长头像",
+		"post_delay": 800,
+		"next": [
+			"GetRewards@Manual@inCityOpenSummary"
+		]
+	},
+	"GetRewards@Manual@inCityOpenSummary": {
 		"enabled": true,
-		"recognition": "TemplateMatch",
-		"template": "Reward/ManualRewards.png",
+		"recognition": "OCR",
+		"expected": "环游手册",
+		"roi": [
+			0,
+			0,
+			686,
+			718
+		],
 		"action": "Click",
 		"post_delay": 1500,
 		"next": [

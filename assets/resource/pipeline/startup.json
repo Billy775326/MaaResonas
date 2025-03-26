@@ -162,7 +162,7 @@
 			"Enter1@inCity"
 		],
 		"focus": true,
-		"focus_tip": "签到奖励",
+		"focus_tip": "关闭信息弹窗",
 		"post_delay": 800,
 		"next": [
 			"closeinfo"

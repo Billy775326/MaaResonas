@@ -18,16 +18,12 @@
 	"newincity@closeinfo@taskend": {
 		"recognition": "OCR",
 		"expected": [
-			"触碰空白区域退出",
 			"任务完成"
 		],
+		"focus": true,
+		"focus_tips": "关闭商会货运任务完成弹窗",
 		"action": "Click",
-		"target": [
-			100,
-			661,
-			105,
-			19
-		]
+		"target": "closeinfo"
 	},
 
 	"newincity@closeinfo@passengerend": {
@@ -38,6 +34,8 @@
 			"客运收益结算"
 		],
 		"action": "Click",
+		"focus": true,
+		"focus_tips": "关闭商会客运任务完成弹窗",
 		"target": [
 			100,
 			661,

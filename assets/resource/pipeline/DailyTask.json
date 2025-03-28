@@ -103,9 +103,6 @@
 	},
 
 	"Start@ManderMine": {
-		"recognition": "OCR",
-		"target": true,
-		"expected": "启程",
 		"next": [
 			"DailyOrder@ManderMine",
 			"DailyFight@ManderMine",
@@ -140,6 +137,20 @@
 		],
 		"next": [
 			"DailyFight"
+		]
+	},
+	"Start@ManderMine@ToRanshinCity": {
+		"recognition": "OCR",
+		"expected": "曼德矿场",
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"action": "Click",
+		"next": [
+			"SeekCity@Map@Mander-Ranshin"
 		]
 	},
 

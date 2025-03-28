@@ -202,11 +202,9 @@
 		"expected": [
 			"取消订单"
 		],
-		"doc": "home@tofight任务可取消调用,pipeline_override 设置enable=false使用plcli集成任务",
+		"doc": "home@tofight home@store任务可取消调用,pipeline_override 设置enable=false使用plcli集成任务",
 		"next": [
 			"nextOrder",
-			"home@tofight",
-			"home@store",
 			"home"
 		],
 		"interrupt": "closeinfo@shipConfirmfailed"

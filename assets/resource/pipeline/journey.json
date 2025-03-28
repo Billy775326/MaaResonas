@@ -21,7 +21,7 @@
 			"任务完成"
 		],
 		"focus": true,
-		"focus_tips": "关闭商会货运任务完成弹窗",
+		"focus_tip": "关闭商会货运任务完成弹窗",
 		"action": "Click",
 		"target": "closeinfo"
 	},
@@ -35,7 +35,7 @@
 		],
 		"action": "Click",
 		"focus": true,
-		"focus_tips": "关闭商会客运任务完成弹窗",
+		"focus_tip": "关闭商会客运任务完成弹窗",
 		"target": [
 			100,
 			661,

@@ -1,8 +1,9 @@
 {
 	"name": "雷索纳斯小助手",
+	"version": "v1.2.9beta",
 	"url": "https://github.com/Billy775326/MaaResonas",
 	"custom_title": "MaaResonas",
-	"version": "v1.2.9beta",
+
 	"controller": [
 		{
 			"name": "安卓端",
@@ -50,7 +51,8 @@
 				"阿妮塔发射中心",
 				"海角城",
 				"岚心城",
-				"贡露城"
+				"贡露城",
+				"商会订单回程涉及勾选skip城市时,跳过该城市"
 			],
 			"pipeline_override": {}
 		},
@@ -94,7 +96,10 @@
 				"手册奖励",
 				"委托派遣",
 				"每日桦石",
-				"列车便当"
+				"列车便当",
+				" ",
+				" ",
+				" "
 			]
 		},
 		{
@@ -105,7 +110,11 @@
 				"跑商路线",
 				"进货采买书",
 				"砍价策略",
-				"抬价策略"
+				"抬价策略",
+				" ",
+				" ",
+				" ",
+				" "
 			],
 			"repeatable": true,
 			"repeat_count": 3,
@@ -113,22 +122,439 @@
 		}
 	],
 	"option": {
+		" ": {
+			"doc": "占位符"
+		},
 		"曼德矿场": {
 			"cases": [
 				{
-					"name": "Yes",
+					"name": "仅订单",
+					"pipeline_override": {
+						"DailyOrder@ManderMine": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					},
 					"doc": [
 						"修格里城",
 						"澄明数据中心",
 						"7号自由港",
 						"阿妮塔发射中心",
 						"海角城",
-						"岚心城",
 						"贡露城"
 					]
 				},
 				{
-					"name": "No"
+					"name": "订单和悬赏",
+					"pipeline_override": {
+						"DailyOrder@ManderMine": {
+							"enabled": true
+						},
+						"shipConfirmfailed": {
+							"enabled": true,
+							"next": ["home@tofight"]
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "仅悬赏",
+					"pipeline_override": {
+						"DailyOrder@ManderMine": {
+							"enabled": false
+						},
+						"DailyFight@ManderMine": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "skip(何もしない)",
+					"pipeline_override": {
+						"DailyOrder@ManderMine": {
+							"enabled": false
+						},
+						"DailyFight@ManderMine": {
+							"enabled": false
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"岚心城": {
+			"cases": [
+				{
+					"name": "仅订单",
+					"pipeline_override": {
+						"DailyOrder@RanShinCity": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "订单和悬赏",
+					"pipeline_override": {
+						"DailyOrder@RanShinCity": {
+							"enabled": true
+						},
+						"shipConfirmfailed": {
+							"enabled": true,
+							"next": ["home@tofight"]
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "仅悬赏",
+					"pipeline_override": {
+						"DailyOrder@RanShinCity": {
+							"enabled": false
+						},
+						"DailyFight@RanShinCity": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "skip(何もしない)",
+					"pipeline_override": {
+						"DailyOrder@RanShinCity": {
+							"enabled": false
+						},
+						"DailyFight@RanShinCity": {
+							"enabled": false
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"修格里城": {
+			"cases": [
+				{
+					"name": "仅订单",
+					"pipeline_override": {
+						"DailyOrder@ShoggolithCity": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "订单和悬赏",
+					"pipeline_override": {
+						"DailyOrder@ShoggolithCity": {
+							"enabled": true
+						},
+						"shipConfirmfailed": {
+							"enabled": true,
+							"next": ["home@tofight"]
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "仅悬赏",
+					"pipeline_override": {
+						"DailyOrder@ShoggolithCity": {
+							"enabled": false
+						},
+						"DailyFight@ShoggolithCity": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "skip(何もしない)",
+					"pipeline_override": {
+						"DailyOrder@ShoggolithCity": {
+							"enabled": false
+						},
+						"DailyFight@ShoggolithCity": {
+							"enabled": false
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"澄明数据中心": {
+			"cases": [
+				{
+					"name": "仅订单",
+					"pipeline_override": {
+						"DailyOrder@ClarityDataCenterAdministrationBureau": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "订单和悬赏",
+					"pipeline_override": {
+						"DailyOrder@ClarityDataCenterAdministrationBureau": {
+							"enabled": true
+						},
+						"shipConfirmfailed": {
+							"enabled": true,
+							"next": ["home@tofight"]
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "仅悬赏",
+					"pipeline_override": {
+						"DailyOrder@ClarityDataCenterAdministrationBureau": {
+							"enabled": false
+						},
+						"DailyFight@ClarityDataCenterAdministrationBureau": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "skip(何もしない)",
+					"pipeline_override": {
+						"DailyOrder@ClarityDataCenterAdministrationBureau": {
+							"enabled": false
+						},
+						"DailyFight@ManderMine": {
+							"enabled": false
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"7号自由港": {
+			"cases": [
+				{
+					"name": "仅订单",
+					"pipeline_override": {
+						"DailyOrder@FreePortⅦ": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "订单和悬赏",
+					"pipeline_override": {
+						"DailyOrder@FreePortⅦ": {
+							"enabled": true
+						},
+						"shipConfirmfailed": {
+							"enabled": true,
+							"next": ["home@tofight"]
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "仅悬赏",
+					"pipeline_override": {
+						"DailyOrder@FreePortⅦ": {
+							"enabled": false
+						},
+						"DailyFight@FreePortⅦ": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "skip(何もしない)",
+					"pipeline_override": {
+						"DailyOrder@FreePortⅦ": {
+							"enabled": false
+						},
+						"DailyFight@FreePortⅦ": {
+							"enabled": false
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"阿妮塔发射中心": {
+			"cases": [
+				{
+					"name": "仅订单",
+					"pipeline_override": {
+						"DailyOrder@AnitaRocketBase": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "订单和悬赏",
+					"pipeline_override": {
+						"DailyOrder@AnitaRocketBase": {
+							"enabled": true
+						},
+						"shipConfirmfailed": {
+							"enabled": true,
+							"next": ["home@tofight"]
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "仅悬赏",
+					"pipeline_override": {
+						"DailyOrder@AnitaRocketBase": {
+							"enabled": false
+						},
+						"DailyFight@AnitaRocketBase": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "skip(何もしない)",
+					"pipeline_override": {
+						"DailyOrder@AnitaRocketBase": {
+							"enabled": false
+						},
+						"DailyFight@AnitaRocketBase": {
+							"enabled": false
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"海角城": {
+			"cases": [
+				{
+					"name": "仅订单",
+					"pipeline_override": {
+						"DailyOrder@CapeCity": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "订单和悬赏",
+					"pipeline_override": {
+						"DailyOrder@CapeCity": {
+							"enabled": true
+						},
+						"shipConfirmfailed": {
+							"enabled": true,
+							"next": ["home@tofight"]
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "仅悬赏",
+					"pipeline_override": {
+						"DailyOrder@CapeCity": {
+							"enabled": false
+						},
+						"DailyFight@CapeCity": {
+							"enabled": true
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "skip(何もしない)",
+					"pipeline_override": {
+						"DailyOrder@CapeCity": {
+							"enabled": false
+						},
+						"DailyFight@CapeCity": {
+							"enabled": false
+						},
+						"DailyRest": {
+							"enabled": false
+						}
+					}
+				}
+			]
+		},
+		"贡露城": {
+			"cases": [
+				{
+					"name": "skip(何もしない)"
+				}
+			]
+		},
+		"商会订单回程涉及勾选skip城市时,跳过该城市": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {}
 				}
 			]
 		},
@@ -139,9 +565,6 @@
 					"pipeline_override": {
 						"DailyOrder@ManderMine": {
 							"enabled": true
-						},
-						"DailyFight@ManderMine": {
-							"enabled": false
 						}
 					}
 				},
@@ -149,9 +572,6 @@
 					"name": "No",
 					"pipeline_override": {
 						"DailyOrder@ManderMine": {
-							"enabled": false
-						},
-						"DailyFight@ManderMine": {
 							"enabled": false
 						}
 					}

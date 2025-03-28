@@ -1,20 +1,20 @@
 {
 	"SeekCity@Map@Ranshin-Sumihhane": {
-		"doc": "岚心城到栖羽站",
+		"focus_tip": "岚心城到栖羽站",
 		"recognition": "OCR",
 		"expected": "栖羽站",
 		"action": "Click"
 	},
 
-	"SeekCity@Map@Ranshin-Mander": {
-		"doc": "岚心城到曼德城",
+	"SeekCity@Map@Ranshin-Mander@Swipe": {
+		"focus": true,
+		"focus_tip": "岚心城到曼德城",
 		"recognition": "OCR",
 		"expected": "曼德矿场",
 		"action": "Click",
-		"timeout": 2000,
-		"on_error": ["SeekCity@Map@Ranshin-Mander@Swipe"]
+		"timeout": 4000
 	},
-	"SeekCity@Map@Ranshin-Mander@Swipe": {
+	"SeekCity@Map@Ranshin-Mander": {
 		"recognition": "OCR",
 		"expected": "岚心城",
 		"roi": [
@@ -23,29 +23,46 @@
 			245,
 			188
 		],
-		"action": "Swipe",
-		"begin": [
-			0,
-			472,
-			10,
-			10
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					472,
+					10,
+					10
+				],
+				"end": [
+					500,
+					200,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 1000,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
 		],
-		"end": [
-			1000,
-			200,
-			10,
-			10
-		],
-		"duration": 1000,
-		"post_wait_freezes": {
-			"time": 200,
-			"threshold": 0.5
-		},
-		"next": "SeekCity@Map@Ranshin-Mander"
+		"post_delay": 200,
+		"next": "SeekCity@Map@Ranshin-Mander@Swipe"
 	},
 
 	"SeekCity@Map@Ranshin-YunXiu": {
-		"doc": "岚心城到云岫桥基地",
+		"focus_tip": "岚心城到云岫桥基地",
 		"recognition": "OCR",
 		"expected": [
 			"云.?桥基地"
@@ -158,5 +175,102 @@
 			"threshold": 0.5
 		},
 		"next": "SeekCity@Map@Ranshin-Outpost"
+	},
+	"SeekCity@Map@Ranshin-Shoggoli@swpie": {
+		"focus_tip": "岚心城到修格里城",
+		"recognition": "OCR",
+		"expected": "修格里城",
+		"action": "Click",
+		"timeout": 2000,
+		"on_error": "SeekCity@Map@Ranshin-Outpost"
+	},
+	"SeekCity@Map@Ranshin-Outpost": {
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"roi": [
+			511,
+			250,
+			245,
+			188
+		],
+		"action": "MultiSwipe",
+		"swipes": [],
+		"begin": [
+			0,
+			450,
+			10,
+			10
+		],
+		"end": [
+			1000,
+			200,
+			10,
+			10
+		],
+		"duration": 1200,
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"next": "SeekCity@Map@Ranshin-Outpost@swpie"
+	},
+	"SeekCity@Map@Mander-Ranshin@Swipe": {
+		"focus_tip": "曼德矿场前往岚心城",
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"action": "Click",
+		"timeout": 4000
+	},
+	"SeekCity@Map@Mander-Ranshin": {
+		"recognition": "OCR",
+		"expected": "曼德矿场",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					500,
+					200,
+					10,
+					10
+				],
+				"end": [
+					0,
+					472,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 1000,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@Mander-Ranshin@Swipe"
+	},
+	"SeekCity@Map@Mander-Shoggoli": {
+		"focus_tip": "曼德矿场前往修格里城",
+		"recognition": "OCR",
+		"expected": "修格里城",
+		"action": "Click"
 	}
 }

@@ -1,4 +1,8 @@
 {
+	"name": "雷索纳斯小助手",
+	"url": "https://github.com/Billy775326/MaaResonas",
+	"custom_title": "MaaResonas",
+	"version": "v1.2.9beta",
 	"controller": [
 		{
 			"name": "安卓端",
@@ -103,7 +107,9 @@
 				"砍价策略",
 				"抬价策略"
 			],
-			"doc": "跑商路线,默认曼德矿场--阿妮塔发射中心,暂不支持其他路线,暂不支持除采买书外的其他道具,暂不支持客运.暂不支持自主选择商品"
+			"repeatable": true,
+			"repeat_count": 3,
+			"doc": "跑商路线\n默认曼德矿场--阿妮塔发射中心\n暂不支持除采买书外的其他道具,\n暂不支持客运\n暂不支持自主选择商品"
 		}
 	],
 	"option": {

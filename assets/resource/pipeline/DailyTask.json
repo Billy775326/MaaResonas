@@ -96,20 +96,15 @@
 			243,
 			210
 		],
+		"focus": true,
 		"next": [
 			"Start@ManderMine"
 		]
 	},
 
 	"Start@ManderMine": {
-		"doc": "开始",
 		"recognition": "OCR",
-		"roi": [
-			1135,
-			605,
-			145,
-			115
-		],
+		"target": true,
 		"expected": "启程",
 		"next": [
 			"DailyOrder@ManderMine",

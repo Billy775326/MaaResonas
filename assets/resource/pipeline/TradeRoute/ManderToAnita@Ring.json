@@ -282,12 +282,12 @@
 		"enabled": false,
 		"recognition": "OCR",
 		"roi": [
-			523,
-			221,
-			244,
-			220
+			862,
+			376,
+			401,
+			121
 		],
-		"expected": "砍价成功",
+		"expected": "砍价幅度\\s*\\((?!0+$|20$)\\d+%\\)",
 		"focus": true,
 		"focus_tip": "砍价成功1",
 		"post_delay": 800,
@@ -300,12 +300,12 @@
 		"enabled": false,
 		"recognition": "OCR",
 		"roi": [
-			523,
-			221,
-			244,
-			220
+			862,
+			376,
+			401,
+			121
 		],
-		"expected": "砍价失败",
+		"expected": "砍价幅度0%",
 		"focus": true,
 		"focus_tip": "砍价失败1",
 		"post_delay": 800,
@@ -334,12 +334,12 @@
 	"Restocking@Exchange@Bargainingsucceed@2": {
 		"recognition": "OCR",
 		"roi": [
-			523,
-			221,
-			244,
-			220
+			862,
+			376,
+			401,
+			121
 		],
-		"expected": "砍价成功",
+		"expected": "砍价幅度\\s*\\((1[5-9]\\.\\d|[2-9]\\d\\.\\d|[1-9]\\d{2,}\\.\\d)%\\)%",
 		"focus": true,
 		"focus_tip": "砍价成功2",
 		"post_delay": 800,
@@ -351,12 +351,12 @@
 	"Restocking@Exchange@Bargainingfailed@2": {
 		"recognition": "OCR",
 		"roi": [
-			523,
-			221,
-			244,
-			220
+			862,
+			376,
+			401,
+			121
 		],
-		"expected": "砍价失败",
+		"expected": "砍价幅度\\s*\\((0?\\d\\.\\d|1[0-4]\\.\\d)%\\)",
 		"focus": true,
 		"focus_tip": "砍价失败2",
 		"post_delay": 800,
@@ -374,7 +374,7 @@
 		],
 		"expected": "买入",
 		"action": "Click",
-		"post_delay": 800,
+		"post_delay": 500,
 		"next": [
 			"Exchange@closeinfo@buy",
 			"Exchange@MarketChanges"

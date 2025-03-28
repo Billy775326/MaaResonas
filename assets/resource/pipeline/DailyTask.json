@@ -66,23 +66,23 @@
 		"expected": "访问城市",
 		"action": "Click",
 		"timeout": 3000,
-		"on_error": [
-			"closeinfo@newsignincity@order",
-			"home@Dailyorder"
-		],
 		"next": [
 			"Dailyship"
+		],
+		"interrupt": [
+			"closeinfo@newsignincity@order",
+			"home@Dailyorder"
 		]
 	},
 	"DailyFight@ShoggolithCity": {
 		"enabled": false,
 		"timeout": 3000,
-		"on_error": [
-			"closeinfo@newsignincity@fight",
-			"home@Dailyfight"
-		],
 		"next": [
 			"DailyFight"
+		],
+		"interrupt": [
+			"closeinfo@newsignincity@fight",
+			"home@Dailyfight"
 		]
 	},
 

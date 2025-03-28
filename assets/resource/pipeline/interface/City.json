@@ -9,6 +9,19 @@
 			"Daliy@RanShinCity",
 			"Daliy@GroNruCity",
 			"Daliy@FreePortⅦ"
+		],
+		"interrupt": [
+			"Initial@B:R.C.L.Outpost",
+			"Initial@WildernessStation",
+			"Initial@YunXiuBridge",
+			"Initial@SumihhaneStation",
+			"Initial@Onederland",
+			"Initial@AnitaWeaponResearchInstitute",
+			"Initial@AnitaEnergyResearchInstitute",
+			"Initial@ApoasterBridge",
+			"Initial@ConfluenceTower",
+			"Initial@TatoInstitution",
+			"home"
 		]
 	},
 	"Daliy@ShoggolithCity": {

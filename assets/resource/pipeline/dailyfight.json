@@ -311,7 +311,6 @@
 		"doc": "home@store默认关闭,pipeline_override设置enable 使用plcli集成任务",
 		"next": [
 			"home@store",
-			"home@StopTask",
 			"home"
 		]
 	},

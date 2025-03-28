@@ -207,7 +207,6 @@
 			"nextOrder",
 			"home@tofight",
 			"home@store",
-			"home@StopTask",
 			"home"
 		],
 		"interrupt": "closeinfo@shipConfirmfailed"

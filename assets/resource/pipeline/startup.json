@@ -60,11 +60,14 @@
 			192
 		],
 		"focus": true,
-		"focus_tip": "下载更新",
-		"rate_limit": 5000,
+		"focus_tip": "下载更新ing...",
+		"rate_limit": 2000,
+		"timeout": 8000,
+		"post_delay": 10000,
 		"next": [
 			"update@confirm",
-			"Update"
+			"Update",
+			"Enter"
 		],
 		"doc": "更新应用,等待ing"
 	},
@@ -91,8 +94,10 @@
 		"template": "confirm.png",
 		"action": "Click",
 		"doc": "确认按钮",
-		"post_delay": 60000,
-		"next": "Enter"
+		"post_delay": 5000,
+		"next": [
+			"Update"
+		]
 	},
 
 	"confirm": {
@@ -108,7 +113,7 @@
 		"recognition": "OCR",
 		"expected": "点击任意位置进入游戏",
 		"action": "Click",
-		"post_delay": 5000,
+		"post_delay": 1000,
 		"next": [
 			"Enter1"
 		],
@@ -121,8 +126,9 @@
 		"action": "Click",
 		"focus": true,
 		"focus_tip": "登录首页",
-		"rate_limit": 5000,
-		"post_delay": 10000,
+		"rate_limit": 500,
+		"post_delay": 1000,
+		"timeout": 100000,
 		"next": [
 			"closeinfo",
 			"Enter1",
@@ -137,10 +143,7 @@
 			145,
 			115
 		],
-		"expected": "启程",
-		"next": [
-			"stopnow"
-		]
+		"expected": "启程"
 	},
 	"closeinfo": {
 		"recognition": "OCR",
@@ -158,9 +161,6 @@
 			19
 		],
 		"timeout": 3000,
-		"on_error": [
-			"Enter1@inCity"
-		],
 		"focus": true,
 		"focus_tip": "关闭信息弹窗",
 		"post_delay": 800,

@@ -182,9 +182,9 @@
 		"expected": "修格里城",
 		"action": "Click",
 		"timeout": 2000,
-		"on_error": "SeekCity@Map@Ranshin-Outpost"
+		"on_error": "SeekCity@Map@Ranshin-Shoggoli"
 	},
-	"SeekCity@Map@Ranshin-Outpost": {
+	"SeekCity@Map@Ranshin-Shoggoli": {
 		"recognition": "OCR",
 		"expected": "岚心城",
 		"roi": [
@@ -194,20 +194,39 @@
 			188
 		],
 		"action": "MultiSwipe",
-		"swipes": [],
-		"begin": [
-			0,
-			450,
-			10,
-			10
+		"swipes": [
+			{
+				"begin": [
+					0,
+					450,
+					10,
+					10
+				],
+				"end": [
+					1000,
+					200,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 1000,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
 		],
-		"end": [
-			1000,
-			200,
-			10,
-			10
-		],
-		"duration": 1200,
 		"post_wait_freezes": {
 			"time": 200,
 			"threshold": 0.5

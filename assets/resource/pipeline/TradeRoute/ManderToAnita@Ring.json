@@ -339,7 +339,7 @@
 			401,
 			121
 		],
-		"expected": "砍价幅度(0?\\d\\.\\d|1\\d\\.\\d|20\\.0)%",
+		"expected": "砍价幅度(15\\.0|1[5-9]\\.\\d|20(\\.0)?)%",
 		"focus": true,
 		"focus_tip": "砍价成功2",
 		"post_delay": 800,
@@ -752,13 +752,13 @@
 		]
 	},
 	"Clearout@Exchange@Markupsucceed@1": {
-		"enabled": false,
+		"enabled": true,
 		"recognition": "OCR",
 		"roi": [
-			523,
-			221,
-			244,
-			220
+			862,
+			376,
+			401,
+			121
 		],
 		"expected": "抬价幅度(?!0\\.0$|15\\.0$)\\d{1,2}\\.\\d%",
 		"focus": true,
@@ -773,10 +773,10 @@
 		"enabled": false,
 		"recognition": "OCR",
 		"roi": [
-			523,
-			221,
-			244,
-			220
+			862,
+			376,
+			401,
+			121
 		],
 		"expected": "抬价幅度0%",
 		"post_delay": 800,
@@ -807,12 +807,12 @@
 	"Clearout@Exchange@Markupsucceed@2": {
 		"recognition": "OCR",
 		"roi": [
-			523,
-			221,
-			244,
-			220
+			862,
+			376,
+			401,
+			121
 		],
-		"expected": "抬价幅度(0?\\d\\.\\d|1\\d\\.\\d|20\\.0)",
+		"expected": "抬价幅度(15\\.0|1[5-9]\\.\\d|20(\\.0)?)%",
 		"focus": true,
 		"focus_tip": "抬价成功2",
 		"post_delay": 800,
@@ -824,10 +824,10 @@
 	"Clearout@Exchange@Markupfailed@2": {
 		"recognition": "OCR",
 		"roi": [
-			523,
-			221,
-			244,
-			220
+			862,
+			376,
+			401,
+			121
 		],
 		"expected": "抬价幅度(0?\\d\\.\\d|1[0-4]\\.\\d)",
 		"focus": true,

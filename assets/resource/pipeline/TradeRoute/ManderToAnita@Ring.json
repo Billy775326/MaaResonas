@@ -202,7 +202,7 @@
 		"expected": [
 			"进货成功"
 		],
-		"post_delay": 800,
+		"post_delay": 500,
 		"next": [
 			"Restocking@Exchange@buyall"
 		]
@@ -217,7 +217,7 @@
 		],
 		"expected": "全部买入",
 		"action": "Click",
-		"post_delay": 1000,
+		"post_delay": 500,
 		"next": [
 			"Restocking@Exchange@Bargaining"
 		]
@@ -373,6 +373,8 @@
 			69
 		],
 		"expected": "买入",
+		"focus": true,
+		"focus_succeeded": "满仓",
 		"action": "Click",
 		"post_delay": 500,
 		"next": [
@@ -401,8 +403,6 @@
 			"触碰空白区域退出"
 		],
 		"action": "Click",
-		"focus": true,
-		"focus_tip": "满仓",
 		"next": [
 			"Exchange@closeinfo@buy",
 			"home@ToAnita",
@@ -469,48 +469,43 @@
 	"Mander@seekAnita": {
 		"focus": true,
 		"focus_tip": "寻找阿妮塔发射中心",
-		"action": "Swipe",
-		"begin": [
-			0,
-			368,
-			10,
-			10
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					400,
+					10,
+					10
+				],
+				"end": [
+					600,
+					300,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 700,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
 		],
-		"end": [
-			300,
-			300,
-			10,
-			10
-		],
-		"duration": 200,
-		"post_wait_freezes": {
-			"threshold": 0.5,
-			"time": 800
-		},
+		"post_delay": 200,
 		"next": [
-			"Mander@seekAnita@StopSwpie",
 			"ManderToAnita"
-		]
-	},
-
-	"Mander@seekAnita@StopSwpie": {
-		"action": "Swipe",
-		"begin": [
-			0,
-			301,
-			10,
-			10
-		],
-		"end": [
-			0,
-			300,
-			10,
-			10
-		],
-		"duration": 200,
-		"next": [
-			"ManderToAnita",
-			"home"
 		]
 	},
 	"ManderToAnita": {
@@ -557,7 +552,7 @@
 			47
 		],
 		"focus": true,
-		"focus_tip": "自动巡航中...",
+		"focus_succeeded": "自动巡航中...",
 		"post_wait_freezes": 1000,
 		"next": [
 			"Injourney",
@@ -577,7 +572,7 @@
 			"Fight/autofight1.png"
 		],
 		"focus": true,
-		"focus_tip": "路途自动战斗",
+		"focus_succeeded": "遇敌自动战斗...",
 		"threshold": 0.75,
 		"post_delay": 10000,
 		"rate_limit": 5000,
@@ -619,7 +614,9 @@
 		"focus": true,
 		"focus_tip": "访问城市卖货",
 		"next": [
-			"Clearout@Exchange",
+			"Clearout@Exchange"
+		],
+		"interrupt": [
 			"Clearout@seekExchange"
 		]
 	},
@@ -638,11 +635,7 @@
 			10
 		],
 		"focus": true,
-		"focus_tip": "滑动寻找交易所",
-		"post_delay": 500,
-		"next": [
-			"Clearout@Exchange"
-		]
+		"focus_tip": "滑动寻找交易所"
 	},
 	"Clearout@Exchange": {
 		"recognition": "OCR",
@@ -688,7 +681,7 @@
 		],
 		"expected": "全部卖出",
 		"focus": true,
-		"focus_tip": "全部卖出",
+		"focus_succeeded": "清仓",
 		"action": "Click",
 		"post_delay": 1000,
 		"next": [
@@ -858,8 +851,6 @@
 		"expected": [
 			"触碰空白区域退出"
 		],
-		"focus": true,
-		"focus_tip": "清仓",
 		"post_delay": 800,
 		"action": "Click",
 		"next": [
@@ -906,7 +897,7 @@
 	},
 	"RouteFirst@City@Anita": {
 		"focus": true,
-		"focus_tip": "线路起点:阿妮塔发射中心",
+		"focus_succeeded": "线路起点:阿妮塔发射中心",
 		"recognition": "OCR",
 		"expected": ["阿妮塔发射中心"],
 		"roi": [
@@ -938,49 +929,52 @@
 	},
 	"Anita@seekMander": {
 		"focus": true,
-		"focus_tip": "寻找曼德矿场",
-		"action": "Swipe",
-		"begin": [
-			300,
-			300,
-			10,
-			10
+		"focus_succeeded": "寻找曼德矿场",
+		"recognition": "OCR",
+		"expected": "阿妮塔发射中心",
+		"roi": [
+			349,
+			80,
+			619,
+			620
 		],
-		"end": [
-			0,
-			368,
-			10,
-			10
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					600,
+					300,
+					10,
+					10
+				],
+				"end": [
+					0,
+					400,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 700,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
 		],
-		"duration": 200,
-		"post_wait_freezes": {
-			"threshold": 0.5,
-			"time": 800
-		},
+		"post_delay": 200,
 		"next": [
-			"Anita@seekMander@StopSwpie",
 			"AnitaToMander"
-		]
-	},
-
-	"Anita@seekMander@StopSwpie": {
-		"action": "Swipe",
-		"begin": [
-			0,
-			301,
-			10,
-			10
-		],
-		"end": [
-			0,
-			300,
-			10,
-			10
-		],
-		"duration": 200,
-		"next": [
-			"AnitaToMander",
-			"home"
 		]
 	},
 

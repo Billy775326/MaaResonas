@@ -2,6 +2,7 @@
 	"startup": {
 		"doc": "唤醒",
 		"next": [
+			"Enter1@inCity",
 			"resonas",
 			"resonas1"
 		]
@@ -60,7 +61,7 @@
 			192
 		],
 		"focus": true,
-		"focus_tip": "下载更新ing...",
+		"focus_succeeded": "下载更新...",
 		"rate_limit": 2000,
 		"timeout": 8000,
 		"post_delay": 10000,
@@ -111,9 +112,13 @@
 
 	"Enter": {
 		"recognition": "OCR",
-		"expected": "点击任意位置进入游戏",
+		"expected": [
+			"点击任意位置进入游戏",
+			"下载已经完成"
+		],
 		"action": "Click",
-		"post_delay": 1000,
+		"post_delay": 5000,
+		"rate_limit": 2000,
 		"next": [
 			"Enter1"
 		],
@@ -125,14 +130,19 @@
 		"expected": "点击屏幕进入游戏",
 		"action": "Click",
 		"focus": true,
-		"focus_tip": "登录首页",
-		"rate_limit": 500,
-		"post_delay": 1000,
-		"timeout": 100000,
+		"focus_tip": "点击屏幕进入游戏",
+		"rate_limit": 2000,
+		"post_delay": 10000,
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"timeout": 15000,
 		"next": [
-			"closeinfo",
-			"Enter1",
 			"Enter1@inCity"
+		],
+		"interrupt": [
+			"closeinfo"
 		]
 	},
 	"Enter1@inCity": {
@@ -143,7 +153,10 @@
 			145,
 			115
 		],
-		"expected": "启程"
+		"expected": "启程",
+		"focus": true,
+		"focus_succeeded": "登录首页",
+		"focus_succeeded_color": "golden"
 	},
 	"closeinfo": {
 		"recognition": "OCR",
@@ -163,10 +176,7 @@
 		"timeout": 3000,
 		"focus": true,
 		"focus_tip": "关闭信息弹窗",
-		"post_delay": 800,
-		"next": [
-			"closeinfo"
-		]
+		"post_delay": 800
 	},
 
 	"stopnow": {

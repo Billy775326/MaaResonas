@@ -139,7 +139,7 @@
 			"DailyFight"
 		]
 	},
-	"Start@ManderMine@ToRanshinCity": {
+	"Start@ManderMine@ToNextCity": {
 		"recognition": "OCR",
 		"expected": "曼德矿场",
 		"roi": [
@@ -150,7 +150,12 @@
 		],
 		"action": "Click",
 		"next": [
-			"SeekCity@Map@Mander-Ranshin"
+			"SeekCity@Map@Mander-Ranshin",
+			"SeekCity@Map@Mander-Shoggoli",
+			"SeekCity@Map@Mander-ClarityDataCenter",
+			"SeekCity@Map@Mander-FreePortⅦ",
+			"SeekCity@Map@Mander-Anita",
+			"SeekCity@Map@Mander-Cape"
 		]
 	},
 
@@ -887,6 +892,20 @@
 			0,
 			243,
 			210
+		]
+	},
+	"Next@ManderMine": {
+		"recognition": "OCR",
+		"roi": [
+			0,
+			0,
+			243,
+			210
+		],
+		"expected": ["曼德矿场"],
+		"next": "Start@ManderMine",
+		"interrupt": [
+			"newincity@closeinfo"
 		]
 	}
 }

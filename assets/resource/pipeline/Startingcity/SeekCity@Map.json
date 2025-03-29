@@ -106,8 +106,7 @@
 		"recognition": "OCR",
 		"expected": "荒原站",
 		"action": "Click",
-		"timeout": 2000,
-		"on_error": "SeekCity@Map@Ranshin-Wilderness@swpie"
+		"timeout": 2000
 	},
 	"SeekCity@Map@Ranshin-Wilderness@swpie": {
 		"recognition": "OCR",
@@ -144,8 +143,7 @@
 		"recognition": "OCR",
 		"expected": "铁盟哨站",
 		"action": "Click",
-		"timeout": 2000,
-		"on_error": "SeekCity@Map@Ranshin-Outpost@swpie"
+		"timeout": 2000
 	},
 	"SeekCity@Map@Ranshin-Outpost@swpie": {
 		"recognition": "OCR",
@@ -181,8 +179,7 @@
 		"recognition": "OCR",
 		"expected": "修格里城",
 		"action": "Click",
-		"timeout": 2000,
-		"on_error": "SeekCity@Map@Ranshin-Shoggoli"
+		"timeout": 2000
 	},
 	"SeekCity@Map@Ranshin-Shoggoli": {
 		"recognition": "OCR",
@@ -211,7 +208,7 @@
 				"duration": 200
 			},
 			{
-				"starting": 1000,
+				"starting": 500,
 				"begin_offset": [
 					0,
 					0,
@@ -231,7 +228,231 @@
 			"time": 200,
 			"threshold": 0.5
 		},
-		"next": "SeekCity@Map@Ranshin-Outpost@swpie"
+		"next": "SeekCity@Map@Ranshin-Shoggoli@swpie"
+	},
+	"SeekCity@Map@Ranshin-ClarityDataCenter@swpie": {
+		"focus_tip": "岚心城到澄明数据中心",
+		"recognition": "OCR",
+		"expected": "澄明数据中心",
+		"action": "Click",
+		"timeout": 2000
+	},
+	"SeekCity@Map@Ranshin-ClarityDataCenter": {
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"roi": [
+			511,
+			250,
+			245,
+			188
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					350,
+					10,
+					10
+				],
+				"end": [
+					1000,
+					200,
+					10,
+					10
+				],
+				"duration": 150
+			},
+			{
+				"starting": 500,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"next": "SeekCity@Map@Ranshin-ClarityDataCenter@swpie"
+	},
+	"SeekCity@Map@Ranshin-FreePortⅦ@swpie": {
+		"focus_tip": "岚心城到7号自由港",
+		"recognition": "OCR",
+		"expected": "7号自由港",
+		"action": "Click",
+		"timeout": 2000
+	},
+	"SeekCity@Map@Ranshin-FreePortⅦ": {
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"roi": [
+			511,
+			250,
+			245,
+			188
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					450,
+					10,
+					10
+				],
+				"end": [
+					1200,
+					200,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 500,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"next": "SeekCity@Map@Ranshin-FreePortⅦ@swpie"
+	},
+	"SeekCity@Map@Ranshin-Anita@swpie": {
+		"focus_tip": "岚心城到阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": "阿妮塔发射中心",
+		"action": "Click",
+		"timeout": 2000
+	},
+	"SeekCity@Map@Ranshin-Anita": {
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"roi": [
+			511,
+			250,
+			245,
+			188
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					550,
+					10,
+					10
+				],
+				"end": [
+					1200,
+					200,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 700,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"next": "SeekCity@Map@Ranshin-Anita@swpie"
+	},
+	"SeekCity@Map@Ranshin-Cape@swpie": {
+		"focus_tip": "岚心城到海角城",
+		"recognition": "OCR",
+		"expected": "海角城",
+		"action": "Click",
+		"timeout": 2000
+	},
+	"SeekCity@Map@Ranshin-Cape": {
+		"recognition": "OCR",
+		"expected": "岚心城",
+		"roi": [
+			511,
+			250,
+			245,
+			188
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					700,
+					10,
+					10
+				],
+				"end": [
+					1200,
+					100,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 700,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_wait_freezes": {
+			"time": 200,
+			"threshold": 0.5
+		},
+		"next": "SeekCity@Map@Ranshin-Cape@swpie"
 	},
 	"SeekCity@Map@Mander-Ranshin@Swipe": {
 		"focus_tip": "曼德矿场前往岚心城",
@@ -291,5 +512,641 @@
 		"recognition": "OCR",
 		"expected": "修格里城",
 		"action": "Click"
+	},
+	"SeekCity@Map@Mander-ClarityDataCenter@Swipe": {
+		"focus_succeeded": "曼德矿场前往澄明数据中心",
+		"recognition": "OCR",
+		"expected": "澄明数据中心",
+		"action": "Click"
+	},
+	"SeekCity@Map@Mander-ClarityDataCenter": {
+		"recognition": "OCR",
+		"expected": "曼德矿场",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					200,
+					10,
+					10
+				],
+				"end": [
+					500,
+					472,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 400,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@Mander-ClarityDataCenter@Swipe"
+	},
+	"SeekCity@Map@Mander-FreePortⅦ@Swipe": {
+		"focus_succeeded": "曼德矿场前往7号自由港",
+		"recognition": "OCR",
+		"expected": "7号自由港",
+		"action": "Click"
+	},
+	"SeekCity@Map@Mander-FreePortⅦ": {
+		"recognition": "OCR",
+		"expected": "曼德矿场",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					200,
+					10,
+					10
+				],
+				"end": [
+					500,
+					200,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 400,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@Mander-FreePortⅦ@Swipe"
+	},
+	"SeekCity@Map@Mander-Anita@Swipe": {
+		"focus_succeeded": "曼德矿场前往阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": "阿妮塔发射中心",
+		"action": "Click"
+	},
+	"SeekCity@Map@Mander-Anita": {
+		"recognition": "OCR",
+		"expected": "曼德矿场",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					400,
+					10,
+					10
+				],
+				"end": [
+					600,
+					300,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 700,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@Mander-Anita@Swipe"
+	},
+	"SeekCity@Map@Mander-Cape@Swipe": {
+		"focus_succeeded": "曼德矿场前往海角城",
+		"recognition": "OCR",
+		"expected": "海角城",
+		"action": "Click"
+	},
+	"SeekCity@Map@Mander-Cape": {
+		"recognition": "OCR",
+		"expected": "曼德矿场",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					500,
+					10,
+					10
+				],
+				"end": [
+					600,
+					100,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 700,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@Mander-Cape@Swipe"
+	},
+	"SeekCity@Map@Shoggoli-ClarityDataCenter": {
+		"focus_succeeded": "修格里城前往澄明数据中心",
+		"recognition": "OCR",
+		"expected": "澄明数据中心",
+		"action": "Click"
+	},
+	"SeekCity@Map@Shoggoli-FreePortⅦ@Swipe": {
+		"focus_succeeded": "修格里城前往7号自由港",
+		"recognition": "OCR",
+		"expected": "7号自由港",
+		"action": "Click"
+	},
+	"SeekCity@Map@Shoggoli-FreePortⅦ": {
+		"recognition": "OCR",
+		"expected": "修格里城",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					400,
+					10,
+					10
+				],
+				"end": [
+					600,
+					400,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 400,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@Shoggoli-FreePortⅦ@Swipe"
+	},
+	"SeekCity@Map@Shoggoli-Anita@Swipe": {
+		"focus_succeeded": "修格里城前往阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": "阿妮塔发射中心",
+		"action": "Click"
+	},
+	"SeekCity@Map@Shoggoli-Anita": {
+		"recognition": "OCR",
+		"expected": "修格里城",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					400,
+					10,
+					10
+				],
+				"end": [
+					600,
+					200,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 700,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@Shoggoli-Anita@Swipe"
+	},
+	"SeekCity@Map@Shoggoli-Cape@Swipe": {
+		"focus_succeeded": "修格里城前往海角城",
+		"recognition": "OCR",
+		"expected": "海角城",
+		"action": "Click"
+	},
+	"SeekCity@Map@Shoggoli-Cape": {
+		"recognition": "OCR",
+		"expected": "修格里城",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					600,
+					10,
+					10
+				],
+				"end": [
+					400,
+					100,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 700,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@Shoggoli-Cape@Swipe"
+	},
+	"SeekCity@Map@ClarityDataCenter-FreePortⅦ": {
+		"focus_succeeded": "澄明数据中心前往7号自由港",
+		"recognition": "OCR",
+		"expected": "7号自由港",
+		"action": "Click"
+	},
+	"SeekCity@Map@ClarityDataCenter-Anita@Swipe": {
+		"focus_succeeded": "澄明数据中心前往阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": "阿妮塔发射中心",
+		"action": "Click"
+	},
+	"SeekCity@Map@ClarityDataCenter-Anita": {
+		"recognition": "OCR",
+		"expected": "澄明数据中心",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					600,
+					10,
+					10
+				],
+				"end": [
+					400,
+					200,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 500,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@ClarityDataCenter-Anita@Swipe"
+	},
+	"SeekCity@Map@ClarityDataCenter-Cape@Swipe": {
+		"focus_succeeded": "澄明数据中心前往海角城",
+		"recognition": "OCR",
+		"expected": "海角城",
+		"action": "Click"
+	},
+	"SeekCity@Map@ClarityDataCenter-Cape": {
+		"recognition": "OCR",
+		"expected": "澄明数据中心",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					600,
+					10,
+					10
+				],
+				"end": [
+					300,
+					100,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 700,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@ClarityDataCenter-Cape@Swipe"
+	},
+	"SeekCity@Map@FreePortⅦ-Anita@Swipe": {
+		"focus_succeeded": "7号自由港前往阿妮塔发射中心",
+		"recognition": "OCR",
+		"expected": "阿妮塔发射中心",
+		"action": "Click"
+	},
+	"SeekCity@Map@FreePortⅦ-Anita": {
+		"recognition": "OCR",
+		"expected": "7号自由港",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					600,
+					10,
+					10
+				],
+				"end": [
+					400,
+					300,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 400,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@FreePortⅦ-Anita@Swipe"
+	},
+	"SeekCity@Map@FreePortⅦ-Cape@Swipe": {
+		"focus_succeeded": "7号自由港前往海角城",
+		"recognition": "OCR",
+		"expected": "海角城",
+		"action": "Click"
+	},
+	"SeekCity@Map@FreePortⅦ-Cape": {
+		"recognition": "OCR",
+		"expected": "7号自由港",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					0,
+					600,
+					10,
+					10
+				],
+				"end": [
+					200,
+					100,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 500,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@FreePortⅦ-Cape@Swipe"
+	},
+	"SeekCity@Map@Anita-Cape@Swipe": {
+		"focus_succeeded": "阿妮塔发射中心前往海角城",
+		"recognition": "OCR",
+		"expected": "海角城",
+		"action": "Click"
+	},
+	"SeekCity@Map@Anita-Cape": {
+		"recognition": "OCR",
+		"expected": "阿妮塔发射中心",
+		"roi": [
+			349,
+			80,
+			619,
+			620
+		],
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					100,
+					600,
+					10,
+					10
+				],
+				"end": [
+					0,
+					350,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 500,
+				"begin_offset": [
+					0,
+					0,
+					0,
+					0
+				],
+				"end_offset": [
+					20,
+					20,
+					0,
+					0
+				],
+				"duration": 10
+			}
+		],
+		"post_delay": 200,
+		"next": "SeekCity@Map@Anita-Cape@Swipe"
 	}
 }

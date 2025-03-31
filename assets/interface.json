@@ -1,9 +1,8 @@
 {
 	"name": "雷索纳斯小助手",
-	"version": "v1.2.9beta",
+	"version": "v0.1.1",
 	"url": "https://github.com/Billy775326/MaaResonas",
 	"custom_title": "MaaResonas",
-
 	"controller": [
 		{
 			"name": "安卓端",
@@ -96,10 +95,7 @@
 				"手册奖励",
 				"委托派遣",
 				"每日桦石",
-				"列车便当",
-				"占位符",
-				"占位符",
-				"占位符"
+				"列车便当"
 			]
 		},
 		{
@@ -110,11 +106,7 @@
 				"跑商路线",
 				"进货采买书",
 				"砍价策略",
-				"抬价策略",
-				"占位符",
-				"占位符",
-				"占位符",
-				"占位符"
+				"抬价策略"
 			],
 			"repeatable": true,
 			"repeat_count": 1,
@@ -127,11 +119,7 @@
 				"海岛垃圾",
 				"海岛野怪",
 				"安保巡逻",
-				"今日收益",
-				"占位符",
-				"占位符",
-				"占位符",
-				"占位符"
+				"今日收益"
 			]
 		}
 	],
@@ -147,15 +135,7 @@
 						"DailyRest": {
 							"enabled": false
 						}
-					},
-					"doc": [
-						"修格里城",
-						"澄明数据中心",
-						"7号自由港",
-						"阿妮塔发射中心",
-						"海角城",
-						"贡露城"
-					]
+					}
 				},
 				{
 					"name": "订单和悬赏",
@@ -553,7 +533,8 @@
 		"贡露城": {
 			"cases": [
 				{
-					"name": "skip(何もしない)"
+					"name": "skip(何もしない)",
+					"pipeline_override": {}
 				}
 			]
 		},
@@ -1297,6 +1278,54 @@
 							"enabled": false
 						}
 					}
+				}
+			]
+		},
+		"海岛垃圾": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {}
+				}
+			]
+		},
+		"海岛野怪": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {}
+				}
+			]
+		},
+		"安保巡逻": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {}
+				}
+			]
+		},
+		"今日收益": {
+			"cases": [
+				{
+					"name": "Yes",
+					"pipeline_override": {}
+				},
+				{
+					"name": "No",
+					"pipeline_override": {}
 				}
 			]
 		}

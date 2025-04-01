@@ -1,0 +1,719 @@
+{
+	"__Route__": {
+		"enabled": true,
+		"next": [
+			"RouteFirst@Mander",
+			"RouteFirst@Anita"
+		],
+		"interrupt": [
+			"home"
+		]
+	},
+	"Restocking@visitCity": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"post_delay": 1500,
+		"focus": true,
+		"focus_tip": "访问城市补货",
+		"next": [
+			"Restocking@Exchange",
+			"seekExchange"
+		]
+	},
+	"Restocking@Exchange": {
+		"recognition": "OCR",
+		"expected": "交易所",
+		"action": "Click",
+		"target_offset": [
+			-10,
+			70,
+			0,
+			0
+		],
+		"focus": true,
+		"focus_tip": "访问交易所",
+		"post_delay": 800,
+		"next": [
+			"Restocking@Exchange@buy"
+		]
+	},
+	"Restocking@Exchange@buy": {
+		"recognition": "OCR",
+		"roi": [
+			722,
+			268,
+			481,
+			352
+		],
+		"expected": "我要买",
+		"action": "Click",
+		"focus": true,
+		"focus_tip": "我要买",
+		"post_delay": 1500,
+		"next": [
+			"Restocking@Exchange@useProps+0",
+			"Restocking@Exchange@useProps"
+		]
+	},
+
+	"Restocking@Exchange@useProps": {
+		"recognition": "OCR",
+		"roi": [
+			453,
+			63,
+			824,
+			648
+		],
+		"expected": "使用道具",
+		"action": "Click",
+		"focus": true,
+		"focus_tip": "使用道具",
+		"post_delay": 1000,
+		"next": [
+			"Restocking@Exchange@useProps@use"
+		]
+	},
+	"Restocking@Exchange@useProps+1": {
+		"enabled": false,
+		"focus": true,
+		"focus_tip": "1书",
+		"next": [
+			"Restocking@Exchange@useProps@confirm"
+		]
+	},
+	"Restocking@Exchange@useProps+2": {
+		"enabled": true,
+		"recognition": "OCR",
+		"expected": "\\+?1|\\+",
+		"roi": [
+			799,
+			350,
+			57,
+			58
+		],
+		"focus": true,
+		"focus_tip": "2书",
+		"action": "Click",
+		"next": [
+			"Restocking@Exchange@useProps@confirm"
+		]
+	},
+	"Restocking@Exchange@useProps+3": {
+		"enabled": false,
+		"recognition": "OCR",
+		"expected": "\\+?1|\\+",
+		"action": "Click",
+		"roi": [
+			799,
+			350,
+			57,
+			58
+		],
+		"doc": "+3难搞,先放着",
+		"target": true,
+		"target_offset": [
+			0,
+			0,
+			0,
+			0
+		],
+		"next": [
+			"Restocking@Exchange@useProps@confirm"
+		]
+	},
+	"Restocking@Exchange@useProps+0": {
+		"enabled": false,
+		"focus": true,
+		"focus_tip": "0书",
+		"doc": "+0不建议",
+		"next": [
+			"Restocking@Exchange@buyall"
+		]
+	},
+
+	"Restocking@Exchange@useProps@use": {
+		"enabled": true,
+		"recognition": "OCR",
+		"roi": [
+			589,
+			128,
+			420,
+			80
+		],
+		"expected": "使用",
+
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"Restocking@Exchange@useProps+2",
+			"Restocking@Exchange@useProps+1",
+			"Restocking@Exchange@useProps+3",
+			"Restocking@Exchange@useProps@confirm"
+		]
+	},
+	"Restocking@Exchange@useProps@confirm": {
+		"recognition": "TemplateMatch",
+		"template": "confirmshort.png",
+		"action": "Click",
+		"post_delay": 500,
+		"next": "Restocking@Exchange@useProps@closeinfo"
+	},
+	"Restocking@Exchange@useProps@closeinfo": {
+		"recognition": "OCR",
+		"expected": [
+			"进货成功"
+		],
+		"post_delay": 500,
+		"next": [
+			"Restocking@Exchange@buyall"
+		]
+	},
+	"Restocking@Exchange@buyall": {
+		"recognition": "OCR",
+		"roi": [
+			453,
+			63,
+			824,
+			648
+		],
+		"expected": "全部买入",
+		"action": "Click",
+		"post_delay": 500,
+		"next": [
+			"Restocking@Exchange@Bargaining"
+		]
+	},
+	"Restocking@Exchange@Bargaining": {
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "砍价",
+		"focus": true,
+		"focus_tip": "成功0,砍价次数+1",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Restocking@Exchange@Bargaining@2",
+			"Restocking@Exchange@Bargainingsucceed@1",
+			"Restocking@Exchange@Bargainingfailed@1"
+		]
+	},
+	"Restocking@Exchange@Bargaining@2": {
+		"enabled": true,
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "砍价",
+		"focus": true,
+		"focus_tip": "砍价次数+1",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Restocking@Exchange@Bargaining@3",
+			"Restocking@Exchange@buyin"
+		]
+	},
+	"Restocking@Exchange@Bargaining@3": {
+		"enabled": false,
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "砍价",
+		"focus": true,
+		"focus_tip": "成功0,砍价次数+1",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Restocking@Exchange@buyin"
+		]
+	},
+	"Restocking@Exchange@Bargainingsucceed@1": {
+		"enabled": false,
+		"recognition": "OCR",
+		"roi": [
+			862,
+			376,
+			401,
+			121
+		],
+		"expected": "砍价幅度(?!0\\.0$|15\\.0$)\\d{1,2}\\.\\d%",
+		"focus": true,
+		"focus_tip": "砍价成功1",
+		"post_delay": 800,
+		"next": [
+			"Restocking@Exchange@Bargaining@again",
+			"Restocking@Exchange@buyin"
+		]
+	},
+	"Restocking@Exchange@Bargainingfailed@1": {
+		"enabled": false,
+		"recognition": "OCR",
+		"roi": [
+			862,
+			376,
+			401,
+			121
+		],
+		"expected": "砍价幅度0%",
+		"focus": true,
+		"focus_tip": "砍价失败1",
+		"post_delay": 800,
+		"next": [
+			"Restocking@Exchange@Bargaining"
+		]
+	},
+	"Restocking@Exchange@Bargaining@again": {
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "砍价",
+		"focus": true,
+		"focus_tip": "成功1,砍价次数+1",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Restocking@Exchange@Bargainingsucceed@2",
+			"Restocking@Exchange@Bargainingfailed@2"
+		]
+	},
+	"Restocking@Exchange@Bargainingsucceed@2": {
+		"recognition": "OCR",
+		"roi": [
+			862,
+			376,
+			401,
+			121
+		],
+		"expected": "砍价幅度(15\\.0|1[5-9]\\.\\d|20(\\.0)?)%",
+		"focus": true,
+		"focus_tip": "砍价成功2",
+		"post_delay": 800,
+		"next": [
+			"Restocking@Exchange@buyin"
+		]
+	},
+
+	"Restocking@Exchange@Bargainingfailed@2": {
+		"recognition": "OCR",
+		"roi": [
+			862,
+			376,
+			401,
+			121
+		],
+		"expected": "砍价幅度(0?\\d\\.\\d|1[0-4]\\.\\d)%",
+		"focus": true,
+		"focus_tip": "砍价失败2",
+		"post_delay": 800,
+		"next": [
+			"Restocking@Exchange@Bargaining@again"
+		]
+	},
+	"Restocking@Exchange@buyin": {
+		"recognition": "OCR",
+		"roi": [
+			894,
+			614,
+			309,
+			69
+		],
+		"expected": "买入",
+		"focus": true,
+		"focus_succeeded": "满仓",
+		"action": "Click",
+		"post_delay": 500,
+		"next": [
+			"Exchange@closeinfo@buy",
+			"Exchange@MarketChanges"
+		]
+	},
+	"Exchange@MarketChanges": {
+		"recognition": "OCR",
+		"roi": [
+			0,
+			328,
+			1280,
+			62
+		],
+		"expected": "行情已经发生变动",
+		"post_delay": 1000,
+		"next": [
+			"Restocking@Exchange@buyin",
+			"Clearout@Exchange@sellout"
+		]
+	},
+	"Exchange@closeinfo@buy": {
+		"recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出"
+		],
+		"action": "Click",
+		"doc": "载货状态转换接口--------------------------------------------------------------------------------------------------",
+		"next": [
+			"Exchange@closeinfo@buy",
+			"home@ToAnita",
+			"home@ToMander"
+		]
+	},
+
+	"seekExchange": {
+		"action": "Swipe",
+		"begin": [
+			300,
+			368,
+			10,
+			10
+		],
+		"end": [
+			0,
+			300,
+			10,
+			10
+		],
+		"focus": true,
+		"focus_tip": "滑动寻找交易所",
+		"post_delay": 500,
+		"next": [
+			"Restocking@Exchange"
+		]
+	},
+	"gotodestination": {
+		"recognition": "TemplateMatch",
+		"template": "City/gotodestination.png",
+		"roi": [
+			932,
+			602,
+			289,
+			78
+		],
+		"action": "Click",
+		"post_delay": 4000,
+		"next": "Injourney"
+	},
+	"Injourney": {
+		"recognition": "OCR",
+		"expected": [
+			"自动巡航中",
+			"立即返航"
+		],
+		"rate_limit": 9000,
+		"post_delay": 15000,
+		"timeout": 30000,
+		"roi": [
+			546,
+			99,
+			185,
+			47
+		],
+		"doc": "线路起终点转换接口--------------------------------------------------------------------------------------------------",
+		"focus": true,
+		"focus_succeeded": "自动巡航中...",
+		"post_wait_freezes": 1000,
+		"next": [
+			"Injourney",
+			"Injourney@fighting",
+			"RouteFinal@Anita",
+			"RouteFinal@Mander"
+		],
+		"interrupt": [
+			"newincity@closeinfo@taskend",
+			"newincity@closeinfo@passengerend"
+		]
+	},
+	"Injourney@fighting": {
+		"recognition": "FeatureMatch",
+		"template": [
+			"Fight/autofight.png",
+			"Fight/autofight1.png"
+		],
+		"focus": true,
+		"focus_succeeded": "遇敌自动战斗...",
+		"threshold": 0.75,
+		"post_delay": 10000,
+		"rate_limit": 5000,
+		"timeout": 16000,
+		"roi": [
+			114,
+			10,
+			86,
+			67
+		],
+		"next": [
+			"Injourney",
+			"Injourney@fighting"
+		]
+	},
+	"Clearout@visitCity": {
+		"recognition": "OCR",
+		"expected": "访问城市",
+		"action": "Click",
+		"post_delay": 1500,
+		"focus": true,
+		"focus_tip": "访问城市卖货",
+		"next": [
+			"Clearout@Exchange"
+		],
+		"interrupt": [
+			"Clearout@seekExchange"
+		]
+	},
+	"Clearout@seekExchange": {
+		"action": "Swipe",
+		"begin": [
+			300,
+			368,
+			10,
+			10
+		],
+		"end": [
+			0,
+			300,
+			10,
+			10
+		],
+		"focus": true,
+		"focus_tip": "滑动寻找交易所"
+	},
+	"Clearout@Exchange": {
+		"recognition": "OCR",
+		"expected": "交易所",
+		"action": "Click",
+		"target_offset": [
+			0,
+			50,
+			0,
+			0
+		],
+		"focus": true,
+		"focus_tip": "访问交易所",
+
+		"next": [
+			"Clearout@Exchange@sell"
+		]
+	},
+	"Clearout@Exchange@sell": {
+		"recognition": "OCR",
+		"roi": [
+			722,
+			268,
+			481,
+			352
+		],
+		"expected": "我要卖",
+		"action": "Click",
+		"focus": true,
+		"focus_tip": "我要卖",
+		"post_delay": 1500,
+		"next": [
+			"Clearout@Exchange@sellall"
+		]
+	},
+	"Clearout@Exchange@sellall": {
+		"recognition": "OCR",
+		"roi": [
+			453,
+			63,
+			824,
+			648
+		],
+		"expected": "全部卖出",
+		"focus": true,
+		"focus_succeeded": "清仓",
+		"action": "Click",
+		"post_delay": 1000,
+		"next": [
+			"Clearout@Exchange@Markup"
+		]
+	},
+	"Clearout@Exchange@Markup": {
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "抬价",
+		"focus": true,
+		"focus_tip": "成功0,抬价次数+1",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Clearout@Exchange@Markup@2",
+			"Clearout@Exchange@Markupsucceed@1",
+			"Clearout@Exchange@Markupfailed@1"
+		]
+	},
+	"Clearout@Exchange@Markup@2": {
+		"enabled": true,
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "抬价",
+		"focus": true,
+		"focus_tip": "抬价次数+1",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Clearout@Exchange@Markup@3",
+			"Clearout@Exchange@sellout"
+		]
+	},
+	"Clearout@Exchange@Markup@3": {
+		"enabled": false,
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "抬价",
+		"focus": true,
+		"focus_tip": "抬价次数+1",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Clearout@Exchange@sellout"
+		]
+	},
+	"Clearout@Exchange@Markupsucceed@1": {
+		"enabled": true,
+		"recognition": "OCR",
+		"roi": [
+			862,
+			376,
+			401,
+			121
+		],
+		"expected": "抬价幅度(?!0\\.0$|15\\.0$)\\d{1,2}\\.\\d%",
+		"focus": true,
+		"focus_tip": "抬价成功1",
+		"post_delay": 800,
+		"next": [
+			"Clearout@Exchange@Markup@again",
+			"Clearout@Exchange@sellout"
+		]
+	},
+	"Clearout@Exchange@Markupfailed@1": {
+		"enabled": false,
+		"recognition": "OCR",
+		"roi": [
+			862,
+			376,
+			401,
+			121
+		],
+		"expected": "抬价幅度0%",
+		"post_delay": 800,
+		"focus": true,
+		"focus_tip": "抬价失败1",
+		"next": [
+			"Clearout@Exchange@Markup"
+		]
+	},
+	"Clearout@Exchange@Markup@again": {
+		"recognition": "OCR",
+		"roi": [
+			1092,
+			428,
+			167,
+			70
+		],
+		"expected": "抬价",
+		"focus": true,
+		"focus_tip": "成功1,抬价次数+1",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Clearout@Exchange@Markupsucceed@2",
+			"Clearout@Exchange@Markupfailed@2"
+		]
+	},
+	"Clearout@Exchange@Markupsucceed@2": {
+		"recognition": "OCR",
+		"roi": [
+			862,
+			376,
+			401,
+			121
+		],
+		"expected": "抬价幅度(15\\.0|1[5-9]\\.\\d|20(\\.0)?)%",
+		"focus": true,
+		"focus_tip": "抬价成功2",
+		"post_delay": 800,
+		"next": [
+			"Clearout@Exchange@sellout"
+		]
+	},
+
+	"Clearout@Exchange@Markupfailed@2": {
+		"recognition": "OCR",
+		"roi": [
+			862,
+			376,
+			401,
+			121
+		],
+		"expected": "抬价幅度(0?\\d\\.\\d|1[0-4]\\.\\d)",
+		"focus": true,
+		"focus_tip": "抬价失败2",
+		"post_delay": 800,
+		"next": [
+			"Clearout@Exchange@Markup@again"
+		]
+	},
+	"Clearout@Exchange@sellout": {
+		"recognition": "OCR",
+		"roi": [
+			894,
+			614,
+			309,
+			69
+		],
+		"expected": "卖出",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Exchange@closeinfo@sell",
+			"Exchange@MarketChanges"
+		]
+	},
+	"Exchange@closeinfo@sell": {
+		"recognition": "OCR",
+		"expected": [
+			"触碰空白区域退出"
+		],
+		"post_delay": 800,
+		"action": "Click",
+		"doc": "载货状态转换接口--------------------------------------------------------------------------------------------------",
+		"next": [
+			"Exchange@closeinfo@sell",
+			"home@InAnita",
+			"home@InMander",
+			"home@InCape",
+			"home@InRanshin"
+		]
+	}
+}

@@ -1,6 +1,6 @@
 {
 	"name": "雷索纳斯小助手",
-	"version": "v0.1.1",
+	"version": "0.1.1",
 	"url": "https://github.com/Billy775326/MaaResonas",
 	"custom_title": "MaaResonas",
 	"controller": [
@@ -100,7 +100,7 @@
 		},
 		{
 			"name": "跑商交易",
-			"entry": "Route@Mander-Anita",
+			"entry": "__Route__",
 			"check": false,
 			"option": [
 				"跑商路线",
@@ -1080,8 +1080,38 @@
 				{
 					"name": "环路:曼德矿场——阿妮塔发射中心",
 					"pipeline_override": {
-						"Route@Mader-Anita": {
-							"enabled": true
+						"__Route__": {
+							"enabled": true,
+							"next": [
+								"RouteFirst@Mander",
+								"RouteFirst@Anita"
+							]
+						},
+						"Exchange@closeinfo@buy": {
+							"next": [
+								"Exchange@closeinfo@buy",
+								"home@ToAnita",
+								"home@ToMander"
+							]
+						}
+					}
+				},
+				{
+					"name": "环路:岚心城——海角城",
+					"pipeline_override": {
+						"__Route__": {
+							"enabled": true,
+							"next": [
+								"RouteFirst@Ranshin",
+								"RouteFirst@Cape"
+							]
+						},
+						"Exchange@closeinfo@buy": {
+							"next": [
+								"Exchange@closeinfo@buy",
+								"home@ToCape",
+								"home@ToRanshin"
+							]
 						}
 					}
 				}
@@ -1158,6 +1188,23 @@
 		"砍价策略": {
 			"cases": [
 				{
+					"name": "砍成功2次",
+					"pipeline_override": {
+						"Restocking@Exchange@Bargaining@2": {
+							"enabled": false
+						},
+						"Restocking@Exchange@Bargaining@3": {
+							"enabled": false
+						},
+						"Restocking@Exchange@Bargainingsucceed@1": {
+							"enabled": true
+						},
+						"Restocking@Exchange@Bargainingfailed@1": {
+							"enabled": true
+						}
+					}
+				},
+				{
 					"name": "只砍两次",
 					"pipeline_override": {
 						"Restocking@Exchange@Bargainingsucceed@1": {
@@ -1192,23 +1239,6 @@
 					}
 				},
 				{
-					"name": "砍成功2次",
-					"pipeline_override": {
-						"Restocking@Exchange@Bargaining@2": {
-							"enabled": false
-						},
-						"Restocking@Exchange@Bargaining@3": {
-							"enabled": false
-						},
-						"Restocking@Exchange@Bargainingsucceed@1": {
-							"enabled": true
-						},
-						"Restocking@Exchange@Bargainingfailed@1": {
-							"enabled": true
-						}
-					}
-				},
-				{
 					"name": "砍成功1次",
 					"pipeline_override": {
 						"Restocking@Exchange@Bargaining@again": {
@@ -1220,6 +1250,23 @@
 		},
 		"抬价策略": {
 			"cases": [
+				{
+					"name": "抬成功2次",
+					"pipeline_override": {
+						"Clearout@Exchange@Markup@2": {
+							"enabled": false
+						},
+						"Clearout@Exchange@Markup@3": {
+							"enabled": false
+						},
+						"Clearout@Exchange@Markupsucceed@1": {
+							"enabled": true
+						},
+						"Clearout@Exchange@Markupfailed@1": {
+							"enabled": true
+						}
+					}
+				},
 				{
 					"name": "只抬两次",
 					"pipeline_override": {
@@ -1250,23 +1297,6 @@
 							"enabled": true
 						},
 						"Clearout@Exchange@Markup@3": {
-							"enabled": true
-						}
-					}
-				},
-				{
-					"name": "抬成功2次",
-					"pipeline_override": {
-						"Clearout@Exchange@Markup@2": {
-							"enabled": false
-						},
-						"Clearout@Exchange@Markup@3": {
-							"enabled": false
-						},
-						"Clearout@Exchange@Markupsucceed@1": {
-							"enabled": true
-						},
-						"Clearout@Exchange@Markupfailed@1": {
 							"enabled": true
 						}
 					}

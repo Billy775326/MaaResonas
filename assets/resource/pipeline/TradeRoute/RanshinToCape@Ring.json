@@ -1,9 +1,9 @@
 {
-	"RouteFirst@City@Mander": {
+	"RouteFirst@City@Ranshin": {
 		"focus": true,
-		"focus_tip": "线路起点:曼德矿场",
+		"focus_tip": "线路起点:;岚心城",
 		"recognition": "OCR",
-		"expected": ["曼德矿场"],
+		"expected": ["岚心城"],
 		"roi": [
 			0,
 			0,
@@ -12,18 +12,18 @@
 		],
 		"action": "Click",
 		"next": [
-			"ManderToAnita",
-			"Mander@seekAnita"
+			"RanshinToCape",
+			"Ranshin@seekCape"
 		],
 		"interrupt": [
 			"home"
 		]
 	},
-	"RouteFirst@Mander": {
+	"RouteFirst@Ranshin": {
 		"focus": true,
-		"focus_tip": "线路起点补货:曼德矿场",
+		"focus_tip": "线路起点补货:岚心城",
 		"recognition": "OCR",
-		"expected": ["曼德矿场"],
+		"expected": ["岚心城"],
 		"roi": [
 			0,
 			0,
@@ -38,9 +38,9 @@
 		]
 	},
 
-	"home@ToAnita": {
+	"home@ToCape": {
 		"recognition": "OCR",
-		"expected": "曼德矿场",
+		"expected": "岚心城",
 		"roi": [
 			784,
 			213,
@@ -48,17 +48,17 @@
 			45
 		],
 		"focus": true,
-		"focus_tip": "补货结束回到首页,曼德矿场出发前往阿妮塔发射中心",
+		"focus_tip": "补货结束回到首页,岚心城出发前往海角城",
 		"next": [
-			"RouteFirst@City@Mander"
+			"RouteFirst@City@Ranshin"
 		],
 		"interrupt": [
 			"home"
 		]
 	},
-	"home@ToMander": {
+	"home@ToRanshin": {
 		"recognition": "OCR",
-		"expected": "阿妮塔发射中心",
+		"expected": "海角城",
 		"roi": [
 			784,
 			213,
@@ -66,39 +66,38 @@
 			45
 		],
 		"focus": true,
-		"focus_tip": "补货结束回到首页,阿妮塔出发前往曼德矿场",
+		"focus_tip": "补货结束回到首页,海角城出发前往岚心城",
 		"next": [
-			"RouteFirst@City@Anita"
+			"RouteFirst@City@Cape"
 		],
 		"interrupt": [
 			"home"
 		]
 	},
-
-	"Mander@seekAnita": {
+	"Ranshin@seekCape": {
 		"focus": true,
-		"focus_tip": "寻找阿妮塔发射中心",
+		"focus_tip": "寻找海角城",
 		"recognition": "OCR",
-		"expected": "曼德矿场",
+		"expected": "岚心城",
 		"action": "MultiSwipe",
 		"swipes": [
 			{
 				"begin": [
 					0,
-					400,
+					500,
 					10,
 					10
 				],
 				"end": [
-					600,
-					300,
+					800,
+					100,
 					10,
 					10
 				],
-				"duration": 200
+				"duration": 100
 			},
 			{
-				"starting": 600,
+				"starting": 800,
 				"begin_offset": [
 					0,
 					0,
@@ -114,33 +113,32 @@
 				"duration": 20
 			}
 		],
-		"post_delay": 800,
+		"post_delay": 1000,
 		"next": [
-			"ManderToAnita"
+			"RanshinToCape"
 		]
 	},
-	"ManderToAnita": {
+	"RanshinToCape": {
 		"recognition": "OCR",
-		"expected": ["阿妮塔发射中心"],
+		"expected": ["海角城"],
 		"focus": true,
-		"focus_succeeded": "锁定阿妮塔发射中心",
-		"doc": "去目的地前是否要招揽乘客ManderToAnita@PAXtransport",
+		"focus_succeeded": "锁定海角城",
+		"doc": "去目的地前是否要招揽乘客RanshinToCape@PAXtransport",
 		"action": "Click",
 		"post_delay": 500,
 		"next": [
 			"gotodestination",
-			"ManderToAnita"
+			"RanshinToCape"
 		]
 	},
-	"ManderToAnita@PAXtransport": {
+	"RanshinToCape@PAXtransport": {
 		"enabled": false
 	},
-
-	"RouteFinal@Anita": {
+	"RouteFinal@Cape": {
 		"focus": true,
-		"focus_tip": "线路终点:阿妮塔发射中心",
+		"focus_tip": "线路终点:海角城",
 		"recognition": "OCR",
-		"expected": ["阿妮塔发射中心"],
+		"expected": ["海角城"],
 		"roi": [
 			0,
 			0,
@@ -155,9 +153,9 @@
 		]
 	},
 
-	"home@InAnita": {
+	"home@InCape": {
 		"recognition": "OCR",
-		"expected": "阿妮塔发射中心",
+		"expected": "海角城",
 		"roi": [
 			784,
 			213,
@@ -165,17 +163,17 @@
 			45
 		],
 		"focus": true,
-		"focus_tip": "清仓结束回到首页,前往阿妮塔发射中心补货",
+		"focus_tip": "清仓结束回到首页,前往海角城补货",
 		"next": [
-			"RouteFirst@Anita"
+			"RouteFirst@Cape"
 		],
 		"interrupt": [
 			"home"
 		]
 	},
-	"home@InMander": {
+	"home@InRanshin": {
 		"recognition": "OCR",
-		"expected": "曼德矿场",
+		"expected": "岚心城",
 		"roi": [
 			784,
 			213,
@@ -183,19 +181,19 @@
 			45
 		],
 		"focus": true,
-		"focus_tip": "清仓结束回到首页,前往曼德矿场补货",
+		"focus_tip": "清仓结束回到首页,前往岚心城补货",
 		"next": [
-			"RouteFirst@Mander"
+			"RouteFirst@Ranshin"
 		],
 		"interrupt": [
 			"home"
 		]
 	},
-	"RouteFirst@City@Anita": {
+	"RouteFirst@City@Cape": {
 		"focus": true,
-		"focus_succeeded": "线路起点:阿妮塔发射中心",
+		"focus_succeeded": "线路起点:海角城",
 		"recognition": "OCR",
-		"expected": ["阿妮塔发射中心"],
+		"expected": ["海角城"],
 		"roi": [
 			0,
 			0,
@@ -204,31 +202,31 @@
 		],
 		"action": "Click",
 		"next": [
-			"AnitaToMander",
-			"Anita@seekMander"
+			"CapeToRanshin",
+			"Cape@seekRanshin"
 		],
 		"interrupt": [
 			"home"
 		]
 	},
-	"AnitaToMander": {
+	"CapeToRanshin": {
 		"recognition": "OCR",
-		"expected": ["曼德矿场"],
+		"expected": ["岚心城"],
 		"focus": true,
-		"focus_tip": "锁定曼德矿场",
-		"doc": "去目的地前是否要招揽乘客ManderToAnita@PAXtransport",
+		"focus_tip": "锁定岚心城",
+		"doc": "去目的地前是否要招揽乘客CapeToRanshin@PAXtransport",
 		"action": "Click",
 		"post_delay": 500,
 		"next": [
 			"gotodestination",
-			"AnitaToMander"
+			"CapeToRanshin"
 		]
 	},
-	"Anita@seekMander": {
+	"Cape@seekRanshin": {
 		"focus": true,
-		"focus_succeeded": "寻找曼德矿场",
+		"focus_succeeded": "寻找岚心城",
 		"recognition": "OCR",
-		"expected": "阿妮塔发射中心",
+		"expected": "海角城",
 		"roi": [
 			349,
 			80,
@@ -239,21 +237,21 @@
 		"swipes": [
 			{
 				"begin": [
-					600,
-					300,
+					1154,
+					130,
 					10,
 					10
 				],
 				"end": [
-					0,
-					400,
+					48,
+					677,
 					10,
 					10
 				],
-				"duration": 200
+				"duration": 100
 			},
 			{
-				"starting": 700,
+				"starting": 800,
 				"begin_offset": [
 					0,
 					0,
@@ -266,20 +264,20 @@
 					0,
 					0
 				],
-				"duration": 10
+				"duration": 20
 			}
 		],
-		"post_delay": 200,
+		"post_delay": 1000,
 		"next": [
-			"AnitaToMander"
+			"CapeToRanshin"
 		]
 	},
 
-	"RouteFirst@Anita": {
+	"RouteFirst@Cape": {
 		"focus": true,
-		"focus_tip": "线路起点补货:阿妮塔发射中心",
+		"focus_tip": "线路起点补货:海角城",
 		"recognition": "OCR",
-		"expected": ["阿妮塔发射中心"],
+		"expected": ["海角城"],
 		"roi": [
 			0,
 			0,
@@ -293,11 +291,11 @@
 			"home"
 		]
 	},
-	"RouteFinal@Mander": {
+	"RouteFinal@Ranshin": {
 		"focus": true,
-		"focus_tip": "线路终点:曼德矿场",
+		"focus_tip": "线路终点:岚心城",
 		"recognition": "OCR",
-		"expected": ["曼德矿场"],
+		"expected": ["岚心城"],
 		"roi": [
 			0,
 			0,

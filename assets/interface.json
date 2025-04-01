@@ -116,11 +116,15 @@
 			"name": "海岛探险",
 			"entry": "",
 			"option": [
-				"海岛垃圾",
-				"海岛野怪",
-				"安保巡逻",
-				"今日收益"
-			]
+				"今日收益",
+				"入侵生物",
+				"安保巡逻"
+			],
+			"pipeline_override": {
+				"__Event__": {
+					"next": "Event@Island"
+				}
+			}
 		}
 	],
 	"option": {
@@ -1311,27 +1315,26 @@
 				}
 			]
 		},
-		"海岛垃圾": {
+		"入侵生物": {
 			"cases": [
 				{
 					"name": "Yes",
-					"pipeline_override": {}
+					"pipeline_override": {
+						"Event@Island@EnemyInvasionGuide": {
+							"enabled": true
+						},
+						"Incomex0@backup": {
+							"next": ["Event@Island@EnemyInvasionGuide"]
+						}
+					}
 				},
 				{
 					"name": "No",
-					"pipeline_override": {}
-				}
-			]
-		},
-		"海岛野怪": {
-			"cases": [
-				{
-					"name": "Yes",
-					"pipeline_override": {}
-				},
-				{
-					"name": "No",
-					"pipeline_override": {}
+					"pipeline_override": {
+						"Event@Island@EnemyInvasionGuide": {
+							"enabled": false
+						}
+					}
 				}
 			]
 		},
@@ -1351,11 +1354,19 @@
 			"cases": [
 				{
 					"name": "Yes",
-					"pipeline_override": {}
+					"pipeline_override": {
+						"Island@CurrentIncome": {
+							"enabled": true
+						}
+					}
 				},
 				{
 					"name": "No",
-					"pipeline_override": {}
+					"pipeline_override": {
+						"Island@CurrentIncome": {
+							"enabled": false
+						}
+					}
 				}
 			]
 		}

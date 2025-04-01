@@ -1,0 +1,113 @@
+{
+   "__Event__": {
+        "focus": true,
+        "focus_succeeded": "打开活动界面",
+        "recognition": "FeatureMatch",
+        "template": [
+            "Event/eventblackbg.png",
+            "Event/eventwhitebg.png"
+        ],
+        "roi": [
+            721,0,558,105
+        ],
+        "action": "Click",
+        "next":[],
+        "interrupt": [
+            "Event@Seek"
+        ]
+    },
+    "Event@Seek":{
+        "action": "Swipe",
+        "begin": [111,651,10,10],
+        "end": [111,120,10,10]
+    },
+    "Event@gofightinglarge-0": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/gofightinglarge-0.png",
+		"focus": true,
+		"focus_succeeded": "进入战斗",
+		"action": "Click",
+		"post_delay": 1500,
+		"next": [
+			"Event@autofighting",
+			"Event@victory",
+			"Event@defeat"
+		],
+		"interrupt": "Event@autofightclosing"
+	},
+
+	"Event@pasuefighting": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/pause.png",
+		"post_delay": 2000,
+		"focus": true,
+		"focus_tip": "暂停战斗"
+	},
+
+	"Event@autofighting": {
+		"recognition": "FeatureMatch",
+		"template": [
+			"Fight/autofight.png",
+			"Fight/autofight1.png"
+		],
+        "roi": [
+			114,
+			10,
+			86,
+			67
+		],
+		"focus": true,
+		"focus_tip": "自动战斗中...",
+		"post_delay": 10000,
+		"rate_limit": 5000,
+        "timeout": 20000,
+		"next": "Event@autofighting"
+	},
+
+	"Event@autofightclosing": {
+		"recognition": "FeatureMatch",
+		"template": "Fight/autofightclose.png",
+        "roi": [
+			114,
+			10,
+			86,
+			67
+		],
+		"action": "Click"
+	},
+
+	"Event@fightingend": {
+		"post_delay": 2000,
+		"next": [
+			"Event@victory",
+			"Event@defeat",
+			"Event@autofighting"
+		]
+	},
+
+	"Event@victory": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/victory.png",
+		"focus": true,
+		"focus_tip": "战斗胜利",
+		"next": "Event@nextstep"
+	},
+
+	"Event@defeat": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/defeat.png",
+		"focus": true,
+		"focus_tip": "战斗失败",
+		"next": "Event@nextstep"
+	},
+
+	"Event@nextstep": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/nextstep.png",
+		"action": "Click",
+		"post_delay": 1000,
+		"rate_limit": 2000,
+		"next": []
+	}
+
+}

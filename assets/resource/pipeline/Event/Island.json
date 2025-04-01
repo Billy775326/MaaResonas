@@ -1,0 +1,392 @@
+{
+	"Event@Island": {
+		"focus": true,
+		"focus_succeeded": "海岛物语",
+		"recognition": "OCR",
+		"expected": [
+			"海岛物语"
+		],
+		"roi": [
+			25,
+			90,
+			173,
+			629
+		],
+		"action": "Click",
+		"next": [
+			"Event@Island@Entry"
+		]
+	},
+
+	"Event@Island@Entry": {
+		"enabled": true,
+		"focus": true,
+		"focus_succeeded": "海岛入口",
+		"recognition": "OCR",
+		"expected": [
+			"海岛入口"
+		],
+		"action": "Click",
+		"post_delay": 2000,
+		"next": [
+			"Island@Income",
+			"Event@Island@EnemyInvasionGuide"
+		]
+	},
+	"Island@Income": {
+		"enabled": true,
+		"recognition": "OCR",
+		"expected": "今日收益",
+		"roi": [
+			0,
+			586,
+			538,
+			133
+		],
+		"post_delay": 800,
+		"action": "Click",
+		"next": [
+			"Island@CurrentIncomex0",
+			"Island@CurrentIncome"
+		]
+	},
+	"Island@CurrentIncomex0": {
+		"recognition": "OCR",
+		"expected": "0",
+		"roi": [
+			608,
+			613,
+			644,
+			65
+		],
+		"focus": true,
+		"focus_succeeded": "税后分成0",
+		"focus_failed": "税后分成待领取...",
+		"next": [
+			"Incomex0@backup"
+		]
+	},
+	"Incomex0@backup": {
+		"recognition": "TemplateMatch",
+		"template": "backup.png",
+		"roi": [
+			0,
+			0,
+			244,
+			74
+		],
+		"action": "Click",
+		"focus": true,
+		"focus_succeeded": "返回上一级",
+		"doc": "返回上一级"
+	},
+
+	"Island@CurrentIncome": {
+		"recognition": "OCR",
+		"expected": "收钱",
+		"roi": [
+			608,
+			613,
+			644,
+			65
+		],
+		"action": "Click",
+		"focus": true,
+		"focus_succeeded": "收钱",
+		"post_wait_freezes": 100,
+		"next": [
+			"Island@CurrentIncome@closeinfo",
+			"Island@CurrentIncome@Noincomeyet"
+		]
+	},
+	"Island@CurrentIncome@closeinfo": {
+		"recognition": "OCR",
+		"expected": "触碰空白区域退出",
+		"roi": [
+			558,
+			654,
+			169,
+			65
+		],
+		"action": "Click",
+		"next": [
+			"Incomex0@backup"
+		]
+	},
+	"Island@CurrentIncome@Noincomeyet": {
+		"recognition": "OCR",
+		"expected": "暂无收益",
+		"roi": [
+			495,
+			312,
+			277,
+			96
+		],
+		"action": "Click",
+		"next": [
+			"Incomex0@backup"
+		]
+	},
+	"Island@EnemyInvasionGuide": {
+		"recognition": "TemplateMatch",
+		"template": "Event/Island/MonsterGuide.png",
+		"roi": [
+			0,
+			586,
+			538,
+			133
+		],
+		"action": "Click",
+		"next": [
+			"Event@Island@EnemyInvasion",
+			"Event@Island@EnemyInvasionGuide"
+		]
+	},
+	"Event@Island@EnemyInvasionGuide": {
+		"enabled": true,
+		"recognition": "OCR",
+		"expected": [
+			"^x[0-9]$"
+		],
+		"timeout": 2000,
+		"focus": true,
+		"focus_succeeded": "入侵生物待清除...",
+		"focus_failed": "入侵生物已清除",
+		"roi": [
+			0,
+			586,
+			538,
+			133
+		],
+		"next": [
+			"Island@EnemyInvasionGuide"
+		]
+	},
+	"Event@Island@EnemyInvasion": {
+		"recognition": "TemplateMatch",
+		"template": [
+			"Event/Island/node1.png",
+			"Event/Island/node2.png",
+			"Event/Island/node3.png",
+			"Event/Island/node4.png",
+			"Event/Island/node5.png",
+			"Event/Island/node6.png"
+		],
+		"threshold": 0.8,
+		"pre_wait_freezes": {
+			"time": 20,
+			"threshold": 0.7
+		},
+		"focus": true,
+		"focus_succeeded": "识别到入侵生物,准备战斗!",
+		"focus_failed": "未准确识别到入侵生物,继续等待...",
+		"action": "Click",
+		"post_delay": 800,
+		"next": [
+			"Event@Island@gofightinglarge-0",
+			"Island@EnemyInvasionGuide"
+		]
+	},
+	"Event@Island@gofightinglarge-0": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/gofightinglarge-0.png",
+		"focus": true,
+		"focus_succeeded": "进入战斗",
+		"action": "Click",
+		"post_delay": 1500,
+		"timeout": 10000,
+		"next": [
+			"Event@Island@autofighting",
+			"Event@Island@victory",
+			"Event@Island@defeat"
+		],
+		"interrupt": "Event@Island@autofightclosing"
+	},
+	"Event@Island@autofighting": {
+		"recognition": "FeatureMatch",
+		"template": [
+			"Fight/autofight.png",
+			"Fight/autofight1.png"
+		],
+		"roi": [
+			114,
+			10,
+			86,
+			67
+		],
+		"focus": true,
+		"focus_tip": "自动战斗中...",
+		"post_delay": 10000,
+		"rate_limit": 5000,
+		"timeout": 20000,
+		"next": [
+			"Event@Island@autofighting",
+			"Event@Island@victory",
+			"Event@Island@defeat"
+		]
+	},
+	"Event@Island@autofightclosing": {
+		"recognition": "FeatureMatch",
+		"template": "Fight/autofightclose.png",
+		"roi": [
+			114,
+			10,
+			86,
+			67
+		],
+		"focus": true,
+		"focus_succeeded": "开启自动战斗",
+		"threshold": 0.95,
+		"action": "Click"
+	},
+
+	"Event@Island@victory": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/victory.png",
+		"focus": true,
+		"focus_tip": "作战胜利",
+		"next": "Event@Island@nextstep"
+	},
+
+	"Event@Island@defeat": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/defeat.png",
+		"focus": true,
+		"focus_tip": "作战失败",
+		"next": "Event@Island@nextstep"
+	},
+	"Event@Island@nextstep": {
+		"recognition": "TemplateMatch",
+		"template": "Fight/nextstep.png",
+		"action": "Click",
+		"threshold": 0.9,
+		"post_delay": 800,
+		"post_wait_freezes": 100,
+		"focus": true,
+		"focus_succeeded": "下一步",
+		"next": [
+			"Event@Island@EnemyInvasionGuide"
+		]
+	},
+	"Island@Patrol": {
+		"recognition": "OCR",
+		"expected": "巡逻",
+		"roi": [
+			596,
+			609,
+			672,
+			81
+		],
+		"action": "Click",
+		"post_delay": 500,
+		"next": [
+			"Island@Patrol@Sp-7",
+			"Island@Patrol@Sp-8",
+			"Island@Patrol@swpie"
+		]
+	},
+	"Island@Patrol@swpie": {
+		"action": "MultiSwipe",
+		"swipes": [
+			{
+				"begin": [
+					100,
+					100,
+					10,
+					10
+				],
+				"end": [
+					1000,
+					700,
+					10,
+					10
+				],
+				"duration": 200
+			},
+			{
+				"starting": 500,
+				"begin_offset": [
+					100,
+					100,
+					10,
+					10
+				],
+				"end_offset": [
+					1000,
+					700,
+					10,
+					10
+				],
+				"duration": 200
+			}
+		],
+		"next": [
+			"Island@Patrol@Sp-7",
+			"Island@Patrol@Sp-8"
+		]
+	},
+	"Island@Patrol@Sp-7": {
+		"enabled": true,
+		"recognition": "OCR",
+		"expected": "SP-7",
+		"action": "Click",
+		"next": [
+			"Island@Patrol@Identifyvalue"
+		]
+	},
+	"Island@Patrol@Sp-8": {
+		"enabled": true,
+		"recognition": "OCR",
+		"expected": "SP-8",
+		"action": "Click",
+		"next": [
+			"Island@Patrol@Identifyvalue"
+		]
+	},
+	"Island@Patrol@Identifyvalue": {
+		"recognition": "OCR",
+		"expected": "^(1[0-9]|[0-9])/\\d+$",
+		"roi": [
+			1030,
+			18,
+			171,
+			43
+		],
+		"focus": true,
+		"focus_succeeded": "体力值过低，请先回复体力",
+		"next": [
+			"Island@Patrol@backup"
+		]
+	},
+	"Island@Patrol@backup": {
+		"recognition": "TemplateMatch",
+		"template": "backup.png",
+		"roi": [
+			0,
+			0,
+			244,
+			74
+		],
+		"action": "Click",
+		"focus": true,
+		"focus_succeeded": "返回上一级",
+		"doc": "返回上一级"
+	},
+	"Island@Patrol@SwitchAuto": {
+		"recognition": "OCR",
+		"expected": "自动战斗",
+		"roi": [
+			826,
+			574,
+			454,
+			146
+		],
+		"action": "Click",
+		"target_offset": [
+			75,
+			0,
+			0,
+			0
+		]
+	}
+}

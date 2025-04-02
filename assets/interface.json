@@ -1,8 +1,7 @@
 {
-	"name": "雷索纳斯小助手",
-	"version": "0.1.1",
+	"name": "MaaResonas",
+	"version": "v1.0.0",
 	"url": "https://github.com/Billy775326/MaaResonas",
-	"custom_title": "MaaResonas",
 	"controller": [
 		{
 			"name": "安卓端",
@@ -55,36 +54,6 @@
 			],
 			"pipeline_override": {}
 		},
-		{
-			"name": "商会订单",
-			"entry": "Daily@Initial",
-			"option": [
-				"曼德矿场订单",
-				"修格里城订单",
-				"澄明数据中心订单",
-				"7号自由港订单",
-				"阿妮塔发射中心订单",
-				"海角城订单",
-				"岚心城订单",
-				"贡露城订单"
-			],
-			"pipeline_override": {}
-		},
-		{
-			"name": "铁安局悬赏",
-			"entry": "Daily@Initial",
-			"option": [
-				"曼德矿场悬赏",
-				"修格里城悬赏",
-				"澄明数据中心悬赏",
-				"7号自由港悬赏",
-				"阿妮塔发射中心悬赏",
-				"海角城悬赏",
-				"岚心城悬赏",
-				"贡露城悬赏"
-			],
-			"pipeline_override": {}
-		},
 
 		{
 			"name": "领取每日奖励",
@@ -114,7 +83,7 @@
 		},
 		{
 			"name": "海岛探险",
-			"entry": "",
+			"entry": "__Event__",
 			"option": [
 				"今日收益",
 				"入侵生物",
@@ -1324,7 +1293,7 @@
 							"enabled": true
 						},
 						"Incomex0@backup": {
-							"next": ["Event@Island@EnemyInvasionGuide"]
+							"next": ["Island@EnemyInvasionGuide"]
 						}
 					}
 				},
@@ -1342,11 +1311,46 @@
 			"cases": [
 				{
 					"name": "Yes",
-					"pipeline_override": {}
+					"pipeline_override": {
+						"Event@Island@EnemyInvasionX0": {
+							"next": [
+								"Island@Patrol"
+							]
+						},
+						"Island@Patrol": {
+							"enabled": true
+						}
+					}
+				},
+				{
+					"name": "SP-7",
+					"pipeline_override": {
+						"Island@Patrol@Sp-7": {
+							"enabled": true
+						},
+						"Island@Patrol@Sp-8": {
+							"enabled": false
+						}
+					}
+				},
+				{
+					"name": "SP-8",
+					"pipeline_override": {
+						"Island@Patrol@Sp-8": {
+							"enabled": true
+						},
+						"Island@Patrol@Sp-7": {
+							"enabled": false
+						}
+					}
 				},
 				{
 					"name": "No",
-					"pipeline_override": {}
+					"pipeline_override": {
+						"Island@Patrol": {
+							"enabled": false
+						}
+					}
 				}
 			]
 		},

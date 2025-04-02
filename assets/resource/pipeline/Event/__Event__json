@@ -1,40 +1,27 @@
 {
-	"__Event__": {
-		"focus": true,
-		"focus_succeeded": "打开活动界面",
-		"recognition": "FeatureMatch",
-		"template": [
-			"Event/eventblackbg.png",
-			"Event/eventwhitebg.png"
-		],
-		"roi": [
-			721,
-			0,
-			558,
-			105
-		],
-		"action": "Click",
-		"next": [],
-		"interrupt": [
-			"Event@Seek"
-		]
-	},
-	"Event@Seek": {
-		"action": "Swipe",
-		"begin": [
-			111,
-			651,
-			10,
-			10
-		],
-		"end": [
-			111,
-			120,
-			10,
-			10
-		]
-	},
-	"Event@gofightinglarge-0": {
+   "__Event__": {
+        "focus": true,
+        "focus_succeeded": "打开活动界面",
+        "recognition": "FeatureMatch",
+        "template": [
+            "Event/eventblackbg.png",
+            "Event/eventwhitebg.png"
+        ],
+        "roi": [
+            721,0,558,105
+        ],
+        "action": "Click",
+        "next":[],
+        "interrupt": [
+            "Event@Seek"
+        ]
+    },
+    "Event@Seek":{
+        "action": "Swipe",
+        "begin": [111,651,10,10],
+        "end": [111,120,10,10]
+    },
+    "Event@gofightinglarge-0": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/gofightinglarge-0.png",
 		"focus": true,
@@ -63,7 +50,7 @@
 			"Fight/autofight.png",
 			"Fight/autofight1.png"
 		],
-		"roi": [
+        "roi": [
 			114,
 			10,
 			86,
@@ -73,44 +60,14 @@
 		"focus_tip": "自动战斗中...",
 		"post_delay": 10000,
 		"rate_limit": 5000,
-		"timeout": 20000,
-		"next": [
-			"Event@autofighting",
-			"Event@Identifyvalue"
-		]
+        "timeout": 20000,
+		"next": "Event@autofighting"
 	},
-	"Event@Identifyvalue": {
-		"recognition": "OCR",
-		"expected": "^(1[0-9]|[0-9])/\\d+$",
-		"roi": [
-			1030,
-			18,
-			171,
-			43
-		],
-		"focus": true,
-		"focus_succeeded": "体力值过低，请先回复体力",
-		"next": [
-			"Event@backup"
-		]
-	},
-	"Event@backup": {
-		"recognition": "TemplateMatch",
-		"template": "backup.png",
-		"roi": [
-			0,
-			0,
-			244,
-			74
-		],
-		"action": "Click",
-		"focus": true,
-		"focus_succeeded": "返回上一级"
-	},
+
 	"Event@autofightclosing": {
 		"recognition": "FeatureMatch",
 		"template": "Fight/autofightclose.png",
-		"roi": [
+        "roi": [
 			114,
 			10,
 			86,
@@ -152,4 +109,5 @@
 		"rate_limit": 2000,
 		"next": []
 	}
+
 }

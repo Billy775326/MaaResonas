@@ -2,6 +2,8 @@
 	"__Route__": {
 		"enabled": true,
 		"next": [
+			"RouteFirst@Ranshin",
+			"RouteFirst@Cape",
 			"RouteFirst@Mander",
 			"RouteFirst@Anita"
 		],
@@ -364,6 +366,7 @@
 		"expected": [
 			"触碰空白区域退出"
 		],
+		"timeout": 2000,
 		"action": "Click",
 		"doc": "载货状态转换接口--------------------------------------------------------------------------------------------------",
 		"next": [

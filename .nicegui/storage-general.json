@@ -8,7 +8,7 @@
 	"win32_input": 1,
 	"window_name": "",
 	"resource_dir": "D:\\GraduationDesign\\MaaResonas\\assets\\resource",
-	"task_entry": "Island@Patrol@swpie",
-	"task_pipeline_override": "{\"enabled\":true}",
+	"task_entry": "gotodestination",
+	"task_pipeline_override": "{\"gotodestination\": { \t\"enabled\": true, \t\"recognition\": \"NeuralNetworkClassify\", \t\t\"template\": \"City/gotodestination.png\", \t\t\"roi\": [ \t\t\t932, \t\t\t602, \t\t\t289, \t\t\t78 \t\t]}}",
 	"agent_identifier": "742cefd7-2587-43a3-9fe5-b4a99707bf5c"
 }

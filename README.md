@@ -5,7 +5,7 @@
 
 <div align="center">
 
-# MaaResonas
+# MaaResonas(因退游停更,感谢支持)
 
 <p align="center">基于 Maa 的 Resonance 自动化工具</p>
 </div>

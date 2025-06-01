@@ -1,27 +1,40 @@
 {
-   "__Event__": {
-        "focus": true,
-        "focus_succeeded": "打开活动界面",
-        "recognition": "FeatureMatch",
-        "template": [
-            "Event/eventblackbg.png",
-            "Event/eventwhitebg.png"
-        ],
-        "roi": [
-            721,0,558,105
-        ],
-        "action": "Click",
-        "next":[],
-        "interrupt": [
-            "Event@Seek"
-        ]
-    },
-    "Event@Seek":{
-        "action": "Swipe",
-        "begin": [111,651,10,10],
-        "end": [111,120,10,10]
-    },
-    "Event@gofightinglarge-0": {
+	"__Event__": {
+		"focus": true,
+		"focus_succeeded": "打开活动界面",
+		"recognition": "FeatureMatch",
+		"template": [
+			"Event/eventblackbg.png",
+			"Event/eventwhitebg.png"
+		],
+		"roi": [
+			721,
+			0,
+			558,
+			105
+		],
+		"action": "Click",
+		"next": [],
+		"interrupt": [
+			"Event@Seek"
+		]
+	},
+	"Event@Seek": {
+		"action": "Swipe",
+		"begin": [
+			111,
+			651,
+			10,
+			10
+		],
+		"end": [
+			111,
+			120,
+			10,
+			10
+		]
+	},
+	"Event@gofightinglarge-0": {
 		"recognition": "TemplateMatch",
 		"template": "Fight/gofightinglarge-0.png",
 		"focus": true,
@@ -50,7 +63,7 @@
 			"Fight/autofight.png",
 			"Fight/autofight1.png"
 		],
-        "roi": [
+		"roi": [
 			114,
 			10,
 			86,
@@ -60,14 +73,14 @@
 		"focus_tip": "自动战斗中...",
 		"post_delay": 10000,
 		"rate_limit": 5000,
-        "timeout": 20000,
+		"timeout": 20000,
 		"next": "Event@autofighting"
 	},
 
 	"Event@autofightclosing": {
 		"recognition": "FeatureMatch",
 		"template": "Fight/autofightclose.png",
-        "roi": [
+		"roi": [
 			114,
 			10,
 			86,
@@ -109,5 +122,4 @@
 		"rate_limit": 2000,
 		"next": []
 	}
-
 }
